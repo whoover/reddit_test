@@ -9,6 +9,7 @@
 import UIKit
 
 public enum NetworkingError: Error {
+    case noConnection
     case wrongURL
     case response(HTTPResponse)
     case dataTaskError(Error)

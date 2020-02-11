@@ -8,7 +8,14 @@
 
 import RedditCommon
 
-class URLTaskProcessor {
+protocol URLTaskProcessorProtocol {
+    func createTask<RESPONSE: ResponseProtocol>(url: URL,
+                                                isCanceledBlock: BlockObject<(), Bool>,
+                                                successBlock: BlockObject<RESPONSE, Void>,
+                                                errorBlock: BlockObject<Error, Void>) -> URLSessionTask
+}
+
+class URLTaskProcessor: URLTaskProcessorProtocol {
     private let session: URLSession
     private let syncQueue: DispatchQueue
     

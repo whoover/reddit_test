@@ -10,13 +10,12 @@ import XCTest
 @testable import RedditCommon
 
 class RedditCommonTests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
     }
 
     func testExample() {
@@ -30,5 +29,4 @@ class RedditCommonTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

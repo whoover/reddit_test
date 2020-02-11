@@ -9,7 +9,13 @@
 import RedditCommon
 import Foundation
 
-public class NetworkingManager {
+public protocol NetworkingManagerProtocol {
+    func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
+                                                    successBlock: BlockObject<RESPONSE, Void>,
+                                                    errorBlock: BlockObject<Error, Void>) -> CancellableProtocol?
+}
+
+public class NetworkingManager: NetworkingManagerProtocol {
     private let syncQueue: DispatchQueue
     private let tasksHolder = DataTasksHolder()
     private let urlTaskProcessor: URLTaskProcessor
@@ -26,6 +32,14 @@ public class NetworkingManager {
     public func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
                                                            successBlock: BlockObject<RESPONSE, Void>,
                                                            errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? {
+        guard let reachability = try? Reachability(),
+            reachability.connection != .unavailable else {
+            syncQueue.async {
+                errorBlock.execute(NetworkingError.noConnection)
+            }
+            return nil
+        }
+        
         guard let url = request.urlComponents.url else {
             syncQueue.async {
                 errorBlock.execute(NetworkingError.wrongURL)
@@ -45,7 +59,7 @@ public class NetworkingManager {
             errorBlock.execute(error)
         }
         
-        var dataTask: CancellableProtocol?
+        var dataTask: DataTask?
         let task = urlTaskProcessor.createTask(url: url, isCanceledBlock: isCanceledBlock(dataTask), successBlock: successBlock, errorBlock: errorBlock)
         
         let cancelBlock = EmptyBlock { [weak self] in
@@ -53,13 +67,14 @@ public class NetworkingManager {
         }
         dataTask = DataTask(task: task, identifier: identifier, cancelBlock: cancelBlock)
         tasksHolder.add(dataTask)
+        dataTask?.resume()
         
         return dataTask
     }
     
     private func isCanceledBlock(_ dataTask: CancellableProtocol?) -> BlockObject<(), Bool> {
         return BlockObject<(), Bool> {
-            return dataTask?.isCanceled == true
+            dataTask?.isCanceled == true
         }
     }
 }

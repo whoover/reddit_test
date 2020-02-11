@@ -10,7 +10,7 @@ import RedditCommon
 
 class DataTasksHolder {
     private let dataTasksSyncQueue = DispatchQueue(label: "com.reddit.NetworkingManager.dataTasksSyncQueue")
-    private var dataTasks: [String: CancellableProtocol] = [:]
+    private(set) var dataTasks: [String: CancellableProtocol] = [:]
     
     func add(_ task: CancellableProtocol?) {
         guard let task = task else {

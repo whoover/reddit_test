@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import RedditCommon
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let service: NetworkingService = NetworkingService()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let successBlock = BlockObject<RedditResponse, Void> { response in
+            print("")
+        }
+        let errorBlock = BlockObject<Error, Void> { error in
+            print("")
+        }
+        service.loadFrom(lastName: nil, successBlock: successBlock, errorBlock: errorBlock)
+        
         return true
     }
 }

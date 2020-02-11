@@ -1,21 +1,22 @@
 //
-//  RedditNetworkingTests.swift
-//  RedditNetworkingTests
+//  RedditCoreServicesTests.swift
+//  RedditCoreServicesTests
 //
 //  Created by Artem Belenkov on 11/02/2020.
 //  Copyright © 2020 Artem Belenkov. All rights reserved.
 //
 
 import XCTest
-@testable import RedditNetworking
+@testable import RedditCoreServices
 
-class RedditNetworkingTests: XCTestCase {
+class RedditCoreServicesTests: XCTestCase {
+
     override func setUp() {
-        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
     override func tearDown() {
-        super.tearDown()
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() {
@@ -29,4 +30,5 @@ class RedditNetworkingTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+
 }

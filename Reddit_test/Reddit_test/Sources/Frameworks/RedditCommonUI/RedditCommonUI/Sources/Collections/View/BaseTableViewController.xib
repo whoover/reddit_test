@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BaseTableViewController" customModule="SwiftCommon" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="y63-D4-ksK" id="VXL-Ua-SvY"/>
+                <outlet property="tableView" destination="d3Y-wK-sCh" id="Edl-pZ-AJW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y63-D4-ksK">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d3Y-wK-sCh">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="d3Y-wK-sCh" secondAttribute="trailing" id="LtP-NS-uhi"/>
+                        <constraint firstAttribute="bottom" secondItem="d3Y-wK-sCh" secondAttribute="bottom" id="QOd-a6-COz"/>
+                        <constraint firstItem="d3Y-wK-sCh" firstAttribute="top" secondItem="y63-D4-ksK" secondAttribute="top" id="fNY-wW-ODF"/>
+                        <constraint firstItem="d3Y-wK-sCh" firstAttribute="leading" secondItem="y63-D4-ksK" secondAttribute="leading" id="qTr-D6-Wl5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="y63-D4-ksK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6pg-kf-Wm2"/>
+                <constraint firstAttribute="bottom" secondItem="d3Y-wK-sCh" secondAttribute="bottom" id="ISv-rU-I8A"/>
+                <constraint firstItem="y63-D4-ksK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Lou-11-k7K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="y63-D4-ksK" secondAttribute="trailing" id="iza-Eb-txS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
+        </view>
+    </objects>
+</document>
