@@ -6,7 +6,7 @@
 //  Copyright © 2020 Artem Belenkov. All rights reserved.
 //
 
-import Foundation
+import RedditNetworking
 
 enum RedditRequest: RequestProtocol {
     case top(String?)

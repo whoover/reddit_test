@@ -16,4 +16,4 @@ public struct BlockObject<T: Any, R: Any> {
     }
 }
 
-typealias EmptyBlock = BlockObject<(), Void>
+public typealias EmptyBlock = BlockObject<(), Void>

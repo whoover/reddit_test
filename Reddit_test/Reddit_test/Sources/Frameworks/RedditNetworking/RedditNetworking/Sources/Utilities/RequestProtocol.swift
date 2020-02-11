@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol RequestProtocol {
+public protocol RequestProtocol {
     var schema: String { get }
     var host: String { get }
     var path: String { get }
     var parameters: [String: String?] { get }
 }
 
-extension RequestProtocol {
+public extension RequestProtocol {
     var urlComponents: URLComponents {
         URLComponents.construct(schema, host, path, parameters)
     }

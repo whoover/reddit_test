@@ -8,8 +8,9 @@
 
 import UIKit
 
-protocol CancellableProtocol {
+public protocol CancellableProtocol {
+    var isCanceled: Bool { get }
+    var identifier: String { get }
+    
     func cancel()
 }
-
-extension URLSessionDataTask: CancellableProtocol {}

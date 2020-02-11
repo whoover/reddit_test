@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ResponseProtocol {
-    static func responseObject(_ data: Data) -> Self?
+public protocol ResponseProtocol {
+    static func responseObject(_ data: Data?) throws -> Self
 }
