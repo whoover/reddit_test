@@ -8,19 +8,17 @@
 
 import UIKit
 
-enum ImageDownloadError: Error {
-    case noData
-}
-
-struct ImageResponse: ResponseProtocol {
-    let image: UIImage
+public struct ImageResponse: ResponseProtocol {
+    public let image: UIImage
+    public var httpResponse: HTTPURLResponse
     
-    public static func responseObject(_ data: Data?) throws -> ImageResponse {
+    public static func responseObject(_ data: Data?,
+                                      _ response: HTTPURLResponse) throws -> ImageResponse {
         guard let data = data,
             let image = UIImage(data: data) else {
-            throw ImageDownloadError.noData
+            throw DataError.noData
         }
         
-        return ImageResponse(image: image)
+        return ImageResponse(image: image, httpResponse: response)
     }
 }

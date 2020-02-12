@@ -7,14 +7,9 @@
 //
 
 import UIKit
-//import SwiftCommon
 
 public protocol CellProtocol: NibLoadableProtocol {
     static var identifier: String { get }
-}
-
-@objc public protocol ConfigurableCellObjcProtocol {
-    func configure(_ cellModel: CellModelObjcProtocol, _ delegate: Any?)
 }
 
 public protocol ConfigurableCellProtocol: class {

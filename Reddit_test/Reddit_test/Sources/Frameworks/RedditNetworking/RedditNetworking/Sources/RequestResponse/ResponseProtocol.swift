@@ -9,5 +9,10 @@
 import Foundation
 
 public protocol ResponseProtocol {
-    static func responseObject(_ data: Data?) throws -> Self
+    static func responseObject(_ data: Data?,
+                               _ response: HTTPURLResponse) throws -> Self
+}
+
+public protocol HTTPURLResponseHolder {
+    var httpResponse: HTTPURLResponse { get }
 }

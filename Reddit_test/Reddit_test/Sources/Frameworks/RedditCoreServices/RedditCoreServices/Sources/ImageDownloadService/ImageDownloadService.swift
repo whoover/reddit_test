@@ -14,16 +14,37 @@ protocol ImageDownloadServiceProtocol {
     func downloadImage(with url: URL, completionBlock: BlockObject<UIImage?, Void>) -> CancellableProtocol?
 }
 
-class ImageDownloadService: ImageDownloadServiceProtocol {
-    private let networkingManager: NetworkingManager
-    private let imageCache: ImageCache
+public final class ImageDownloadService: ImageDownloadServiceProtocol {
+    typealias ServiceLocator = NetworkingManagerServiceLocator & ImageCacheServiceLocator
+    public final class ServiceLocatorImpl: ServiceLocator {}
     
-    init(networkingManager: NetworkingManager, imageCache: ImageCache) {
-        self.networkingManager = networkingManager
-        self.imageCache = imageCache
+    private let networkingManager: NetworkingManagerProtocol
+    private let imageCache: ImageCacheProtocol
+    
+    init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
+        self.networkingManager = serviceLocator.networkingManager()
+        self.imageCache = serviceLocator.imageCache()
     }
     
     func downloadImage(with url: URL, completionBlock: BlockObject<UIImage?, Void>) -> CancellableProtocol? {
-        nil
+        let request = URLRequest(url: url)
+        if let response = imageCache.cachedResponse(for: request) {
+            let image = UIImage(data: response.data)
+            completionBlock.execute(image)
+            return nil
+        }
+        
+        let successBlock = BlockObject<DataResponse, Void> { [weak self] dataResponse in
+            self?.imageCache.storeCachedResponse(
+                CachedURLResponse(response: dataResponse.httpResponse, data: dataResponse.data), for: request
+            )
+        }
+        let errorBlock = BlockObject<Error, Void> { _ in
+            completionBlock.execute(nil)
+        }
+        
+        return networkingManager.sendGetRequest(request: SimpleRequest(url: url),
+                                                successBlock: successBlock,
+                                                errorBlock: errorBlock)
     }
 }

@@ -15,6 +15,12 @@
 		0808A4E823F2FA49008AA441 /* RedditCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0808A4E623F2FA49008AA441 /* RedditCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0808A4EB23F2FAB4008AA441 /* RedditNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0808A4EA23F2FAB4008AA441 /* RedditNetworking.framework */; };
 		0808A4EC23F2FAB4008AA441 /* RedditNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0808A4EA23F2FAB4008AA441 /* RedditNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2C333C4823F46E4900538EED /* ImageCacheServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4723F46E4900538EED /* ImageCacheServiceLocator.swift */; };
+		2C333C4F23F475F400538EED /* PhotosAlbumSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4E23F475F400538EED /* PhotosAlbumSaver.swift */; };
+		2C333C5123F4764500538EED /* PhotosAlbumSaverServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C5023F4764500538EED /* PhotosAlbumSaverServiceLocator.swift */; };
+		2C333C5423F479CB00538EED /* DataStorageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C5323F479CB00538EED /* DataStorageProtocol.swift */; };
+		2C333C5623F47A4400538EED /* UserDefautlsDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C5523F47A4400538EED /* UserDefautlsDataStorage.swift */; };
+		2C333C5823F47BF600538EED /* DataStorageServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C5723F47BF600538EED /* DataStorageServiceLocator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +47,12 @@
 		0808A4E323F2F987008AA441 /* ImageDownloadServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadServiceLocator.swift; sourceTree = "<group>"; };
 		0808A4E623F2FA49008AA441 /* RedditCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RedditCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0808A4EA23F2FAB4008AA441 /* RedditNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RedditNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C333C4723F46E4900538EED /* ImageCacheServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceLocator.swift; sourceTree = "<group>"; };
+		2C333C4E23F475F400538EED /* PhotosAlbumSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumSaver.swift; sourceTree = "<group>"; };
+		2C333C5023F4764500538EED /* PhotosAlbumSaverServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosAlbumSaverServiceLocator.swift; sourceTree = "<group>"; };
+		2C333C5323F479CB00538EED /* DataStorageProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageProtocol.swift; sourceTree = "<group>"; };
+		2C333C5523F47A4400538EED /* UserDefautlsDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefautlsDataStorage.swift; sourceTree = "<group>"; };
+		2C333C5723F47BF600538EED /* DataStorageServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +97,10 @@
 		0808A4DC23F2F904008AA441 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				2C333C5223F479B500538EED /* DataStorage */,
+				2C333C4D23F475DB00538EED /* PhotosAlbumSaver */,
+				2C333C4623F46E3300538EED /* ImageCache */,
 				0808A4E023F2F944008AA441 /* ImageDownloadService */,
-				0808A4DE23F2F921008AA441 /* ImageCache.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -116,6 +130,34 @@
 				0808A4E623F2FA49008AA441 /* RedditCommon.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C333C4623F46E3300538EED /* ImageCache */ = {
+			isa = PBXGroup;
+			children = (
+				0808A4DE23F2F921008AA441 /* ImageCache.swift */,
+				2C333C4723F46E4900538EED /* ImageCacheServiceLocator.swift */,
+			);
+			path = ImageCache;
+			sourceTree = "<group>";
+		};
+		2C333C4D23F475DB00538EED /* PhotosAlbumSaver */ = {
+			isa = PBXGroup;
+			children = (
+				2C333C4E23F475F400538EED /* PhotosAlbumSaver.swift */,
+				2C333C5023F4764500538EED /* PhotosAlbumSaverServiceLocator.swift */,
+			);
+			path = PhotosAlbumSaver;
+			sourceTree = "<group>";
+		};
+		2C333C5223F479B500538EED /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				2C333C5323F479CB00538EED /* DataStorageProtocol.swift */,
+				2C333C5523F47A4400538EED /* UserDefautlsDataStorage.swift */,
+				2C333C5723F47BF600538EED /* DataStorageServiceLocator.swift */,
+			);
+			path = DataStorage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,8 +265,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0808A4DF23F2F921008AA441 /* ImageCache.swift in Sources */,
+				2C333C5123F4764500538EED /* PhotosAlbumSaverServiceLocator.swift in Sources */,
+				2C333C4823F46E4900538EED /* ImageCacheServiceLocator.swift in Sources */,
+				2C333C5423F479CB00538EED /* DataStorageProtocol.swift in Sources */,
+				2C333C5823F47BF600538EED /* DataStorageServiceLocator.swift in Sources */,
 				0808A4E423F2F987008AA441 /* ImageDownloadServiceLocator.swift in Sources */,
 				0808A4E223F2F95C008AA441 /* ImageDownloadService.swift in Sources */,
+				2C333C5623F47A4400538EED /* UserDefautlsDataStorage.swift in Sources */,
+				2C333C4F23F475F400538EED /* PhotosAlbumSaver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

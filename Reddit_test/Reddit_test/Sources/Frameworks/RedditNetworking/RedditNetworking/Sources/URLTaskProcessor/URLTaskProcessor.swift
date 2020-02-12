@@ -38,8 +38,8 @@ final class URLTaskProcessor: URLTaskProcessorProtocol {
             }
             
             do {
-                try self.handleDataTaskResponse(response, error)
-                let responseObject: RESPONSE = try self.responseObject(data)
+                let httpResponse = try self.handleDataTaskResponse(response, error)
+                let responseObject: RESPONSE = try self.responseObject(data, httpResponse)
                 successBlock.execute(responseObject)
             } catch {
                 errorBlock.execute(error)
@@ -50,7 +50,7 @@ final class URLTaskProcessor: URLTaskProcessorProtocol {
         return task
     }
     
-    private func handleDataTaskResponse(_ response: URLResponse?, _ error: Error?) throws {
+    private func handleDataTaskResponse(_ response: URLResponse?, _ error: Error?) throws -> HTTPURLResponse {
         guard let response = response as? HTTPURLResponse,
             let httpResponse = HTTPResponse(value: response.statusCode) else {
             guard let error = error else {
@@ -62,9 +62,12 @@ final class URLTaskProcessor: URLTaskProcessorProtocol {
         guard httpResponse == .success else {
             throw NetworkingError.response(httpResponse)
         }
+        
+        return response
     }
     
-    private func responseObject<RESPONSE: ResponseProtocol>(_ data: Data?) throws -> RESPONSE {
-        try RESPONSE.responseObject(data)
+    private func responseObject<RESPONSE: ResponseProtocol>(_ data: Data?,
+                                                            _ response: HTTPURLResponse) throws -> RESPONSE {
+        try RESPONSE.responseObject(data, response)
     }
 }

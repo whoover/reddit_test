@@ -8,9 +8,7 @@
 
 import UIKit
 
-@objc public protocol CellModelObjcProtocol {}
-
-public protocol CellModelProtocol: CellModelObjcProtocol {
+public protocol CellModelProtocol {
     static var cellClass: CellProtocol.Type { get }
     static var cellHeight: CGFloat { get }
 }
@@ -23,18 +21,10 @@ public protocol AccessabilityElementProtocol {
     var accessabilityIdentifier: String? { get set }
 }
 
-public protocol IndividualMovableProtocol {
-    var canBeMoved: Bool { get set }
-}
-
 public protocol ActionCellProtocol {
     var actionHandler: (() -> Void)? { get set }
 }
 
 public protocol IndividualHeightProtocol {
     var individualHeight: CGFloat { get set }
-}
-
-public protocol ViewWithSeparatorModelProtocol {
-    var showSeparator: Bool { get set }
 }

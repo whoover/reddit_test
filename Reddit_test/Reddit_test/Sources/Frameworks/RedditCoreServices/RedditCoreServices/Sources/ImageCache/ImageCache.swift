@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol ImageCache {
+public protocol ImageCacheProtocol {
     func cachedResponse(for request: URLRequest) -> CachedURLResponse?
     func storeCachedResponse(_ cachedResponse: CachedURLResponse, for request: URLRequest)
 }
 
-extension URLCache: ImageCache {}
+extension URLCache: ImageCacheProtocol {}

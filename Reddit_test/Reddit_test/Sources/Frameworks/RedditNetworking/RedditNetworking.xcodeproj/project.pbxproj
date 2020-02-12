@@ -51,6 +51,8 @@
 		2C333C1F23F467BA00538EED /* ServiceLocatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C1E23F467BA00538EED /* ServiceLocatorsTests.swift */; };
 		2C333C4323F46AA500538EED /* ReachabilityServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4223F46AA500538EED /* ReachabilityServiceLocator.swift */; };
 		2C333C4523F46AB300538EED /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4423F46AB200538EED /* Reachability.swift */; };
+		2C333C4A23F470C000538EED /* SimpleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4923F470C000538EED /* SimpleRequest.swift */; };
+		2C333C4C23F4721400538EED /* RawDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C4B23F4721400538EED /* RawDataResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		2C333C1E23F467BA00538EED /* ServiceLocatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorsTests.swift; sourceTree = "<group>"; };
 		2C333C4223F46AA500538EED /* ReachabilityServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceLocator.swift; sourceTree = "<group>"; };
 		2C333C4423F46AB200538EED /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2C333C4923F470C000538EED /* SimpleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleRequest.swift; sourceTree = "<group>"; };
+		2C333C4B23F4721400538EED /* RawDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawDataResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,7 +258,9 @@
 				0868429223F278F800AB9730 /* RequestProtocol.swift */,
 				0868429023F278F800AB9730 /* ResponseProtocol.swift */,
 				0808A4AD23F2F72A008AA441 /* ImageResponse.swift */,
+				2C333C4B23F4721400538EED /* RawDataResponse.swift */,
 				08DF8EC623F27D7A00E5146F /* DataTask.swift */,
+				2C333C4923F470C000538EED /* SimpleRequest.swift */,
 			);
 			path = RequestResponse;
 			sourceTree = "<group>";
@@ -566,9 +572,11 @@
 				086842DB23F27A8A00AB9730 /* NetworkingManager.swift in Sources */,
 				0868429323F278F800AB9730 /* RequestProtocol.swift in Sources */,
 				08967C8723F2864D00D516F5 /* URLTaskProcessor.swift in Sources */,
+				2C333C4A23F470C000538EED /* SimpleRequest.swift in Sources */,
 				0884915F23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift in Sources */,
 				2C333C4323F46AA500538EED /* ReachabilityServiceLocator.swift in Sources */,
 				08967C8523F2804700D516F5 /* DataTasksHolder.swift in Sources */,
+				2C333C4C23F4721400538EED /* RawDataResponse.swift in Sources */,
 				2C333C4523F46AB300538EED /* Reachability.swift in Sources */,
 				086842D923F27A5500AB9730 /* NetworkingError.swift in Sources */,
 				088491F723F429AC00FF3FAF /* URLSessionTaskProtocol.swift in Sources */,

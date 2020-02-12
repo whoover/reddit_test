@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import SwiftCommon
 
 public protocol AnyCollectionProtocol {
     func registerCellClasses(_ cellClasses: [CellProtocol.Type])

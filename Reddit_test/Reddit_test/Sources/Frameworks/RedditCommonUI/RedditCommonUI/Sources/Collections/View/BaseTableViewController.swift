@@ -8,32 +8,10 @@
 
 import UIKit
 
-@objc public protocol BaseTableViewControllerDelegate: class {
-    @objc optional
-    func baseTableViewControllerDidMoveCell(_ controller: BaseTableViewController,
-                                            _ fromIndexPath: IndexPath,
-                                            _ toIndexPath: IndexPath)
-
-    @objc optional
-    func baseTableViewController(_ controller: BaseTableViewController,
-                                 willDisplay cell: UITableViewCell,
-                                 forRowAt indexPath: IndexPath)
-    @objc optional
-    func baseTableViewController(_ controller: BaseTableViewController,
-                                 willDisplayHeaderView view: UIView,
-                                 forSection section: Int)
-
-    @objc optional
-    func baseTableViewController(_ controller: BaseTableViewController,
-                                 prapare cell: UITableViewCell,
-                                 forRowAt indexPath: IndexPath)
-}
-
-@objc open class BaseTableViewController: UIViewController {
+open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var tableView: UITableView!
-    public weak var delegate: BaseTableViewControllerDelegate?
-    public var dataSourceModel: TableViewDataSourceModelProtocol? {
+    public var dataSourceModel: DATASOURCE? {
         didSet {
             cellsToRegister.append(contentsOf: (dataSourceModel?.uniqueCellClasses() ?? [])) 
         }
@@ -75,15 +53,6 @@ import UIKit
         tableView.indexPath(for: cell)
     }
     
-    public func moveRow(at indexPath: IndexPath, toIndexPath: IndexPath) {
-        tableView.beginUpdates()
-        tableView.moveRow(at: indexPath, to: toIndexPath)
-        tableView.endUpdates()
-        tableView.reloadSections([toIndexPath.section], with: .none)
-    }
-}
-
-extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
     open func numberOfSections(in tableView: UITableView) -> Int {
         dataSourceModel?.sections.count ?? 0
     }
@@ -126,7 +95,6 @@ extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
         if let accessaibilityElementModel = cellModel as? AccessabilityElementProtocol {
            cell.accessibilityIdentifier = accessaibilityElementModel.accessabilityIdentifier
         }
-        delegate?.baseTableViewController?(self, prapare: cell, forRowAt: indexPath)
 
         return cell
     }
@@ -146,56 +114,13 @@ extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
         return type(of: dataSourceModel).shouldIndentWhileEditing
     }
 
-    open func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        guard let dataSourceModel = dataSourceModel else {
-            return false
-        }
-        guard let individualMovableModel = (dataSourceModel.sections[indexPath.section]
-            .cells[indexPath.row] as? IndividualMovableProtocol) else {
-                return type(of: dataSourceModel).canMoveCells
-        }
-
-        return individualMovableModel.canBeMoved
-    }
-
-    public func tableView(_ tableView: UITableView,
-                          targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath,
-                          toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        guard let movingAcceptSectionModel = dataSourceModel?.sections[proposedDestinationIndexPath.section]
-            as? MovingAcceptSectionModelProtocol,
-            movingAcceptSectionModel.acceptInsertMovingCells else {
-            return sourceIndexPath
-        }
-
-        guard !movingAcceptSectionModel.notAcceptedIndexes.contains(proposedDestinationIndexPath.row) else {
-            return sourceIndexPath
-        }
-
-        return proposedDestinationIndexPath
-    }
-
-    public func tableView(_ tableView: UITableView,
-                          moveRowAt sourceIndexPath: IndexPath,
-                          to destinationIndexPath: IndexPath) {
-        dataSourceModel?.move(sourceIndexPath, destinationIndexPath)
-        delegate?.baseTableViewControllerDidMoveCell?(self, sourceIndexPath, destinationIndexPath)
-    }
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cellModel = dataSourceModel?.sections[indexPath.section].cells[indexPath.row]
         (cellModel as? ActionCellProtocol)?.actionHandler?()
     }
-
-    public func tableView(_ tableView: UITableView,
-                          willDisplay cell: UITableViewCell,
-                          forRowAt indexPath: IndexPath) {
-        delegate?.baseTableViewController?(self, willDisplay: cell, forRowAt: indexPath)
-    }
-
-    public func tableView(_ tableView: UITableView,
-                          willDisplayHeaderView view: UIView,
-                          forSection section: Int) {
-        delegate?.baseTableViewController?(self, willDisplayHeaderView: view, forSection: section)
-    }
 }
+
+//extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
+//
+//}

@@ -8,23 +8,19 @@
 
 import UIKit
 
-//TODO: add associated types to these protocols after moving to swift.
-//      it isn't possible for now as swift generics can't be used in obj-c.
 public protocol TableViewDataSourceModelProtocol {
+    associatedtype SECTION: TableViewSectionModelProtocol
+    
     static var editingStyle: UITableViewCell.EditingStyle { get }
     static var shouldIndentWhileEditing: Bool { get }
-    static var canMoveCells: Bool { get }
-
-    var sections: [TableViewSectionModelProtocol] { get set }
+    
+    var sections: [SECTION] { get set }
 }
 
-public extension TableViewDataSourceModelProtocol {
-    static var editingStyle: UITableViewCell.EditingStyle { .none }
-
-    static var shouldIndentWhileEditing: Bool { false }
-
-    static var canMoveCells: Bool { false }
-
+extension TableViewDataSourceModelProtocol {
+    public static var editingStyle: UITableViewCell.EditingStyle { .none }
+    public static var shouldIndentWhileEditing: Bool { false }
+    
     func uniqueCellClasses() -> [CellProtocol.Type] {
         sections
         .flatMap { $0.cells }
@@ -40,26 +36,16 @@ public extension TableViewDataSourceModelProtocol {
             return containsClass ? $0 : $0 + [$1]
         })
     }
-
-    mutating func move(_ fromIndexPath: IndexPath, _ toIndexPath: IndexPath) {
-        let model = sections[fromIndexPath.section].cells[fromIndexPath.row]
-        sections[fromIndexPath.section].cells.remove(at: fromIndexPath.row)
-        sections[toIndexPath.section].cells.insert(model, at: toIndexPath.row)
-    }
 }
 
 public protocol TableViewSectionModelProtocol {
+    associatedtype CELL: CellModelProtocol
     static var headerHeight: CGFloat { get }
 
-    var cells: [CellModelProtocol] { get set }
+    var cells: [CELL] { get set }
 }
 
-public protocol MovingAcceptSectionModelProtocol {
-    var acceptInsertMovingCells: Bool { get set }
-    var notAcceptedIndexes: [Int] { get }
-}
-
-public protocol CustomHeaderSectionModelProtocol: TableViewSectionModelProtocol {
+public protocol CustomHeaderSectionModelProtocol {
     var header: SectionHeader { get set }
 }
 

@@ -6,24 +6,24 @@
 //  Copyright © 2020 Artem Belenkov. All rights reserved.
 //
 
-import UIKit
+import RedditCommonUI
 
-class RedditTopicDataSource {
+class RedditTopicDataSource: TableViewDataSourceModelProtocol {
     var sections: [RedditTopicSection] = []
 }
 
-class RedditTopicSection {
-    var cells: [RedditTopicModel] = []
+class RedditTopicSection: TableViewSectionModelProtocol {
+    var cells: [RedditTopicCellModel] = []
 }
 
-struct RedditTopicModel {
-    let title: String
-    let author: String
-    let created: TimeInterval
-    let commentsNumber: Int
-    let score: Int
-    let name: String
+class RedditTopicCellModel: CellModelProtocol {
+    static var cellClass: CellProtocol.Type {
+        RedditTopicCell.self
+    }
     
-    let thumbnailURL: String
-    let previewURL: String
+    let model: RedditTopicModel
+    
+    init(model: RedditTopicModel) {
+        self.model = model
+    }
 }

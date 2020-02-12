@@ -8,7 +8,11 @@
 
 import UIKit
 
-public protocol RequestProtocol {
+public protocol Requestable {
+    var url: URL? { get }
+}
+
+public protocol RequestProtocol: Requestable {
     var schema: String { get }
     var host: String { get }
     var path: String { get }
@@ -18,5 +22,9 @@ public protocol RequestProtocol {
 public extension RequestProtocol {
     var urlComponents: URLComponents {
         URLComponents.construct(schema, host, path, parameters)
+    }
+    
+    var url: URL? {
+        urlComponents.url
     }
 }

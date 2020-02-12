@@ -9,17 +9,11 @@
 import RedditNetworking
 
 protocol ImageDownloadServiceLocatorProtocol {
-    static func imageDownloadService(networkingManager: NetworkingManager) -> ImageDownloadServiceProtocol
+    static func imageDownloadService() -> ImageDownloadServiceProtocol
 }
 
 extension ImageDownloadServiceLocatorProtocol {
-    static func imageDownloadService(networkingManager: NetworkingManager) -> ImageDownloadServiceProtocol {
-        let cache = URLCache(
-            memoryCapacity: 128 * 1024 * 1024,
-            diskCapacity: 128 * 1024 * 1024,
-            diskPath: "com.reddit.imageCache"
-        )
-        
-        return ImageDownloadService(networkingManager: networkingManager, imageCache: cache)
+    static func imageDownloadService() -> ImageDownloadServiceProtocol {
+        ImageDownloadService()
     }
 }

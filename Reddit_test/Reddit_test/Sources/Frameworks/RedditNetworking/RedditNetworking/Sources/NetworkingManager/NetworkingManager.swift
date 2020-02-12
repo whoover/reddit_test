@@ -10,7 +10,7 @@ import RedditCommon
 import Foundation
 
 public protocol NetworkingManagerProtocol {
-    func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
+    func sendGetRequest<RESPONSE: ResponseProtocol>(request: Requestable,
                                                     successBlock: BlockObject<RESPONSE, Void>,
                                                     errorBlock: BlockObject<Error, Void>) -> CancellableProtocol?
 }
@@ -37,7 +37,7 @@ public final class NetworkingManager: NetworkingManagerProtocol {
         self.reachability = serviceLocator.reachabilityService()
     }
     
-    public func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
+    public func sendGetRequest<RESPONSE: ResponseProtocol>(request: Requestable,
                                                            successBlock: BlockObject<RESPONSE, Void>,
                                                            errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? {
         guard reachability.isConnectedToNetwork() else {
@@ -47,7 +47,7 @@ public final class NetworkingManager: NetworkingManagerProtocol {
             return nil
         }
         
-        guard let url = request.urlComponents.url else {
+        guard let url = request.url else {
             syncQueue.async {
                 errorBlock.execute(NetworkingError.wrongURL)
             }

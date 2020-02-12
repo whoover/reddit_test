@@ -8,16 +8,12 @@
 
 import RedditNetworking
 
-enum RedditDecoding: Error {
-    case noData
-}
-
 struct RedditResponse: Codable, ResponseProtocol {
     let data: RedditDataResponse
     
-    static func responseObject(_ data: Data?) throws -> RedditResponse {
+    static func responseObject(_ data: Data?, _ response: HTTPURLResponse) throws -> RedditResponse {
         guard let data = data else {
-            throw RedditDecoding.noData
+            throw DataError.noData
         }
         
         return try JSONDecoder().decode(self, from: data)
