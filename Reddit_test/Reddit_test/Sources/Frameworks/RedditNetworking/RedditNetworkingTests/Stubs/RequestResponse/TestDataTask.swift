@@ -7,13 +7,16 @@
 //
 
 @testable import RedditNetworking
+@testable import RedditCommon
 
 class TestDataTask: DataTaskProtocol {
     var isCanceled: Bool = false
     let identifier: String
+    var cancelBlock: EmptyBlock
     
-    init(identifier: String = "testIdentifier") {
+    init(identifier: String = "testIdentifier", cancelBlock: EmptyBlock) {
         self.identifier = identifier
+        self.cancelBlock = cancelBlock
     }
     
     var resumeWasCalled = false
@@ -23,5 +26,6 @@ class TestDataTask: DataTaskProtocol {
     
     func cancel() {
         isCanceled = true
+        cancelBlock.execute(())
     }
 }

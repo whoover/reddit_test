@@ -12,6 +12,7 @@
 		086842B323F2793500AB9730 /* RedditCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 086842A523F2793500AB9730 /* RedditCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		086842C623F2794500AB9730 /* CancellableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842C523F2794500AB9730 /* CancellableProtocol.swift */; };
 		086842C823F2794F00AB9730 /* BlockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842C723F2794F00AB9730 /* BlockObject.swift */; };
+		088491F923F42A0D00FF3FAF /* ResumableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		086842B223F2793500AB9730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086842C523F2794500AB9730 /* CancellableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableProtocol.swift; sourceTree = "<group>"; };
 		086842C723F2794F00AB9730 /* BlockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockObject.swift; sourceTree = "<group>"; };
+		088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumableProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				086842C723F2794F00AB9730 /* BlockObject.swift */,
 				086842C523F2794500AB9730 /* CancellableProtocol.swift */,
+				088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */,
 				086842CA23F2798900AB9730 /* Resources */,
 			);
 			path = RedditCommon;
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				086842C823F2794F00AB9730 /* BlockObject.swift in Sources */,
+				088491F923F42A0D00FF3FAF /* ResumableProtocol.swift in Sources */,
 				086842C623F2794500AB9730 /* CancellableProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,13 +29,18 @@ class HTTPResponseTests: XCTestCase {
         XCTAssertEqual(testObject, .success)
         
         testObject = HTTPResponse(value: 300)
-        XCTAssertEqual(testObject, .client)
+        XCTAssertEqual(testObject, .redirection)
         testObject = HTTPResponse(value: 399)
-        XCTAssertEqual(testObject, .client)
+        XCTAssertEqual(testObject, .redirection)
         
         testObject = HTTPResponse(value: 400)
-        XCTAssertEqual(testObject, .server)
+        XCTAssertEqual(testObject, .client)
         testObject = HTTPResponse(value: 499)
+        XCTAssertEqual(testObject, .client)
+        
+        testObject = HTTPResponse(value: 500)
+        XCTAssertEqual(testObject, .server)
+        testObject = HTTPResponse(value: 599)
         XCTAssertEqual(testObject, .server)
     }
     

@@ -9,8 +9,5 @@
 import UIKit
 
 public protocol CancellableProtocol {
-    var isCanceled: Bool { get }
-    var identifier: String { get }
-    
     func cancel()
 }

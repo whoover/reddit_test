@@ -20,8 +20,8 @@ class URLComponentsExtensionsTests: XCTestCase {
 
     func testURLComponents() {
         let schema = "http"
-        let host = "testHost"
-        let path = "test/Path"
+        let host = "testHost.com"
+        let path = "/test/Path"
         let items = ["test": "item"]
         
         testObject = URLComponents.construct(schema, host, path, items)

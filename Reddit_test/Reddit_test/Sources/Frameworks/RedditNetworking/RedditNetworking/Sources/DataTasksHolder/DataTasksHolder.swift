@@ -9,7 +9,7 @@
 import RedditCommon
 
 public protocol DataTasksHolderProtocol {
-    func add(_ task: CancellableProtocol?)
+    func add(_ task: DataTaskProtocol?)
     func remove(_ identifier: String)
     func cancel(_ identifier: String)
     func cancelAll()
@@ -17,15 +17,13 @@ public protocol DataTasksHolderProtocol {
 
 public class DataTasksHolder: DataTasksHolderProtocol {
     private let dataTasksSyncQueue: DispatchQueue
-    private var dataTasks: [String: CancellableProtocol]
+    private(set) var dataTasks: [String: DataTaskProtocol] = [:]
     
-    public init(dataTasksSyncQueue: DispatchQueue = DispatchQueue(label: "com.reddit.NetworkingManager.dataTasksSyncQueue"),
-                dataTasks: [String: CancellableProtocol] = [:]) {
+    public init(dataTasksSyncQueue: DispatchQueue = DispatchQueue(label: "com.reddit.NetworkingManager.dataTasksSyncQueue")) {
         self.dataTasksSyncQueue = dataTasksSyncQueue
-        self.dataTasks = dataTasks
     }
     
-    public func add(_ task: CancellableProtocol?) {
+    public func add(_ task: DataTaskProtocol?) {
         guard let task = task else {
             return
         }

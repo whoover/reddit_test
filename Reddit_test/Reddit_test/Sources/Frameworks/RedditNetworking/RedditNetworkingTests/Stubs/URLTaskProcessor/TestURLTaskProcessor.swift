@@ -30,6 +30,6 @@ class TestURLTaskProcessor: URLTaskProcessorProtocol {
                 errorBlock.execute(error)
             }
         }
-        return TestDataTask(identifier: identifier)
+        return TestDataTask(identifier: identifier, cancelBlock: cancelBlock)
     }
 }

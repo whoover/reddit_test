@@ -8,17 +8,20 @@
 
 import RedditCommon
 
-public protocol DataTaskProtocol: CancellableProtocol {
-    func resume()
+public protocol DataTaskProtocol: CancellableProtocol, ResumableProtocol {
+    var isCanceled: Bool { get }
+    var identifier: String { get }
 }
 
 class DataTask: DataTaskProtocol {
     let identifier: String
-    let task: URLSessionTask
+    let task: URLSessionTaskProtocol
     private(set) var isCanceled: Bool = false
     private var cancelBlock: EmptyBlock?
     
-    init(task: URLSessionTask, identifier: String = UUID().uuidString, cancelBlock: EmptyBlock? = nil) {
+    init(task: URLSessionTaskProtocol,
+         identifier: String = UUID().uuidString,
+         cancelBlock: EmptyBlock? = nil) {
         self.task = task
         self.identifier = identifier
         self.cancelBlock = cancelBlock

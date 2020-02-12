@@ -10,8 +10,8 @@ import UIKit
 @testable import RedditNetworking
 
 struct TestRequest: RequestProtocol {
-    let schema = "testSchema"
-    let host = "testHost"
-    let path = "test/path"
-    let parameters: [String: String?] = ["testKey": "testParameter"]
+    var schema = "https"
+    var host = "testHost.com"
+    var path = "/test"
+    var parameters: [String: String?] = ["testKey": "testParameter"]
 }

@@ -12,24 +12,54 @@ import XCTest
 
 class DataTasksHolderTests: XCTestCase {
     var testObject: DataTasksHolder!
-    var testTasksHolder: [String: CancellableProtocol]!
+    var dataTasks: [TestDataTask]!
     
     override func setUp() {
         super.setUp()
         
-        testTasksHolder = [:]
-        testObject = DataTasksHolder(dataTasks: testTasksHolder)
+        dataTasks = []
+        for i in 0...5 {
+            dataTasks.append(TestDataTask(identifier: "\(i)", cancelBlock: EmptyBlock {}))
+        }
+        testObject = DataTasksHolder()
     }
 
     override func tearDown() {
         testObject = nil
-        testTasksHolder = nil
+        dataTasks = nil
         
         super.tearDown()
     }
 
     func testHolderAdding() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        dataTasks.forEach { testObject.add($0) }
+        XCTAssertTrue(testObject.dataTasks.count == dataTasks.count)
+    }
+    
+    func testHolderRemoving() {
+        dataTasks.forEach { testObject.add($0) }
+        for (index, task) in dataTasks.enumerated() {
+            let currentCount = dataTasks.count - index - 1
+            testObject.remove(task.identifier)
+            XCTAssertTrue(testObject.dataTasks.count == currentCount)
+        }
+    }
+    
+    func testHolderCanceling() {
+        dataTasks.forEach { testObject.add($0) }
+        for (index, task) in dataTasks.enumerated() {
+            let currentCount = dataTasks.count - index - 1
+            let taskInHolder = testObject.dataTasks[task.identifier]
+            testObject.cancel(task.identifier)
+            XCTAssertTrue(testObject.dataTasks.count == currentCount)
+            XCTAssertTrue(taskInHolder?.isCanceled == true)
+        }
+    }
+    
+    func testHolderAllCanceling() {
+        dataTasks.forEach { testObject.add($0) }
+        testObject.cancelAll()
+        XCTAssertTrue(testObject.dataTasks.isEmpty)
+        dataTasks.forEach { XCTAssertTrue($0.isCanceled) }
     }
 }

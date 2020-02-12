@@ -7,9 +7,22 @@
 //
 
 import UIKit
+import RedditCommon
 
 public protocol NetworkSessionProtocol {
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
+    func networkingDataTask(with url: URL,
+                            identifier: String,
+                            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void,
+                            cancelBlock: EmptyBlock) -> DataTaskProtocol
 }
 
-extension URLSession: NetworkSessionProtocol {}
+extension URLSession: NetworkSessionProtocol {
+    public func networkingDataTask(with url: URL,
+                                   identifier: String,
+                                   completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void,
+                                   cancelBlock: EmptyBlock) -> DataTaskProtocol {
+        let task = dataTask(with: url, completionHandler: completionHandler)
+        let dataTask = DataTask(task: task, identifier: identifier, cancelBlock: cancelBlock)
+        return dataTask
+    }
+}

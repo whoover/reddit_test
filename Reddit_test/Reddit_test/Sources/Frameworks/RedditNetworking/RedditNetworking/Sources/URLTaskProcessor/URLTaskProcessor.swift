@@ -21,12 +21,9 @@ class URLTaskProcessor: URLTaskProcessorProtocol {
     private class ServiceLocatorImpl: ServiceLocatorAlias {}
     
     private let session: NetworkSessionProtocol
-    private let syncQueue: DispatchQueue
     
-    init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession(),
-         syncQueue: DispatchQueue) {
+    init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession()) {
         self.session = session
-        self.syncQueue = syncQueue
     }
     
     func createTask<RESPONSE: ResponseProtocol>(url: URL,
@@ -35,7 +32,7 @@ class URLTaskProcessor: URLTaskProcessorProtocol {
                                                 errorBlock: BlockObject<Error, Void>,
                                                 cancelBlock: EmptyBlock) -> DataTaskProtocol {
         var optionalDataTask: DataTaskProtocol?
-        let task = session.dataTask(with: url) { [weak self] data, response, error in
+        let task = session.networkingDataTask(with: url, identifier: identifier, completionHandler: { [weak self] data, response, error in
             guard let self = self, optionalDataTask?.isCanceled != true else {
                 return
             }
@@ -43,19 +40,14 @@ class URLTaskProcessor: URLTaskProcessorProtocol {
             do {
                 try self.handleDataTaskResponse(response, error)
                 let responseObject: RESPONSE = try self.responseObject(data)
-                self.syncQueue.async {
-                    successBlock.execute(responseObject)
-                }
+                successBlock.execute(responseObject)
             } catch {
-                self.syncQueue.async {
-                    errorBlock.execute(error)
-                }
+                errorBlock.execute(error)
             }
-        }
+        }, cancelBlock: cancelBlock)
         
-        let dataTask = DataTask(task: task, identifier: identifier, cancelBlock: cancelBlock)
-        optionalDataTask = dataTask
-        return dataTask
+        optionalDataTask = task
+        return task
     }
     
     private func handleDataTaskResponse(_ response: URLResponse?, _ error: Error?) throws {

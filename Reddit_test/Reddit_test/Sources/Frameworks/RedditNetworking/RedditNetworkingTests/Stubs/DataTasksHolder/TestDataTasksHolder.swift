@@ -11,8 +11,8 @@ import Foundation
 @testable import RedditNetworking
 
 class TestDataTasksHolder: DataTasksHolderProtocol {
-    var taskAddWasCalled: CancellableProtocol?
-    func add(_ task: CancellableProtocol?) {
+    var taskAddWasCalled: DataTaskProtocol?
+    func add(_ task: DataTaskProtocol?) {
         taskAddWasCalled = task
     }
     

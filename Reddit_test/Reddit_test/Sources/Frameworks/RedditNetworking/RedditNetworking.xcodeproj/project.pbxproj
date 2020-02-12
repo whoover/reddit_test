@@ -41,8 +41,14 @@
 		088491ED23F4127300FF3FAF /* DataTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491EC23F4127300FF3FAF /* DataTaskTests.swift */; };
 		088491EF23F412EB00FF3FAF /* TestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491EE23F412EB00FF3FAF /* TestURL.swift */; };
 		088491F223F4150E00FF3FAF /* DataTasksHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */; };
+		088491F523F423CD00FF3FAF /* URLTaskProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F423F423CD00FF3FAF /* URLTaskProcessorTests.swift */; };
+		088491F723F429AC00FF3FAF /* URLSessionTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F623F429AC00FF3FAF /* URLSessionTaskProtocol.swift */; };
 		08967C8523F2804700D516F5 /* DataTasksHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08967C8423F2804700D516F5 /* DataTasksHolder.swift */; };
 		08967C8723F2864D00D516F5 /* URLTaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08967C8623F2864D00D516F5 /* URLTaskProcessor.swift */; };
+		08DB694E23F43F06000BCED2 /* TestHTTPURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB694D23F43F06000BCED2 /* TestHTTPURLResponse.swift */; };
+		08DB695123F44141000BCED2 /* NetworkingManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB695023F44141000BCED2 /* NetworkingManagerTests.swift */; };
+		08DB695323F442A0000BCED2 /* ReachabilityServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB695223F442A0000BCED2 /* ReachabilityServiceLocator.swift */; };
+		08DB695623F445EB000BCED2 /* TestReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DB695523F445EB000BCED2 /* TestReachability.swift */; };
 		08DF8EC723F27D7A00E5146F /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF8EC623F27D7A00E5146F /* DataTask.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,8 +113,14 @@
 		088491EC23F4127300FF3FAF /* DataTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskTests.swift; sourceTree = "<group>"; };
 		088491EE23F412EB00FF3FAF /* TestURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestURL.swift; sourceTree = "<group>"; };
 		088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTasksHolderTests.swift; sourceTree = "<group>"; };
+		088491F423F423CD00FF3FAF /* URLTaskProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTaskProcessorTests.swift; sourceTree = "<group>"; };
+		088491F623F429AC00FF3FAF /* URLSessionTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionTaskProtocol.swift; sourceTree = "<group>"; };
 		08967C8423F2804700D516F5 /* DataTasksHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTasksHolder.swift; sourceTree = "<group>"; };
 		08967C8623F2864D00D516F5 /* URLTaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTaskProcessor.swift; sourceTree = "<group>"; };
+		08DB694D23F43F06000BCED2 /* TestHTTPURLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHTTPURLResponse.swift; sourceTree = "<group>"; };
+		08DB695023F44141000BCED2 /* NetworkingManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManagerTests.swift; sourceTree = "<group>"; };
+		08DB695223F442A0000BCED2 /* ReachabilityServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityServiceLocator.swift; sourceTree = "<group>"; };
+		08DB695523F445EB000BCED2 /* TestReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestReachability.swift; sourceTree = "<group>"; };
 		08DF8EC623F27D7A00E5146F /* DataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				0808A4AB23F2F265008AA441 /* Reachability.swift */,
+				08DB695223F442A0000BCED2 /* ReachabilityServiceLocator.swift */,
 			);
 			path = 3rdParty;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 		0884916723F3CE5B00FF3FAF /* NetworkSession */ = {
 			isa = PBXGroup;
 			children = (
+				088491F623F429AC00FF3FAF /* URLSessionTaskProtocol.swift */,
 				0884916123F3CA4200FF3FAF /* NetworkSessionProtocol.swift */,
 				0884916823F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift */,
 			);
@@ -256,6 +270,8 @@
 		0884917B23F3E31500FF3FAF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				08DB694F23F4412E000BCED2 /* NetworkingManager */,
+				088491F323F423A800FF3FAF /* URLTaskProcessor */,
 				088491F023F4148A00FF3FAF /* DataTasksHolder */,
 				088491E523F40E8300FF3FAF /* RequestResponse */,
 				0884917C23F3E32F00FF3FAF /* Utilities */,
@@ -295,6 +311,8 @@
 				088491EE23F412EB00FF3FAF /* TestURL.swift */,
 				088491E823F40EE200FF3FAF /* TestImage.swift */,
 				0884919523F3F4DD00FF3FAF /* TestError.swift */,
+				08DB694D23F43F06000BCED2 /* TestHTTPURLResponse.swift */,
+				08DB695423F445D9000BCED2 /* 3rdParty */,
 				088491E023F4085800FF3FAF /* NetworkingManager */,
 				088491A323F403B800FF3FAF /* URLTaskProcessor */,
 				0884919C23F3FB1E00FF3FAF /* DataTasksHolder */,
@@ -362,6 +380,30 @@
 				088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */,
 			);
 			path = DataTasksHolder;
+			sourceTree = "<group>";
+		};
+		088491F323F423A800FF3FAF /* URLTaskProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				088491F423F423CD00FF3FAF /* URLTaskProcessorTests.swift */,
+			);
+			path = URLTaskProcessor;
+			sourceTree = "<group>";
+		};
+		08DB694F23F4412E000BCED2 /* NetworkingManager */ = {
+			isa = PBXGroup;
+			children = (
+				08DB695023F44141000BCED2 /* NetworkingManagerTests.swift */,
+			);
+			path = NetworkingManager;
+			sourceTree = "<group>";
+		};
+		08DB695423F445D9000BCED2 /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				08DB695523F445EB000BCED2 /* TestReachability.swift */,
+			);
+			path = 3rdParty;
 			sourceTree = "<group>";
 		};
 		08DF8EC523F27D6900E5146F /* Sources */ = {
@@ -520,11 +562,13 @@
 				0808A4AE23F2F72A008AA441 /* ImageResponse.swift in Sources */,
 				086842DB23F27A8A00AB9730 /* NetworkingManager.swift in Sources */,
 				0868429323F278F800AB9730 /* RequestProtocol.swift in Sources */,
+				08DB695323F442A0000BCED2 /* ReachabilityServiceLocator.swift in Sources */,
 				08967C8723F2864D00D516F5 /* URLTaskProcessor.swift in Sources */,
 				0884915F23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift in Sources */,
 				08967C8523F2804700D516F5 /* DataTasksHolder.swift in Sources */,
 				0808A4AC23F2F265008AA441 /* Reachability.swift in Sources */,
 				086842D923F27A5500AB9730 /* NetworkingError.swift in Sources */,
+				088491F723F429AC00FF3FAF /* URLSessionTaskProtocol.swift in Sources */,
 				0808A4F223F2FE26008AA441 /* URLTaskProcessorServiceLocator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,7 +577,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DB694E23F43F06000BCED2 /* TestHTTPURLResponse.swift in Sources */,
 				088491E723F40E9C00FF3FAF /* ImageResponseTests.swift in Sources */,
+				088491F523F423CD00FF3FAF /* URLTaskProcessorTests.swift in Sources */,
 				0884919823F3F7B100FF3FAF /* TestResponseData.swift in Sources */,
 				088491EF23F412EB00FF3FAF /* TestURL.swift in Sources */,
 				0884919F23F3FB5300FF3FAF /* TestNetworkSession.swift in Sources */,
@@ -541,8 +587,10 @@
 				088491A523F403CB00FF3FAF /* TestURLTaskProcessor.swift in Sources */,
 				088491F223F4150E00FF3FAF /* DataTasksHolderTests.swift in Sources */,
 				088491A223F402B500FF3FAF /* TestDataTasksHolder.swift in Sources */,
+				08DB695623F445EB000BCED2 /* TestReachability.swift in Sources */,
 				088491ED23F4127300FF3FAF /* DataTaskTests.swift in Sources */,
 				088491E923F40EE200FF3FAF /* TestImage.swift in Sources */,
+				08DB695123F44141000BCED2 /* NetworkingManagerTests.swift in Sources */,
 				0884919423F3F48800FF3FAF /* TestResponse.swift in Sources */,
 				0884919623F3F4DD00FF3FAF /* TestError.swift in Sources */,
 				0868427C23F278D600AB9730 /* HTTPResponseTests.swift in Sources */,

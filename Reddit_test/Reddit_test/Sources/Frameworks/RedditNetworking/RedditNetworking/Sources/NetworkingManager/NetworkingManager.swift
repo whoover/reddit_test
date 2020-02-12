@@ -16,28 +16,32 @@ public protocol NetworkingManagerProtocol {
 }
 
 public class NetworkingManager: NetworkingManagerProtocol {
-    typealias ServiceLocatorAlias = NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator
+    typealias ServiceLocatorAlias = NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator & ReachabilityServiceLocator
     public class ServiceLocatorImpl: ServiceLocatorAlias {}
     
     private let syncQueue: DispatchQueue
     private let tasksHolder: DataTasksHolderProtocol
     private let urlTaskProcessor: URLTaskProcessorProtocol
+    private let reachability: ReachabilityProtocol?
     
     deinit {
         tasksHolder.cancelAll()
     }
     
     public init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession(),
-                syncQueue: DispatchQueue = .main) {
+                syncQueue: DispatchQueue = .main,
+                tasksHolder: DataTasksHolderProtocol = ServiceLocatorImpl.dataTasksHolder(),
+                reachability: ReachabilityProtocol? = try? ServiceLocatorImpl.reachabilityService()) {
         self.syncQueue = syncQueue
-        self.urlTaskProcessor = ServiceLocatorImpl.taskProcessor(session: session, syncQueue: syncQueue)
-        self.tasksHolder = ServiceLocatorImpl.dataTasksHolder()
+        self.urlTaskProcessor = ServiceLocatorImpl.taskProcessor(session: session)
+        self.tasksHolder = tasksHolder
+        self.reachability = reachability
     }
     
     public func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
                                                            successBlock: BlockObject<RESPONSE, Void>,
                                                            errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? {
-        guard let reachability = try? Reachability(),
+        guard let reachability = reachability,
             reachability.connection != .unavailable else {
             syncQueue.async {
                 errorBlock.execute(NetworkingError.noConnection)
@@ -56,11 +60,15 @@ public class NetworkingManager: NetworkingManagerProtocol {
         
         let successBlock = BlockObject<RESPONSE, Void> { [weak self] response in
             self?.tasksHolder.remove(identifier)
-            successBlock.execute(response)
+            self?.syncQueue.async {
+                successBlock.execute(response)
+            }
         }
         let errorBlock = BlockObject<Error, Void> { [weak self] error in
             self?.tasksHolder.remove(identifier)
-            errorBlock.execute(error)
+            self?.syncQueue.async {
+                errorBlock.execute(error)
+            }
         }
         let cancelBlock = EmptyBlock { [weak self] in
             self?.tasksHolder.cancel(identifier)

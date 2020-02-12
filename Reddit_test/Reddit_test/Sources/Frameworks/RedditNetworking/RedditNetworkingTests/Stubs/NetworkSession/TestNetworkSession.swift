@@ -8,13 +8,15 @@
 
 import UIKit
 @testable import RedditNetworking
+@testable import RedditCommon
 
 class TestNetworkSession: NetworkSessionProtocol {
-    var dataToReturn: Data?
-    var responseToReturn: URLResponse?
-    var errorToReturn: Error?
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        completionHandler(dataToReturn, responseToReturn, errorToReturn)
-        return URLSession(configuration: URLSessionConfiguration.default).dataTask(with: url)
+    var completionToTest: ((Data?, URLResponse?, Error?) -> Void)?
+    func networkingDataTask(with url: URL,
+                            identifier: String,
+                            completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void,
+                            cancelBlock: EmptyBlock) -> DataTaskProtocol {
+        completionToTest = completionHandler
+        return TestDataTask(identifier: identifier, cancelBlock: cancelBlock)
     }
 }

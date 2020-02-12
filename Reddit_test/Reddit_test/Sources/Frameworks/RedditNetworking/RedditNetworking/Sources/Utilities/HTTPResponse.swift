@@ -22,8 +22,10 @@ public enum HTTPResponse {
         case 200...299:
             self = .success
         case 300...399:
-            self = .client
+            self = .redirection
         case 400...499:
+            self = .client
+        case 500...599:
             self = .server
         default:
             return nil

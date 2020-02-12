@@ -28,6 +28,6 @@ class TestNetworkingManager: NetworkingManagerProtocol {
                 errorBlock.execute(error)
             }
         }
-        return TestDataTask()
+        return TestDataTask(cancelBlock: EmptyBlock {})
     }
 }
