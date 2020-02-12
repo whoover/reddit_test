@@ -10,6 +10,9 @@ import UIKit
 
 extension HTTPURLResponse {
     static func testResponse(code: Int) -> HTTPURLResponse! {
-        return HTTPURLResponse(url: URL.testURL, statusCode: code, httpVersion: nil, headerFields: nil)
+        HTTPURLResponse(url: URL.testURL,
+                        statusCode: code,
+                        httpVersion: nil,
+                        headerFields: nil)
     }
 }

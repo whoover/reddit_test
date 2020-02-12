@@ -10,7 +10,7 @@ import UIKit
 
 extension UICollectionView: AnyCollectionProtocol {
     public func dequeueCell(_ cellClass: CellProtocol.Type, _ indexPath: IndexPath) -> CellProtocol {
-        return dequeueReusableCell(withReuseIdentifier: cellClass.identifier, for: indexPath)
+        dequeueReusableCell(withReuseIdentifier: cellClass.identifier, for: indexPath)
     }
     
     public func registerCell(_ cellClass: AnyClass?, forCellReuseIdentifier identifier: String) {
@@ -22,6 +22,6 @@ extension UICollectionView: AnyCollectionProtocol {
     }
     
     public func dequeueCell(_ cellModel: CellModelProtocol, _ indexPath: IndexPath) -> CellProtocol {
-        return dequeueCell(type(of: cellModel).cellClass, indexPath)
+        dequeueCell(type(of: cellModel).cellClass, indexPath)
     }
 }

@@ -15,13 +15,9 @@ public protocol DataTasksHolderProtocol {
     func cancelAll()
 }
 
-public class DataTasksHolder: DataTasksHolderProtocol {
-    private let dataTasksSyncQueue: DispatchQueue
+public final class DataTasksHolder: DataTasksHolderProtocol {
+    private let dataTasksSyncQueue = DispatchQueue(label: "com.reddit.NetworkingManager.dataTasksSyncQueue")
     private(set) var dataTasks: [String: DataTaskProtocol] = [:]
-    
-    public init(dataTasksSyncQueue: DispatchQueue = DispatchQueue(label: "com.reddit.NetworkingManager.dataTasksSyncQueue")) {
-        self.dataTasksSyncQueue = dataTasksSyncQueue
-    }
     
     public func add(_ task: DataTaskProtocol?) {
         guard let task = task else {

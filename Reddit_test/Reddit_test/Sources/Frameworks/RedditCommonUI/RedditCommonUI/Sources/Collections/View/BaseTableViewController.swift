@@ -68,11 +68,11 @@ import UIKit
     }
     
     public func cellForRow(at indexPath: IndexPath) -> UITableViewCell? {
-        return tableView.cellForRow(at: indexPath)
+        tableView.cellForRow(at: indexPath)
     }
     
     public func indexPath(for cell: UITableViewCell) -> IndexPath? {
-        return tableView.indexPath(for: cell)
+        tableView.indexPath(for: cell)
     }
     
     public func moveRow(at indexPath: IndexPath, toIndexPath: IndexPath) {
@@ -85,7 +85,7 @@ import UIKit
 
 extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
     open func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSourceModel?.sections.count ?? 0
+        dataSourceModel?.sections.count ?? 0
     }
 
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -96,7 +96,7 @@ extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return (dataSourceModel?.sections[section] as? CustomHeaderSectionModelProtocol)?.header as? String
+        (dataSourceModel?.sections[section] as? CustomHeaderSectionModelProtocol)?.header as? String
     }
 
     open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -106,7 +106,7 @@ extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceModel?.sections[section].cells.count ?? 0
+        dataSourceModel?.sections[section].cells.count ?? 0
     }
 
     open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

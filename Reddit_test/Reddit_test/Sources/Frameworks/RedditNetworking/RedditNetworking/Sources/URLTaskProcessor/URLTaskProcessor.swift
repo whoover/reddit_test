@@ -16,14 +16,14 @@ public protocol URLTaskProcessorProtocol {
                                                 cancelBlock: EmptyBlock) -> DataTaskProtocol
 }
 
-class URLTaskProcessor: URLTaskProcessorProtocol {
-    typealias ServiceLocatorAlias = NetworkSessionServiceLocator
-    private class ServiceLocatorImpl: ServiceLocatorAlias {}
+final class URLTaskProcessor: URLTaskProcessorProtocol {
+    typealias ServiceLocator = NetworkSessionServiceLocator
+    final class ServiceLocatorImpl: ServiceLocator {}
     
     private let session: NetworkSessionProtocol
     
-    init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession()) {
-        self.session = session
+    init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
+        self.session = serviceLocator.networkSession()
     }
     
     func createTask<RESPONSE: ResponseProtocol>(url: URL,
@@ -65,6 +65,6 @@ class URLTaskProcessor: URLTaskProcessorProtocol {
     }
     
     private func responseObject<RESPONSE: ResponseProtocol>(_ data: Data?) throws -> RESPONSE {
-        return try RESPONSE.responseObject(data)
+        try RESPONSE.responseObject(data)
     }
 }

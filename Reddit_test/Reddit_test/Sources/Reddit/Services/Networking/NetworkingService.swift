@@ -10,7 +10,7 @@ import RedditNetworking
 import RedditCommon
 
 class NetworkingService {
-    private let networkingManager = NetworkingManager(session: .shared, syncQueue: .main)
+    private let networkingManager = NetworkingManager(syncQueue: .main)
     
     func loadFrom(lastName: String?,
                   successBlock: BlockObject<RedditResponse, Void>,

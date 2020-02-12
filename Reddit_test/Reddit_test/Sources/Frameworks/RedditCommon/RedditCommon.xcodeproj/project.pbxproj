@@ -7,31 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		086842AC23F2793500AB9730 /* RedditCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086842A223F2793500AB9730 /* RedditCommon.framework */; };
-		086842B123F2793500AB9730 /* RedditCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842B023F2793500AB9730 /* RedditCommonTests.swift */; };
 		086842B323F2793500AB9730 /* RedditCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 086842A523F2793500AB9730 /* RedditCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		086842C623F2794500AB9730 /* CancellableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842C523F2794500AB9730 /* CancellableProtocol.swift */; };
 		086842C823F2794F00AB9730 /* BlockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842C723F2794F00AB9730 /* BlockObject.swift */; };
 		088491F923F42A0D00FF3FAF /* ResumableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		086842AD23F2793500AB9730 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0868429923F2793500AB9730 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 086842A123F2793500AB9730;
-			remoteInfo = RedditCommon;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		086842A223F2793500AB9730 /* RedditCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RedditCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		086842A523F2793500AB9730 /* RedditCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedditCommon.h; sourceTree = "<group>"; };
 		086842A623F2793500AB9730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		086842AB23F2793500AB9730 /* RedditCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		086842B023F2793500AB9730 /* RedditCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditCommonTests.swift; sourceTree = "<group>"; };
-		086842B223F2793500AB9730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		086842C523F2794500AB9730 /* CancellableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancellableProtocol.swift; sourceTree = "<group>"; };
 		086842C723F2794F00AB9730 /* BlockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockObject.swift; sourceTree = "<group>"; };
 		088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumableProtocol.swift; sourceTree = "<group>"; };
@@ -45,14 +30,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		086842A823F2793500AB9730 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				086842AC23F2793500AB9730 /* RedditCommon.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -60,7 +37,6 @@
 			isa = PBXGroup;
 			children = (
 				086842A423F2793500AB9730 /* RedditCommon */,
-				086842AF23F2793500AB9730 /* RedditCommonTests */,
 				086842A323F2793500AB9730 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,7 +45,6 @@
 			isa = PBXGroup;
 			children = (
 				086842A223F2793500AB9730 /* RedditCommon.framework */,
-				086842AB23F2793500AB9730 /* RedditCommonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,15 +58,6 @@
 				086842CA23F2798900AB9730 /* Resources */,
 			);
 			path = RedditCommon;
-			sourceTree = "<group>";
-		};
-		086842AF23F2793500AB9730 /* RedditCommonTests */ = {
-			isa = PBXGroup;
-			children = (
-				086842B023F2793500AB9730 /* RedditCommonTests.swift */,
-				086842B223F2793500AB9730 /* Info.plist */,
-			);
-			path = RedditCommonTests;
 			sourceTree = "<group>";
 		};
 		086842CA23F2798900AB9730 /* Resources */ = {
@@ -136,24 +102,6 @@
 			productReference = 086842A223F2793500AB9730 /* RedditCommon.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		086842AA23F2793500AB9730 /* RedditCommonTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 086842B923F2793500AB9730 /* Build configuration list for PBXNativeTarget "RedditCommonTests" */;
-			buildPhases = (
-				086842A723F2793500AB9730 /* Sources */,
-				086842A823F2793500AB9730 /* Frameworks */,
-				086842A923F2793500AB9730 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				086842AE23F2793500AB9730 /* PBXTargetDependency */,
-			);
-			name = RedditCommonTests;
-			productName = RedditCommonTests;
-			productReference = 086842AB23F2793500AB9730 /* RedditCommonTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -165,9 +113,6 @@
 				ORGANIZATIONNAME = "Artem Belenkov";
 				TargetAttributes = {
 					086842A123F2793500AB9730 = {
-						CreatedOnToolsVersion = 11.3.1;
-					};
-					086842AA23F2793500AB9730 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
@@ -186,20 +131,12 @@
 			projectRoot = "";
 			targets = (
 				086842A123F2793500AB9730 /* RedditCommon */,
-				086842AA23F2793500AB9730 /* RedditCommonTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		086842A023F2793500AB9730 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		086842A923F2793500AB9730 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -240,23 +177,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		086842A723F2793500AB9730 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				086842B123F2793500AB9730 /* RedditCommonTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		086842AE23F2793500AB9730 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 086842A123F2793500AB9730 /* RedditCommon */;
-			targetProxy = 086842AD23F2793500AB9730 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		086842B423F2793500AB9730 /* Debug */ = {
@@ -425,42 +346,6 @@
 			};
 			name = Release;
 		};
-		086842BA23F2793500AB9730 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RedditCommonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.RedditCommonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		086842BB23F2793500AB9730 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RedditCommonTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.RedditCommonTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -478,15 +363,6 @@
 			buildConfigurations = (
 				086842B723F2793500AB9730 /* Debug */,
 				086842B823F2793500AB9730 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		086842B923F2793500AB9730 /* Build configuration list for PBXNativeTarget "RedditCommonTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				086842BA23F2793500AB9730 /* Debug */,
-				086842BB23F2793500AB9730 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

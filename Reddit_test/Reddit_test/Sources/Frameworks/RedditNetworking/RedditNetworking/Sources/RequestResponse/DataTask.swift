@@ -13,7 +13,7 @@ public protocol DataTaskProtocol: CancellableProtocol, ResumableProtocol {
     var identifier: String { get }
 }
 
-class DataTask: DataTaskProtocol {
+final class DataTask: DataTaskProtocol {
     let identifier: String
     let task: URLSessionTaskProtocol
     private(set) var isCanceled: Bool = false

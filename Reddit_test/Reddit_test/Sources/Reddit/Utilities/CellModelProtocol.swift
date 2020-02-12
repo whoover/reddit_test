@@ -16,9 +16,7 @@ public protocol CellModelProtocol: CellModelObjcProtocol {
 }
 
 public extension CellModelProtocol {
-    static var cellHeight: CGFloat {
-        return 44.0
-    }
+    static var cellHeight: CGFloat { 44.0 }
 }
 
 public protocol AccessabilityElementProtocol {

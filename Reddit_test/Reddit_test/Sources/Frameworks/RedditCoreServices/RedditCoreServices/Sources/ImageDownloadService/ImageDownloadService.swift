@@ -24,6 +24,6 @@ class ImageDownloadService: ImageDownloadServiceProtocol {
     }
     
     func downloadImage(with url: URL, completionBlock: BlockObject<UIImage?, Void>) -> CancellableProtocol? {
-        return nil
+        nil
     }
 }

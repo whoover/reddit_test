@@ -19,20 +19,14 @@ public protocol TableViewDataSourceModelProtocol {
 }
 
 public extension TableViewDataSourceModelProtocol {
-    static var editingStyle: UITableViewCell.EditingStyle {
-        return .none
-    }
+    static var editingStyle: UITableViewCell.EditingStyle { .none }
 
-    static var shouldIndentWhileEditing: Bool {
-        return false
-    }
+    static var shouldIndentWhileEditing: Bool { false }
 
-    static var canMoveCells: Bool {
-        return false
-    }
+    static var canMoveCells: Bool { false }
 
     func uniqueCellClasses() -> [CellProtocol.Type] {
-        return sections
+        sections
             .flatMap { $0.cells }
             .map { type(of: $0).cellClass }
             .reduce([], {
@@ -70,9 +64,7 @@ public protocol CustomHeaderSectionModelProtocol: TableViewSectionModelProtocol 
 }
 
 public extension TableViewSectionModelProtocol {
-    static var headerHeight: CGFloat {
-        return 0
-    }
+    static var headerHeight: CGFloat { 0 }
 }
 
 public protocol SectionHeader {}

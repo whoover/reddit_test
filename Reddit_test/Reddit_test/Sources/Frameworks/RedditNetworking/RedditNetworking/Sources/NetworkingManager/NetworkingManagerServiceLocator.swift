@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol NetworkingManagerServiceLocator {
-    static func networkingManager() -> NetworkingManagerProtocol
+public protocol NetworkingManagerServiceLocator {
+    func networkingManager() -> NetworkingManagerProtocol
 }
 
 extension NetworkingManagerServiceLocator {
-    static func networkingManager() -> NetworkingManagerProtocol {
-        return NetworkingManager()
+    public func networkingManager() -> NetworkingManagerProtocol {
+        NetworkingManager()
     }
 }

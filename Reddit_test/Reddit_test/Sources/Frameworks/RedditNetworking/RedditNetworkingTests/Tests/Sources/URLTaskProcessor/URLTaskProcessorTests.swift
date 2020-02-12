@@ -11,19 +11,26 @@ import XCTest
 @testable import RedditNetworking
 
 class URLTaskProcessorTests: XCTestCase {
+    class ServiceLocatorMock: NetworkSessionServiceLocator {
+        let networkSessionMock = TestNetworkSession()
+        func networkSession() -> NetworkSessionProtocol {
+            networkSessionMock
+        }
+    }
+    
     var testObject: URLTaskProcessor!
-    var testNetworkSession: TestNetworkSession!
+    var serviceLocator: ServiceLocatorMock!
     
     override func setUp() {
         super.setUp()
         
-        testNetworkSession = TestNetworkSession()
-        testObject = URLTaskProcessor(session: testNetworkSession)
+        serviceLocator = ServiceLocatorMock()
+        testObject = URLTaskProcessor(serviceLocator: serviceLocator)
     }
 
     override func tearDown() {
         testObject = nil
-        testNetworkSession = nil
+        serviceLocator = nil
         
         super.tearDown()
     }
@@ -48,7 +55,7 @@ class URLTaskProcessorTests: XCTestCase {
                                          errorBlock: errorBlock,
                                          cancelBlock: cancelBlock)
         task.cancel()
-        testNetworkSession.completionToTest?("test".data(using: .utf8), nil, nil)
+        serviceLocator.networkSessionMock.completionToTest?("test".data(using: .utf8), nil, nil)
         
         XCTAssertTrue(cancelWasCalled)
         XCTAssertFalse(errorWasCalled)
@@ -75,7 +82,7 @@ class URLTaskProcessorTests: XCTestCase {
                                   successBlock: successBlock,
                                   errorBlock: errorBlock,
                                   cancelBlock: cancelBlock)
-        testNetworkSession.completionToTest?("test".data(using: .utf8), nil, nil)
+        serviceLocator.networkSessionMock.completionToTest?("test".data(using: .utf8), nil, nil)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertFalse(cancelWasCalled)
@@ -103,7 +110,7 @@ class URLTaskProcessorTests: XCTestCase {
                                   successBlock: successBlock,
                                   errorBlock: errorBlock,
                                   cancelBlock: cancelBlock)
-        testNetworkSession.completionToTest?("test".data(using: .utf8), nil, TestError.someError)
+        serviceLocator.networkSessionMock.completionToTest?("test".data(using: .utf8), nil, TestError.someError)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertFalse(cancelWasCalled)
@@ -131,7 +138,7 @@ class URLTaskProcessorTests: XCTestCase {
                                   successBlock: successBlock,
                                   errorBlock: errorBlock,
                                   cancelBlock: cancelBlock)
-        testNetworkSession.completionToTest?("test".data(using: .utf8), HTTPURLResponse.testResponse(code: 500), nil)
+        serviceLocator.networkSessionMock.completionToTest?("test".data(using: .utf8), HTTPURLResponse.testResponse(code: 500), nil)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertFalse(cancelWasCalled)
@@ -159,7 +166,7 @@ class URLTaskProcessorTests: XCTestCase {
                                   successBlock: successBlock,
                                   errorBlock: errorBlock,
                                   cancelBlock: cancelBlock)
-        testNetworkSession.completionToTest?("test".data(using: .utf8), HTTPURLResponse.testResponse(code: 200), nil)
+        serviceLocator.networkSessionMock.completionToTest?("test".data(using: .utf8), HTTPURLResponse.testResponse(code: 200), nil)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertFalse(cancelWasCalled)

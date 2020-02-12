@@ -11,5 +11,8 @@ import Foundation
 @testable import RedditNetworking
 
 class TestReachability: ReachabilityProtocol {
-    var connection: Reachability.Connection = .wifi
+    static var isReachable = true
+    static func isConnectedToNetwork() -> Bool {
+        isReachable
+    }
 }

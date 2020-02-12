@@ -28,9 +28,7 @@ public extension ConfigurableCellProtocol {
 }
 
 public extension CellProtocol where Self: UIView {
-    static var identifier: String {
-        return nibName
-    }
+    static var identifier: String { nibName }
 }
 
 extension UITableViewCell: CellProtocol {}

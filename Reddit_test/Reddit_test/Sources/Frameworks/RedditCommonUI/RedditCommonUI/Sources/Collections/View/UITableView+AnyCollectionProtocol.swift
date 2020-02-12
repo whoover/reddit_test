@@ -18,10 +18,10 @@ extension UITableView: AnyCollectionProtocol {
     }
     
     public func dequeueCell(_ cellClass: CellProtocol.Type, _ indexPath: IndexPath) -> CellProtocol {
-        return dequeueReusableCell(withIdentifier: cellClass.identifier, for: indexPath)
+        dequeueReusableCell(withIdentifier: cellClass.identifier, for: indexPath)
     }
     
     public func dequeueCell(_ cellModel: CellModelProtocol, _ indexPath: IndexPath) -> CellProtocol {
-        return dequeueCell(type(of: cellModel).cellClass, indexPath)
+        dequeueCell(type(of: cellModel).cellClass, indexPath)
     }
 }

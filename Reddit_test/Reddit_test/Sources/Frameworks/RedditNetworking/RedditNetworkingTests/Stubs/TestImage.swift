@@ -17,6 +17,6 @@ extension UIImage {
     }
     
     static var testImageData: Data! {
-        return testImage.pngData()
+        testImage.pngData()
     }
 }

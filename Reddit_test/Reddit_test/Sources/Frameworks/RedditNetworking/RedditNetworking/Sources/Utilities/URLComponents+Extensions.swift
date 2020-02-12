@@ -13,18 +13,18 @@ public extension URLComponents {
                           _ host: String,
                           _ path: String,
                           _ queryItems: [String: String?] = [:]) -> URLComponents {
-    var components = URLComponents()
-    components.scheme = schema
-    components.host = host.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-    components.path = path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-    var queryItemsToAdd: [URLQueryItem] = []
-    queryItems.forEach {
-        if let value = $0.value?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
-            queryItemsToAdd.append(URLQueryItem(name: $0.key, value: value))
+        var components = URLComponents()
+        components.scheme = schema
+        components.host = host.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
+        components.path = path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        var queryItemsToAdd: [URLQueryItem] = []
+        queryItems.forEach {
+            if let value = $0.value?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+                queryItemsToAdd.append(URLQueryItem(name: $0.key, value: value))
+            }
         }
+        components.queryItems = queryItemsToAdd
+        
+        return components
     }
-    components.queryItems = queryItemsToAdd
-    
-    return components
-  }
 }

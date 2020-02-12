@@ -10,6 +10,6 @@ import UIKit
 
 extension Data {
     static var testData: Data! {
-        return "testData".data(using: .utf8)
+        "testData".data(using: .utf8)
     }
 }

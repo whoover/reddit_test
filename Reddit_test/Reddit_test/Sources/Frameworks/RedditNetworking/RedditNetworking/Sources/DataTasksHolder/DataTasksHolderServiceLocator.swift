@@ -9,11 +9,11 @@
 import UIKit
 
 public protocol DataTasksHolderServiceLocator {
-    static func dataTasksHolder() -> DataTasksHolderProtocol
+    func dataTasksHolder() -> DataTasksHolderProtocol
 }
 
 extension DataTasksHolderServiceLocator {
-    public static func dataTasksHolder() -> DataTasksHolderProtocol {
-        return DataTasksHolder()
+    public func dataTasksHolder() -> DataTasksHolderProtocol {
+        DataTasksHolder()
     }
 }

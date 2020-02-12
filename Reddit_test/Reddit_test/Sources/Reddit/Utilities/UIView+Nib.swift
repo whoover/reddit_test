@@ -16,26 +16,18 @@ public protocol NibLoadableProtocol: class {
 }
 
 public extension NibLoadableProtocol {
-    static var nibName: String {
-        return String(describing: self)
-    }
+    static var nibName: String { String(describing: self) }
 
-    static var nib: UINib {
-        return UINib(nibName: nibName, bundle: Bundle(for: self))
-    }
+    static var nib: UINib { UINib(nibName: nibName, bundle: Bundle(for: self)) }
 }
 
 public extension NibLoadableProtocol where Self: UIView {
-    static func loadFromNib() -> Self? {
-        return nib.instantiate(withOwner: nil, options: nil).first as? Self
-    }
+    static func loadFromNib() -> Self? { nib.instantiate(withOwner: nil, options: nil).first as? Self }
 }
 
 public extension NibLoadableProtocol where Self: UIViewController {
     @discardableResult
-    static func loadFromNib() -> Self? {
-        return self.init(nibName: nibName, bundle: Bundle(for: self))
-    }
+    static func loadFromNib() -> Self? { self.init(nibName: nibName, bundle: Bundle(for: self)) }
 }
 
 public protocol UniqNibLoadableProtocol: class {

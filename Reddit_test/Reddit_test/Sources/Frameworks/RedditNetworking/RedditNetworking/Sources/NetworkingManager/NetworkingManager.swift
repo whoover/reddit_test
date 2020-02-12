@@ -15,34 +15,32 @@ public protocol NetworkingManagerProtocol {
                                                     errorBlock: BlockObject<Error, Void>) -> CancellableProtocol?
 }
 
-public class NetworkingManager: NetworkingManagerProtocol {
-    typealias ServiceLocatorAlias = NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator & ReachabilityServiceLocator
-    public class ServiceLocatorImpl: ServiceLocatorAlias {}
+public final class NetworkingManager: NetworkingManagerProtocol {
+    public typealias ServiceLocator = NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator & ReachabilityServiceLocator
+    public final class ServiceLocatorImpl: ServiceLocator {
+        public init() {}
+    }
     
     private let syncQueue: DispatchQueue
     private let tasksHolder: DataTasksHolderProtocol
     private let urlTaskProcessor: URLTaskProcessorProtocol
-    private let reachability: ReachabilityProtocol?
+    private let reachability: ReachabilityProtocol.Type
     
     deinit {
         tasksHolder.cancelAll()
     }
     
-    public init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession(),
-                syncQueue: DispatchQueue = .main,
-                tasksHolder: DataTasksHolderProtocol = ServiceLocatorImpl.dataTasksHolder(),
-                reachability: ReachabilityProtocol? = try? ServiceLocatorImpl.reachabilityService()) {
+    public init(serviceLocator: ServiceLocator = ServiceLocatorImpl(), syncQueue: DispatchQueue = .main) {
         self.syncQueue = syncQueue
-        self.urlTaskProcessor = ServiceLocatorImpl.taskProcessor(session: session)
-        self.tasksHolder = tasksHolder
-        self.reachability = reachability
+        self.urlTaskProcessor = serviceLocator.taskProcessor(session: serviceLocator.networkSession())
+        self.tasksHolder = serviceLocator.dataTasksHolder()
+        self.reachability = serviceLocator.reachabilityService()
     }
     
     public func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
                                                            successBlock: BlockObject<RESPONSE, Void>,
                                                            errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? {
-        guard let reachability = reachability,
-            reachability.connection != .unavailable else {
+        guard reachability.isConnectedToNetwork() else {
             syncQueue.async {
                 errorBlock.execute(NetworkingError.noConnection)
             }

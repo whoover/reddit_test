@@ -10,6 +10,6 @@ import UIKit
 
 extension URL {
     static var testURL: URL! {
-        return URL(string: "http://test.com")
+        URL(string: "http://test.com")
     }
 }

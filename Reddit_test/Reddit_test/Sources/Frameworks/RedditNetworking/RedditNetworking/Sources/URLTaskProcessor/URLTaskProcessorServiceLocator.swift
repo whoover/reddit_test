@@ -9,11 +9,11 @@
 import UIKit
 
 public protocol URLTaskProcessorServiceLocator {
-    static func taskProcessor(session: NetworkSessionProtocol) -> URLTaskProcessorProtocol
+    func taskProcessor(session: NetworkSessionProtocol) -> URLTaskProcessorProtocol
 }
 
 extension URLTaskProcessorServiceLocator {
-    public static func taskProcessor(session: NetworkSessionProtocol) -> URLTaskProcessorProtocol {
-        return URLTaskProcessor(session: session)
+    public func taskProcessor(session: NetworkSessionProtocol) -> URLTaskProcessorProtocol {
+        URLTaskProcessor()
     }
 }

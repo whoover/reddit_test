@@ -9,11 +9,11 @@
 import UIKit
 
 public protocol NetworkSessionServiceLocator {
-    static func networkSession() -> NetworkSessionProtocol
+    func networkSession() -> NetworkSessionProtocol
 }
 
 extension NetworkSessionServiceLocator {
-    public static func networkSession() -> NetworkSessionProtocol {
-        return URLSession.shared
+    public func networkSession() -> NetworkSessionProtocol {
+        URLSession.shared
     }
 }

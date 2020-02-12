@@ -11,34 +11,49 @@ import XCTest
 @testable import RedditNetworking
 
 class NetworkingManagerTests: XCTestCase {
+    class ServiceLocatorMock: NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator & ReachabilityServiceLocator {
+        let networkSessionMock = TestNetworkSession()
+        func networkSession() -> NetworkSessionProtocol {
+            networkSessionMock
+        }
+        
+        let taskProcessorMock = TestURLTaskProcessor()
+        func taskProcessor(session: NetworkSessionProtocol) -> URLTaskProcessorProtocol {
+            taskProcessorMock
+        }
+        
+        let dataTasksHolderMock = TestDataTasksHolder()
+        func dataTasksHolder() -> DataTasksHolderProtocol {
+            dataTasksHolderMock
+        }
+        
+        let reachabilityMock = TestReachability.self
+        func reachabilityService() -> ReachabilityProtocol.Type {
+            reachabilityMock
+        }
+    }
+    
     var testObject: NetworkingManager!
-    var testNetworkSession: TestNetworkSession!
-    var testReachability: TestReachability!
-    var testTasksHolder: TestDataTasksHolder!
+    var serviceLocator: ServiceLocatorMock!
     
     override func setUp() {
         super.setUp()
         
-        testNetworkSession = TestNetworkSession()
-        testReachability = TestReachability()
-        testTasksHolder = TestDataTasksHolder()
-        testObject = NetworkingManager(session: testNetworkSession,
-                                       syncQueue: .main,
-                                       tasksHolder: testTasksHolder,
-                                       reachability: testReachability)
+        serviceLocator = ServiceLocatorMock()
+        serviceLocator.reachabilityMock.isReachable = true
+        testObject = NetworkingManager(serviceLocator: serviceLocator, syncQueue: .main)
     }
 
     override func tearDown() {
         testObject = nil
-        testNetworkSession = nil
-        testReachability = nil
-        testTasksHolder = nil
+        serviceLocator.reachabilityMock.isReachable = true
+        serviceLocator = nil
         
         super.tearDown()
     }
 
     func testNotReachableError() {
-        testReachability.connection = .unavailable
+        serviceLocator.reachabilityMock.isReachable = false
         
         var successWasCalled = false
         let successBlock = BlockObject<TestResponse, Void> { _ in
@@ -51,7 +66,7 @@ class NetworkingManagerTests: XCTestCase {
         
         let finishExpectation = expectation(for: NSPredicate(value: true), evaluatedWith: errorWasCalled, handler: nil)
         let task = testObject.sendGetRequest(request: TestRequest(), successBlock: successBlock, errorBlock: errorBlock)
-        XCTAssertNil(testTasksHolder.taskAddWasCalled)
+        XCTAssertNil(serviceLocator.dataTasksHolderMock.taskAddWasCalled)
         
         wait(for: [finishExpectation], timeout: 5.0)
         
@@ -75,9 +90,9 @@ class NetworkingManagerTests: XCTestCase {
         request.path = "...."
         let finishExpectation = expectation(for: NSPredicate(value: true), evaluatedWith: errorWasCalled, handler: nil)
         let task = testObject.sendGetRequest(request: request, successBlock: successBlock, errorBlock: errorBlock)
-        XCTAssertNil(testTasksHolder.taskAddWasCalled)
+        XCTAssertNil(serviceLocator.dataTasksHolderMock.taskAddWasCalled)
         
-        testNetworkSession.completionToTest?(nil, nil, TestError.someError)
+        serviceLocator.networkSessionMock.completionToTest?(nil, nil, TestError.someError)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertNil(task)
@@ -95,16 +110,16 @@ class NetworkingManagerTests: XCTestCase {
             errorWasCalled = error
         }
         
+        serviceLocator.taskProcessorMock.errorToReturn = TestError.someError
         let request = TestRequest()
         let finishExpectation = expectation(for: NSPredicate(value: true), evaluatedWith: errorWasCalled, handler: nil)
         let task = testObject.sendGetRequest(request: request, successBlock: successBlock, errorBlock: errorBlock)
-        XCTAssertNotNil(testTasksHolder.taskAddWasCalled)
+        XCTAssertNotNil(serviceLocator.dataTasksHolderMock.taskAddWasCalled)
         
-        testNetworkSession.completionToTest?(nil, nil, TestError.someError)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertNotNil(task)
-        XCTAssertTrue((errorWasCalled as? NetworkingError) == NetworkingError.dataTaskError(TestError.someError))
+        XCTAssertTrue((errorWasCalled as? TestError) == TestError.someError)
         XCTAssertFalse(successWasCalled)
         
     }
@@ -120,16 +135,15 @@ class NetworkingManagerTests: XCTestCase {
         }
         
         let request = TestRequest()
+        serviceLocator.taskProcessorMock.dataForResponse = "test".data(using: .utf8)
         let finishExpectation = expectation(for: NSPredicate(value: true), evaluatedWith: successWasCalled, handler: nil)
         let task = testObject.sendGetRequest(request: request, successBlock: successBlock, errorBlock: errorBlock)
-        XCTAssertNotNil(testTasksHolder.taskAddWasCalled)
+        XCTAssertNotNil(serviceLocator.dataTasksHolderMock.taskAddWasCalled)
         
-        testNetworkSession.completionToTest?("test".data(using: .utf8), HTTPURLResponse.testResponse(code: 200), nil)
         wait(for: [finishExpectation], timeout: 5.0)
         
         XCTAssertNotNil(task)
         XCTAssertNil(errorWasCalled)
         XCTAssertTrue(successWasCalled)
-        
     }
 }
