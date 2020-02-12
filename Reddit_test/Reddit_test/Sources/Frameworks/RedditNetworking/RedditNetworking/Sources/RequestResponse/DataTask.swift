@@ -8,7 +8,11 @@
 
 import RedditCommon
 
-class DataTask: CancellableProtocol {
+public protocol DataTaskProtocol: CancellableProtocol {
+    func resume()
+}
+
+class DataTask: DataTaskProtocol {
     let identifier: String
     let task: URLSessionTask
     private(set) var isCanceled: Bool = false

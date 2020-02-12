@@ -16,17 +16,22 @@ public protocol NetworkingManagerProtocol {
 }
 
 public class NetworkingManager: NetworkingManagerProtocol {
+    typealias ServiceLocatorAlias = NetworkSessionServiceLocator & URLTaskProcessorServiceLocator & DataTasksHolderServiceLocator
+    public class ServiceLocatorImpl: ServiceLocatorAlias {}
+    
     private let syncQueue: DispatchQueue
-    private let tasksHolder = DataTasksHolder()
-    private let urlTaskProcessor: URLTaskProcessor
+    private let tasksHolder: DataTasksHolderProtocol
+    private let urlTaskProcessor: URLTaskProcessorProtocol
     
     deinit {
         tasksHolder.cancelAll()
     }
     
-    public init(session: URLSession = .shared, syncQueue: DispatchQueue = .main) {
+    public init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession(),
+                syncQueue: DispatchQueue = .main) {
         self.syncQueue = syncQueue
-        self.urlTaskProcessor = URLTaskProcessor(session: session, syncQueue: syncQueue)
+        self.urlTaskProcessor = ServiceLocatorImpl.taskProcessor(session: session, syncQueue: syncQueue)
+        self.tasksHolder = ServiceLocatorImpl.dataTasksHolder()
     }
     
     public func sendGetRequest<RESPONSE: ResponseProtocol>(request: RequestProtocol,
@@ -53,28 +58,23 @@ public class NetworkingManager: NetworkingManagerProtocol {
             self?.tasksHolder.remove(identifier)
             successBlock.execute(response)
         }
-        
         let errorBlock = BlockObject<Error, Void> { [weak self] error in
             self?.tasksHolder.remove(identifier)
             errorBlock.execute(error)
         }
-        
-        var dataTask: DataTask?
-        let task = urlTaskProcessor.createTask(url: url, isCanceledBlock: isCanceledBlock(dataTask), successBlock: successBlock, errorBlock: errorBlock)
-        
         let cancelBlock = EmptyBlock { [weak self] in
             self?.tasksHolder.cancel(identifier)
         }
-        dataTask = DataTask(task: task, identifier: identifier, cancelBlock: cancelBlock)
-        tasksHolder.add(dataTask)
-        dataTask?.resume()
         
-        return dataTask
-    }
-    
-    private func isCanceledBlock(_ dataTask: CancellableProtocol?) -> BlockObject<(), Bool> {
-        return BlockObject<(), Bool> {
-            dataTask?.isCanceled == true
-        }
+        let task = urlTaskProcessor.createTask(url: url,
+                                               identifier: identifier,
+                                               successBlock: successBlock,
+                                               errorBlock: errorBlock,
+                                               cancelBlock: cancelBlock)
+        
+        tasksHolder.add(task)
+        task.resume()
+        
+        return task
     }
 }

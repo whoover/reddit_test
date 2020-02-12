@@ -8,28 +8,35 @@
 
 import RedditCommon
 
-protocol URLTaskProcessorProtocol {
+public protocol URLTaskProcessorProtocol {
     func createTask<RESPONSE: ResponseProtocol>(url: URL,
-                                                isCanceledBlock: BlockObject<(), Bool>,
+                                                identifier: String,
                                                 successBlock: BlockObject<RESPONSE, Void>,
-                                                errorBlock: BlockObject<Error, Void>) -> URLSessionTask
+                                                errorBlock: BlockObject<Error, Void>,
+                                                cancelBlock: EmptyBlock) -> DataTaskProtocol
 }
 
 class URLTaskProcessor: URLTaskProcessorProtocol {
-    private let session: URLSession
+    typealias ServiceLocatorAlias = NetworkSessionServiceLocator
+    private class ServiceLocatorImpl: ServiceLocatorAlias {}
+    
+    private let session: NetworkSessionProtocol
     private let syncQueue: DispatchQueue
     
-    init(session: URLSession = .shared, syncQueue: DispatchQueue = .main) {
+    init(session: NetworkSessionProtocol = ServiceLocatorImpl.networkSession(),
+         syncQueue: DispatchQueue) {
         self.session = session
         self.syncQueue = syncQueue
     }
     
     func createTask<RESPONSE: ResponseProtocol>(url: URL,
-                                                isCanceledBlock: BlockObject<(), Bool>,
+                                                identifier: String,
                                                 successBlock: BlockObject<RESPONSE, Void>,
-                                                errorBlock: BlockObject<Error, Void>) -> URLSessionTask {
+                                                errorBlock: BlockObject<Error, Void>,
+                                                cancelBlock: EmptyBlock) -> DataTaskProtocol {
+        var optionalDataTask: DataTaskProtocol?
         let task = session.dataTask(with: url) { [weak self] data, response, error in
-            guard let self = self, !isCanceledBlock.execute(()) else {
+            guard let self = self, optionalDataTask?.isCanceled != true else {
                 return
             }
             
@@ -46,7 +53,9 @@ class URLTaskProcessor: URLTaskProcessorProtocol {
             }
         }
         
-        return task
+        let dataTask = DataTask(task: task, identifier: identifier, cancelBlock: cancelBlock)
+        optionalDataTask = dataTask
+        return dataTask
     }
     
     private func handleDataTaskResponse(_ response: URLResponse?, _ error: Error?) throws {

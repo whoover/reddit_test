@@ -9,11 +9,11 @@
 import UIKit
 
 protocol NetworkingManagerServiceLocator {
-    static func networkingManager(session: URLSession, syncQueue: DispatchQueue) -> NetworkingManagerProtocol
+    static func networkingManager() -> NetworkingManagerProtocol
 }
 
 extension NetworkingManagerServiceLocator {
-    static func networkingManager(session: URLSession, syncQueue: DispatchQueue) -> NetworkingManagerProtocol {
-        return NetworkingManager(session: session, syncQueue: syncQueue)
+    static func networkingManager() -> NetworkingManagerProtocol {
+        return NetworkingManager()
     }
 }

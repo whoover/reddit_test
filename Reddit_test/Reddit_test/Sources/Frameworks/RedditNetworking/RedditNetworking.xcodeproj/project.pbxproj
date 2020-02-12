@@ -12,7 +12,7 @@
 		0808A4EE23F2FBCE008AA441 /* NetworkingManagerServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A4ED23F2FBCE008AA441 /* NetworkingManagerServiceLocator.swift */; };
 		0808A4F223F2FE26008AA441 /* URLTaskProcessorServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A4F123F2FE26008AA441 /* URLTaskProcessorServiceLocator.swift */; };
 		0868427723F278D600AB9730 /* RedditNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0868426D23F278D600AB9730 /* RedditNetworking.framework */; };
-		0868427C23F278D600AB9730 /* RedditNetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0868427B23F278D600AB9730 /* RedditNetworkingTests.swift */; };
+		0868427C23F278D600AB9730 /* HTTPResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0868427B23F278D600AB9730 /* HTTPResponseTests.swift */; };
 		0868427E23F278D600AB9730 /* RedditNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 0868427023F278D600AB9730 /* RedditNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0868429323F278F800AB9730 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0868429223F278F800AB9730 /* RequestProtocol.swift */; };
 		0868429523F278F900AB9730 /* ResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0868429023F278F800AB9730 /* ResponseProtocol.swift */; };
@@ -22,6 +22,25 @@
 		086842D723F27A3A00AB9730 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842D623F27A3A00AB9730 /* HTTPResponse.swift */; };
 		086842D923F27A5500AB9730 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842D823F27A5500AB9730 /* NetworkingError.swift */; };
 		086842DB23F27A8A00AB9730 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842DA23F27A8A00AB9730 /* NetworkingManager.swift */; };
+		0884915F23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884915E23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift */; };
+		0884916223F3CA4200FF3FAF /* NetworkSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884916123F3CA4200FF3FAF /* NetworkSessionProtocol.swift */; };
+		0884916923F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884916823F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift */; };
+		0884918D23F3ED9800FF3FAF /* URLComponents+ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884918C23F3ED9800FF3FAF /* URLComponents+ExtensionsTests.swift */; };
+		0884919223F3EF1500FF3FAF /* TestRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919123F3EF1500FF3FAF /* TestRequest.swift */; };
+		0884919423F3F48800FF3FAF /* TestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919323F3F48800FF3FAF /* TestResponse.swift */; };
+		0884919623F3F4DD00FF3FAF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919523F3F4DD00FF3FAF /* TestError.swift */; };
+		0884919823F3F7B100FF3FAF /* TestResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919723F3F7B100FF3FAF /* TestResponseData.swift */; };
+		0884919A23F3FA0C00FF3FAF /* TestDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919923F3FA0C00FF3FAF /* TestDataTask.swift */; };
+		0884919F23F3FB5300FF3FAF /* TestNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0884919E23F3FB5300FF3FAF /* TestNetworkSession.swift */; };
+		088491A223F402B500FF3FAF /* TestDataTasksHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491A123F402B500FF3FAF /* TestDataTasksHolder.swift */; };
+		088491A523F403CB00FF3FAF /* TestURLTaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491A423F403CB00FF3FAF /* TestURLTaskProcessor.swift */; };
+		088491E223F4086700FF3FAF /* TestNetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491E123F4086700FF3FAF /* TestNetworkingManager.swift */; };
+		088491E423F40E4C00FF3FAF /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 088491E323F40E4C00FF3FAF /* testImage.png */; };
+		088491E723F40E9C00FF3FAF /* ImageResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491E623F40E9C00FF3FAF /* ImageResponseTests.swift */; };
+		088491E923F40EE200FF3FAF /* TestImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491E823F40EE200FF3FAF /* TestImage.swift */; };
+		088491ED23F4127300FF3FAF /* DataTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491EC23F4127300FF3FAF /* DataTaskTests.swift */; };
+		088491EF23F412EB00FF3FAF /* TestURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491EE23F412EB00FF3FAF /* TestURL.swift */; };
+		088491F223F4150E00FF3FAF /* DataTasksHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */; };
 		08967C8523F2804700D516F5 /* DataTasksHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08967C8423F2804700D516F5 /* DataTasksHolder.swift */; };
 		08967C8723F2864D00D516F5 /* URLTaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08967C8623F2864D00D516F5 /* URLTaskProcessor.swift */; };
 		08DF8EC723F27D7A00E5146F /* DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DF8EC623F27D7A00E5146F /* DataTask.swift */; };
@@ -60,7 +79,7 @@
 		0868427023F278D600AB9730 /* RedditNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RedditNetworking.h; sourceTree = "<group>"; };
 		0868427123F278D600AB9730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0868427623F278D600AB9730 /* RedditNetworkingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RedditNetworkingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0868427B23F278D600AB9730 /* RedditNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditNetworkingTests.swift; sourceTree = "<group>"; };
+		0868427B23F278D600AB9730 /* HTTPResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseTests.swift; sourceTree = "<group>"; };
 		0868427D23F278D600AB9730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0868429023F278F800AB9730 /* ResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseProtocol.swift; sourceTree = "<group>"; };
 		0868429223F278F800AB9730 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
@@ -69,6 +88,25 @@
 		086842D623F27A3A00AB9730 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
 		086842D823F27A5500AB9730 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		086842DA23F27A8A00AB9730 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		0884915E23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTasksHolderServiceLocator.swift; sourceTree = "<group>"; };
+		0884916123F3CA4200FF3FAF /* NetworkSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionProtocol.swift; sourceTree = "<group>"; };
+		0884916823F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSessionServiceLocator.swift; sourceTree = "<group>"; };
+		0884918C23F3ED9800FF3FAF /* URLComponents+ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLComponents+ExtensionsTests.swift"; sourceTree = "<group>"; };
+		0884919123F3EF1500FF3FAF /* TestRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRequest.swift; sourceTree = "<group>"; };
+		0884919323F3F48800FF3FAF /* TestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponse.swift; sourceTree = "<group>"; };
+		0884919523F3F4DD00FF3FAF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		0884919723F3F7B100FF3FAF /* TestResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestResponseData.swift; sourceTree = "<group>"; };
+		0884919923F3FA0C00FF3FAF /* TestDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataTask.swift; sourceTree = "<group>"; };
+		0884919E23F3FB5300FF3FAF /* TestNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkSession.swift; sourceTree = "<group>"; };
+		088491A123F402B500FF3FAF /* TestDataTasksHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataTasksHolder.swift; sourceTree = "<group>"; };
+		088491A423F403CB00FF3FAF /* TestURLTaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestURLTaskProcessor.swift; sourceTree = "<group>"; };
+		088491E123F4086700FF3FAF /* TestNetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNetworkingManager.swift; sourceTree = "<group>"; };
+		088491E323F40E4C00FF3FAF /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
+		088491E623F40E9C00FF3FAF /* ImageResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponseTests.swift; sourceTree = "<group>"; };
+		088491E823F40EE200FF3FAF /* TestImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImage.swift; sourceTree = "<group>"; };
+		088491EC23F4127300FF3FAF /* DataTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTaskTests.swift; sourceTree = "<group>"; };
+		088491EE23F412EB00FF3FAF /* TestURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestURL.swift; sourceTree = "<group>"; };
+		088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTasksHolderTests.swift; sourceTree = "<group>"; };
 		08967C8423F2804700D516F5 /* DataTasksHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTasksHolder.swift; sourceTree = "<group>"; };
 		08967C8623F2864D00D516F5 /* URLTaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTaskProcessor.swift; sourceTree = "<group>"; };
 		08DF8EC623F27D7A00E5146F /* DataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTask.swift; sourceTree = "<group>"; };
@@ -152,8 +190,9 @@
 		0868427A23F278D600AB9730 /* RedditNetworkingTests */ = {
 			isa = PBXGroup;
 			children = (
-				0868427B23F278D600AB9730 /* RedditNetworkingTests.swift */,
-				0868427D23F278D600AB9730 /* Info.plist */,
+				0884919023F3EEF700FF3FAF /* Stubs */,
+				0884918E23F3EECF00FF3FAF /* Tests */,
+				0884918F23F3EEDD00FF3FAF /* Resources */,
 			);
 			path = RedditNetworkingTests;
 			sourceTree = "<group>";
@@ -181,20 +220,158 @@
 				086842D623F27A3A00AB9730 /* HTTPResponse.swift */,
 				086842D823F27A5500AB9730 /* NetworkingError.swift */,
 				0868429623F2790900AB9730 /* URLComponents+Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0884915D23F3C9C200FF3FAF /* DataTasksHolder */ = {
+			isa = PBXGroup;
+			children = (
+				08967C8423F2804700D516F5 /* DataTasksHolder.swift */,
+				0884915E23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift */,
+			);
+			path = DataTasksHolder;
+			sourceTree = "<group>";
+		};
+		0884916723F3CE5B00FF3FAF /* NetworkSession */ = {
+			isa = PBXGroup;
+			children = (
+				0884916123F3CA4200FF3FAF /* NetworkSessionProtocol.swift */,
+				0884916823F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift */,
+			);
+			path = NetworkSession;
+			sourceTree = "<group>";
+		};
+		0884916A23F3D2EC00FF3FAF /* RequestResponse */ = {
+			isa = PBXGroup;
+			children = (
 				0868429223F278F800AB9730 /* RequestProtocol.swift */,
 				0868429023F278F800AB9730 /* ResponseProtocol.swift */,
 				0808A4AD23F2F72A008AA441 /* ImageResponse.swift */,
+				08DF8EC623F27D7A00E5146F /* DataTask.swift */,
+			);
+			path = RequestResponse;
+			sourceTree = "<group>";
+		};
+		0884917B23F3E31500FF3FAF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				088491F023F4148A00FF3FAF /* DataTasksHolder */,
+				088491E523F40E8300FF3FAF /* RequestResponse */,
+				0884917C23F3E32F00FF3FAF /* Utilities */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		0884917C23F3E32F00FF3FAF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0868427B23F278D600AB9730 /* HTTPResponseTests.swift */,
+				0884918C23F3ED9800FF3FAF /* URLComponents+ExtensionsTests.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		0884918E23F3EECF00FF3FAF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0884917B23F3E31500FF3FAF /* Sources */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		0884918F23F3EEDD00FF3FAF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				088491E323F40E4C00FF3FAF /* testImage.png */,
+				0868427D23F278D600AB9730 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0884919023F3EEF700FF3FAF /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				088491EE23F412EB00FF3FAF /* TestURL.swift */,
+				088491E823F40EE200FF3FAF /* TestImage.swift */,
+				0884919523F3F4DD00FF3FAF /* TestError.swift */,
+				088491E023F4085800FF3FAF /* NetworkingManager */,
+				088491A323F403B800FF3FAF /* URLTaskProcessor */,
+				0884919C23F3FB1E00FF3FAF /* DataTasksHolder */,
+				0884919D23F3FB4000FF3FAF /* NetworkSession */,
+				0884919B23F3FAE900FF3FAF /* RequestResponse */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		0884919B23F3FAE900FF3FAF /* RequestResponse */ = {
+			isa = PBXGroup;
+			children = (
+				0884919123F3EF1500FF3FAF /* TestRequest.swift */,
+				0884919323F3F48800FF3FAF /* TestResponse.swift */,
+				0884919723F3F7B100FF3FAF /* TestResponseData.swift */,
+				0884919923F3FA0C00FF3FAF /* TestDataTask.swift */,
+			);
+			path = RequestResponse;
+			sourceTree = "<group>";
+		};
+		0884919C23F3FB1E00FF3FAF /* DataTasksHolder */ = {
+			isa = PBXGroup;
+			children = (
+				088491A123F402B500FF3FAF /* TestDataTasksHolder.swift */,
+			);
+			path = DataTasksHolder;
+			sourceTree = "<group>";
+		};
+		0884919D23F3FB4000FF3FAF /* NetworkSession */ = {
+			isa = PBXGroup;
+			children = (
+				0884919E23F3FB5300FF3FAF /* TestNetworkSession.swift */,
+			);
+			path = NetworkSession;
+			sourceTree = "<group>";
+		};
+		088491A323F403B800FF3FAF /* URLTaskProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				088491A423F403CB00FF3FAF /* TestURLTaskProcessor.swift */,
+			);
+			path = URLTaskProcessor;
+			sourceTree = "<group>";
+		};
+		088491E023F4085800FF3FAF /* NetworkingManager */ = {
+			isa = PBXGroup;
+			children = (
+				088491E123F4086700FF3FAF /* TestNetworkingManager.swift */,
+			);
+			path = NetworkingManager;
+			sourceTree = "<group>";
+		};
+		088491E523F40E8300FF3FAF /* RequestResponse */ = {
+			isa = PBXGroup;
+			children = (
+				088491E623F40E9C00FF3FAF /* ImageResponseTests.swift */,
+				088491EC23F4127300FF3FAF /* DataTaskTests.swift */,
+			);
+			path = RequestResponse;
+			sourceTree = "<group>";
+		};
+		088491F023F4148A00FF3FAF /* DataTasksHolder */ = {
+			isa = PBXGroup;
+			children = (
+				088491F123F4150E00FF3FAF /* DataTasksHolderTests.swift */,
+			);
+			path = DataTasksHolder;
 			sourceTree = "<group>";
 		};
 		08DF8EC523F27D6900E5146F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0808A4F023F2FE16008AA441 /* URLTaskProcessor */,
 				0808A4EF23F2FE03008AA441 /* NetworkingManager */,
-				08967C8423F2804700D516F5 /* DataTasksHolder.swift */,
-				08DF8EC623F27D7A00E5146F /* DataTask.swift */,
+				0808A4F023F2FE16008AA441 /* URLTaskProcessor */,
+				0884915D23F3C9C200FF3FAF /* DataTasksHolder */,
+				0884916723F3CE5B00FF3FAF /* NetworkSession */,
+				0884916A23F3D2EC00FF3FAF /* RequestResponse */,
 				086842DC23F27AC500AB9730 /* Utilities */,
 			);
 			path = Sources;
@@ -220,6 +397,7 @@
 			buildPhases = (
 				0868426823F278D600AB9730 /* Headers */,
 				0868426923F278D600AB9730 /* Sources */,
+				0884916523F3CCE800FF3FAF /* Swift Lint */,
 				0868426A23F278D600AB9730 /* Frameworks */,
 				0868426B23F278D600AB9730 /* Resources */,
 				086842CF23F279C500AB9730 /* Embed Frameworks */,
@@ -300,18 +478,42 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				088491E423F40E4C00FF3FAF /* testImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0884916523F3CCE800FF3FAF /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0868426923F278D600AB9730 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0884916923F3CE7600FF3FAF /* NetworkSessionServiceLocator.swift in Sources */,
 				086842D723F27A3A00AB9730 /* HTTPResponse.swift in Sources */,
 				0868429523F278F900AB9730 /* ResponseProtocol.swift in Sources */,
+				0884916223F3CA4200FF3FAF /* NetworkSessionProtocol.swift in Sources */,
 				08DF8EC723F27D7A00E5146F /* DataTask.swift in Sources */,
 				0868429723F2790900AB9730 /* URLComponents+Extensions.swift in Sources */,
 				0808A4EE23F2FBCE008AA441 /* NetworkingManagerServiceLocator.swift in Sources */,
@@ -319,6 +521,7 @@
 				086842DB23F27A8A00AB9730 /* NetworkingManager.swift in Sources */,
 				0868429323F278F800AB9730 /* RequestProtocol.swift in Sources */,
 				08967C8723F2864D00D516F5 /* URLTaskProcessor.swift in Sources */,
+				0884915F23F3C9E500FF3FAF /* DataTasksHolderServiceLocator.swift in Sources */,
 				08967C8523F2804700D516F5 /* DataTasksHolder.swift in Sources */,
 				0808A4AC23F2F265008AA441 /* Reachability.swift in Sources */,
 				086842D923F27A5500AB9730 /* NetworkingError.swift in Sources */,
@@ -330,7 +533,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0868427C23F278D600AB9730 /* RedditNetworkingTests.swift in Sources */,
+				088491E723F40E9C00FF3FAF /* ImageResponseTests.swift in Sources */,
+				0884919823F3F7B100FF3FAF /* TestResponseData.swift in Sources */,
+				088491EF23F412EB00FF3FAF /* TestURL.swift in Sources */,
+				0884919F23F3FB5300FF3FAF /* TestNetworkSession.swift in Sources */,
+				0884919A23F3FA0C00FF3FAF /* TestDataTask.swift in Sources */,
+				088491A523F403CB00FF3FAF /* TestURLTaskProcessor.swift in Sources */,
+				088491F223F4150E00FF3FAF /* DataTasksHolderTests.swift in Sources */,
+				088491A223F402B500FF3FAF /* TestDataTasksHolder.swift in Sources */,
+				088491ED23F4127300FF3FAF /* DataTaskTests.swift in Sources */,
+				088491E923F40EE200FF3FAF /* TestImage.swift in Sources */,
+				0884919423F3F48800FF3FAF /* TestResponse.swift in Sources */,
+				0884919623F3F4DD00FF3FAF /* TestError.swift in Sources */,
+				0868427C23F278D600AB9730 /* HTTPResponseTests.swift in Sources */,
+				0884919223F3EF1500FF3FAF /* TestRequest.swift in Sources */,
+				088491E223F4086700FF3FAF /* TestNetworkingManager.swift in Sources */,
+				0884918D23F3ED9800FF3FAF /* URLComponents+ExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,7 +734,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RedditNetworkingTests/Info.plist;
+				INFOPLIST_FILE = RedditNetworkingTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +752,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RedditNetworkingTests/Info.plist;
+				INFOPLIST_FILE = RedditNetworkingTests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

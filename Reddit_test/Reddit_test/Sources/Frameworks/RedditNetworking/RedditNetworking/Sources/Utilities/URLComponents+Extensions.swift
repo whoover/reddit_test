@@ -14,7 +14,7 @@ public extension URLComponents {
                           _ path: String,
                           _ queryItems: [String: String?] = [:]) -> URLComponents {
     var components = URLComponents()
-    components.scheme = "https"
+    components.scheme = schema
     components.host = host.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
     components.path = path.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
     var queryItemsToAdd: [URLQueryItem] = []

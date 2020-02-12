@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol URLTaskProcessorServiceLocator {
-    static func taskProcessor(session: URLSession, syncQueue: DispatchQueue) -> URLTaskProcessorProtocol
+public protocol URLTaskProcessorServiceLocator {
+    static func taskProcessor(session: NetworkSessionProtocol, syncQueue: DispatchQueue) -> URLTaskProcessorProtocol
 }
 
 extension URLTaskProcessorServiceLocator {
-    static func taskProcessor(session: URLSession, syncQueue: DispatchQueue) -> URLTaskProcessorProtocol {
+    public static func taskProcessor(session: NetworkSessionProtocol, syncQueue: DispatchQueue) -> URLTaskProcessorProtocol {
         return URLTaskProcessor(session: session, syncQueue: syncQueue)
     }
 }
