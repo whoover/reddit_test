@@ -34,6 +34,7 @@
 		2C15A73A23F48E7D004C34CA /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A72D23F48E7D004C34CA /* CoordinatorProtocol.swift */; };
 		2C15A73B23F48E7D004C34CA /* AssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A72E23F48E7D004C34CA /* AssemblyProtocol.swift */; };
 		2C15A73D23F48EF0004C34CA /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A73C23F48EF0004C34CA /* DeepLinkOption.swift */; };
+		2C15A75323F4A066004C34CA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A75223F4A066004C34CA /* UIColor+Hex.swift */; };
 		2C333C6C23F4883700538EED /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C6B23F4883700538EED /* UIImage+Extensions.swift */; };
 		2C333C6E23F4888F00538EED /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C6D23F4888F00538EED /* UIStoryboard+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		2C15A72D23F48E7D004C34CA /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		2C15A72E23F48E7D004C34CA /* AssemblyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyProtocol.swift; sourceTree = "<group>"; };
 		2C15A73C23F48EF0004C34CA /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
+		2C15A75223F4A066004C34CA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C333C6B23F4883700538EED /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		2C333C6D23F4888F00538EED /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 				0808A49423F2F12C008AA441 /* UIView+Nib.swift */,
 				2C333C6B23F4883700538EED /* UIImage+Extensions.swift */,
 				2C333C6D23F4888F00538EED /* UIStoryboard+Extensions.swift */,
+				2C15A75223F4A066004C34CA /* UIColor+Hex.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				2C15A73023F48E7D004C34CA /* BaseModuleRouter.swift in Sources */,
 				2C333C6C23F4883700538EED /* UIImage+Extensions.swift in Sources */,
 				2C15A73923F48E7D004C34CA /* RouterProtocol.swift in Sources */,
+				2C15A75323F4A066004C34CA /* UIColor+Hex.swift in Sources */,
 				0808A49623F2F12C008AA441 /* UICollectionView+AnyCollectionProtocol.swift in Sources */,
 				2C15A73823F48E7D004C34CA /* ContainersHolderProtocol.swift in Sources */,
 				2C15A73423F48E7D004C34CA /* BaseCompositeModuleRouter.swift in Sources */,

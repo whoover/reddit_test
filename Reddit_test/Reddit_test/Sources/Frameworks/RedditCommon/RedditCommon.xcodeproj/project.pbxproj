@@ -12,6 +12,7 @@
 		086842C823F2794F00AB9730 /* BlockObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086842C723F2794F00AB9730 /* BlockObject.swift */; };
 		088491F923F42A0D00FF3FAF /* ResumableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */; };
 		2C15A73F23F48F75004C34CA /* WeakContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A73E23F48F75004C34CA /* WeakContainer.swift */; };
+		2C15A75523F4A1AA004C34CA /* NSObject+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A75423F4A1AA004C34CA /* NSObject+Name.swift */; };
 		2C333C6823F4871600538EED /* Calendar+TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C6723F4871600538EED /* Calendar+TimeAgo.swift */; };
 		2C333C6A23F487A800538EED /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C6923F487A800538EED /* Int+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		086842C723F2794F00AB9730 /* BlockObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockObject.swift; sourceTree = "<group>"; };
 		088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumableProtocol.swift; sourceTree = "<group>"; };
 		2C15A73E23F48F75004C34CA /* WeakContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakContainer.swift; sourceTree = "<group>"; };
+		2C15A75423F4A1AA004C34CA /* NSObject+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Name.swift"; sourceTree = "<group>"; };
 		2C333C6723F4871600538EED /* Calendar+TimeAgo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+TimeAgo.swift"; sourceTree = "<group>"; };
 		2C333C6923F487A800538EED /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 				086842C723F2794F00AB9730 /* BlockObject.swift */,
 				086842C523F2794500AB9730 /* CancellableProtocol.swift */,
 				088491F823F42A0D00FF3FAF /* ResumableProtocol.swift */,
+				2C15A75423F4A1AA004C34CA /* NSObject+Name.swift */,
 				086842CA23F2798900AB9730 /* Resources */,
 			);
 			path = RedditCommon;
@@ -184,6 +187,7 @@
 				086842C823F2794F00AB9730 /* BlockObject.swift in Sources */,
 				088491F923F42A0D00FF3FAF /* ResumableProtocol.swift in Sources */,
 				086842C623F2794500AB9730 /* CancellableProtocol.swift in Sources */,
+				2C15A75523F4A1AA004C34CA /* NSObject+Name.swift in Sources */,
 				2C333C6A23F487A800538EED /* Int+Extensions.swift in Sources */,
 				2C15A73F23F48F75004C34CA /* WeakContainer.swift in Sources */,
 			);
