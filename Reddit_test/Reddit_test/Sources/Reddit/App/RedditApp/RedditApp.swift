@@ -36,6 +36,7 @@ final class RedditApp: AppProtocol {
         // Configure deep link
         let notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
         let deepLink = DeepLinkOption.build(with: notification)
+        handleLaunch()
         appCoordinator.start(with: deepLink)
         
         return true
@@ -56,5 +57,10 @@ final class RedditApp: AppProtocol {
         appCoordinator.start(with: deepLink)
         
         return true
+    }
+    
+    private func handleLaunch() {
+      let launchHandler = CommandLineLaunchHandler()
+      launchHandler.handleLaunch()
     }
 }
