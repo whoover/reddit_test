@@ -13,6 +13,6 @@ class UITestCase: XCTestCase {
         super.setUp()
         continueAfterFailure = false
         RedditApp.launch()
-        RedditApp.shared.wait(forInterval:.medium)
+        RedditApp.shared.wait(forInterval: .medium)
     }
 }

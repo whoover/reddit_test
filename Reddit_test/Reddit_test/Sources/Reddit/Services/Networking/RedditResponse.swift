@@ -37,7 +37,7 @@ struct RedditTopicData: Codable {
     let num_comments: Int
     let score: Int
     let name: String
-    let preview: RedditTopicPreview
+    let preview: RedditTopicPreview?
 }
 
 struct RedditTopicPreview: Codable {

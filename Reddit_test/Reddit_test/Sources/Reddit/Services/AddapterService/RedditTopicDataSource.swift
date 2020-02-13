@@ -17,9 +17,9 @@ class RedditTopicSection: TableViewSectionModelProtocol {
 }
 
 class RedditTopicCellModel: CellModelProtocol {
-    static var cellClass: CellProtocol.Type {
-        RedditTopicCell.self
-    }
+    static var cellClass: CellProtocol.Type { RedditTopicCell.self }
+    
+    static var cellHeight: CGFloat { UITableView.automaticDimension }
     
     let model: RedditTopicModel
     

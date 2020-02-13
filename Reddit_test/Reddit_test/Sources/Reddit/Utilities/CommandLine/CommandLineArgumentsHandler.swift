@@ -22,6 +22,6 @@ protocol CommandLineArgumentsHandler {
     }
   
     static func launched(with argument: CommandLineArgument) -> Bool {
-        return CommandLine.arguments.contains(argument.rawValue)
+        CommandLine.arguments.contains(argument.rawValue)
     }
 }

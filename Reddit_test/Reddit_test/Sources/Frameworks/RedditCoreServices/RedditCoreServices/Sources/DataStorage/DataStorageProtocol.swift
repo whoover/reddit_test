@@ -10,7 +10,7 @@ import UIKit
 
 public protocol DataStorageProtocol {
     func save<T: Codable>(items: [T])
-    func save(after: String)
+    func save(after: String?)
     
     func getItems<T: Codable>() -> [T]
     func getAfter() -> String?

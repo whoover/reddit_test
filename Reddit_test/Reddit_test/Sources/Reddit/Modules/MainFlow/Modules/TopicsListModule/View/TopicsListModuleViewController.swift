@@ -18,12 +18,46 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSubviews()
+        setupRefreshControl()
+        
         output?.viewDidLoad()
+        tableViewController.dataSourceModel = output?.dataSource
+    }
+    
+    private func setupRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadTopics), for: .valueChanged)
+        tableViewController.tableView.refreshControl = refreshControl
+    }
+    
+    @objc private func reloadTopics() {
+        output?.reloadTopics()
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        output?.loadDataFromStorage()
+        super.decodeRestorableState(with: coder)
     }
 }
 
 // MARK: - Configure
 extension TopicsListModuleViewController: TopicsListModuleViewInput {
+    func showLoadingIndicator() {
+        let activity = UIActivityIndicatorView(style: .large)
+//        activity.color = CommonAppearance.titleTextColor
+        activity.startAnimating()
+        tableViewController.tableView.backgroundView = activity
+    }
+    
+    func finishedLoading() {
+        tableViewController.tableView.refreshControl?.endRefreshing()
+        tableViewController.tableView.backgroundView = nil
+    }
+    
+    func reloadData() {
+        tableViewController.reloadData()
+    }
+    
     private func setupSubviews() {
         tableViewController = BaseTableViewController<RedditTopicDataSource>(cellsDelegate: self,
                                                                              cellsToRegister: [RedditTopicCell.self])

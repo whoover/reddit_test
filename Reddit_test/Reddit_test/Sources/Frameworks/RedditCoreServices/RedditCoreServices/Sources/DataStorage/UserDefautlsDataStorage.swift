@@ -24,7 +24,7 @@ class UserDefautlsDataStorage: DataStorageProtocol {
         userDefaults.synchronize()
     }
     
-    func save(after: String) {
+    func save(after: String?) {
         userDefaults.setValue(after, forKey: type(of: self).afterStorageKey)
         userDefaults.synchronize()
     }

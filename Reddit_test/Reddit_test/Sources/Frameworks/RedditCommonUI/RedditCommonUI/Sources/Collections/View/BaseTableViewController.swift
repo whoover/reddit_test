@@ -10,7 +10,7 @@ import UIKit
 
 open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private(set) weak var tableView: UITableView!
+    @IBOutlet private(set) public weak var tableView: UITableView!
     public var dataSourceModel: DATASOURCE? {
         didSet {
             cellsToRegister.append(contentsOf: (dataSourceModel?.uniqueCellClasses() ?? [])) 
@@ -34,6 +34,7 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.registerCellClasses(cellsToRegister)
     }
     

@@ -9,11 +9,15 @@
 import UIKit
 
 public protocol NetworkingManagerServiceLocator {
-    func networkingManager() -> NetworkingManagerProtocol
+    func networkingManager(syncQueue: DispatchQueue) -> NetworkingManagerProtocol
 }
 
 extension NetworkingManagerServiceLocator {
+    public func networkingManager(syncQueue: DispatchQueue) -> NetworkingManagerProtocol {
+        NetworkingManager(syncQueue: syncQueue)
+    }
+    
     public func networkingManager() -> NetworkingManagerProtocol {
-        NetworkingManager()
+        networkingManager(syncQueue: .main)
     }
 }

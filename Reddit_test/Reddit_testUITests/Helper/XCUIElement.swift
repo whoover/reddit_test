@@ -11,7 +11,7 @@ import Foundation
 import XCTest
 
 extension XCUIElement {
-    var app: RedditApp { return RedditApp.shared }
+    var app: RedditApp { RedditApp.shared }
 
     @objc var isInScrollableArea: Bool {
         !frame.isEmpty && app.scrollableFrame().contains(frame.center)

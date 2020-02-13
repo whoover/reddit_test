@@ -22,7 +22,7 @@ public final class ImageDownloadService: ImageDownloadServiceProtocol {
     private let imageCache: ImageCacheProtocol
     
     init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
-        self.networkingManager = serviceLocator.networkingManager()
+        self.networkingManager = serviceLocator.networkingManager(syncQueue: .main)
         self.imageCache = serviceLocator.imageCache()
     }
     

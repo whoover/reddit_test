@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TopicsListModuleCoordinatorAssembly: AssemblyProtocol {
+final class TopicsListModuleCoordinatorAssembly: AssemblyProtocol {
     func build(router: CoordinatorRouterProtocol,
                routingHandler: TopicsListModuleCoordinatorExitRoutingProtocol) -> CoordinatorProtocol {
         let coordinator = TopicsListModuleCoordinator(router: router)

@@ -9,11 +9,11 @@
 import Foundation
 
 protocol AddapterServiceProtocol {
-    func addapt(_ response: RedditResponse) -> RedditTopicDataSource
+    func addapt(_ response: RedditResponse) -> [RedditTopicModel]
 }
 
 class AddapterService: AddapterServiceProtocol {
-    func addapt(_ response: RedditResponse) -> RedditTopicDataSource {
+    func addapt(_ response: RedditResponse) -> [RedditTopicModel] {
         let topics = response.data.children.map {
             RedditTopicModel(title: $0.data.title,
                              author: $0.data.author,
@@ -22,15 +22,9 @@ class AddapterService: AddapterServiceProtocol {
                              score: $0.data.score,
                              name: $0.data.name,
                              thumbnailURL: $0.data.thumbnail,
-                             previewURL: $0.data.preview.images.first?.source.url)
+                             previewURL: $0.data.preview?.images.first?.source.url)
         }
         
-        let section = RedditTopicSection()
-        section.cells = topics.map { RedditTopicCellModel(model: $0) }
-        
-        let dataSource = RedditTopicDataSource()
-        dataSource.sections = [section]
-        
-        return dataSource
+        return topics
     }
 }

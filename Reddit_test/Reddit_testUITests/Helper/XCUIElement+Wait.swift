@@ -38,6 +38,6 @@ extension XCUIElement {
 
     @discardableResult
     func waitUntilIsInScrollableArea(timeout: TimeoutInterval = .short, failOnNotCompleted: Bool = true, file: StaticString = #file, line: UInt = #line) -> XCUIElement? {
-        return waitUntil(key: "isInScrollableArea", timeout: timeout, failOnNotCompleted: failOnNotCompleted, file: file, line: line)
+        waitUntil(key: "isInScrollableArea", timeout: timeout, failOnNotCompleted: failOnNotCompleted, file: file, line: line)
     }
 }

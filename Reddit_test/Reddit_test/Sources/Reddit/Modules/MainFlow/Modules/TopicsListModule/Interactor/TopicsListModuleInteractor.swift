@@ -7,12 +7,63 @@
 //
 
 import Foundation
+import RedditNetworking
+import RedditCoreServices
 
-class TopicsListModuleInteractor {
-    weak var output: TopicsListModuleInteractorOutput?
+final class TopicsListModuleInteractor {
+    typealias ServiceLocator = NetworkingManagerServiceLocator & DataStorageServiceLocator & AddapterServiceLocator
+    final class ServiceLocatorImpl: ServiceLocator {}
+        
+    private let networkingManager: NetworkingManagerProtocol
+    private let dataStorage: DataStorageProtocol
+    private let dataAddapter: AddapterServiceProtocol
+    private let backgroundQueue = DispatchQueue(label: "com.reddittest.TopicsListModuleInteractor.backgroundQueue")
+    
+    init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
+        self.networkingManager = serviceLocator.networkingManager(syncQueue: backgroundQueue)
+        self.dataStorage = serviceLocator.dataStorage()
+        self.dataAddapter = serviceLocator.addapter()
+    }
 }
 
 // MARK: Private
 extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
+    func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
+        progressBlock.execute(.loading)
+        let successBlock = BlockObject<RedditResponse, Void> { [weak self] response in
+            guard let self = self else {
+                return
+            }
+            let models = self.dataAddapter.addapt(response)
+            
+            DispatchQueue.main.async {
+                progressBlock.execute(.dataLoaded(models))
+            }
+            
+            var storedItems: [RedditTopicModel] = self.dataStorage.getItems()
+            storedItems.append(contentsOf: models)
+            self.dataStorage.save(items: storedItems)
+            self.dataStorage.save(after: response.data.after)
+        }
+        
+        let errorBlock = BlockObject<Error, Void> { error in
+            DispatchQueue.main.async {
+                progressBlock.execute(.error(error))
+            }
+        }
+        
+        _ = networkingManager.sendGetRequest(request: RedditRequest.top(dataStorage.getAfter()),
+                                             successBlock: successBlock,
+                                             errorBlock: errorBlock)
+    }
     
+    func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
+        dataStorage.cleanupData()
+        loadTopics(progressBlock: progressBlock)
+    }
+    
+    func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>) {
+        let items: [RedditTopicModel] = dataStorage.getItems()
+        completionBlock.execute(items)
+    }
 }

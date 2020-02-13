@@ -21,21 +21,26 @@ protocol TopicsListModuleOutput {
 // View Input
 protocol TopicsListModuleViewInput: class {
     func set(title: String)
+    
+    func showLoadingIndicator()
+    func reloadData()
+    func finishedLoading()
 }
 
 // View Output
 protocol TopicsListModuleViewOutput: class {
+    var dataSource: RedditTopicDataSource { get }
+    
     func viewDidLoad()
+    func reloadTopics()
+    func loadDataFromStorage()
 }
 
 // Interactor Input
 protocol TopicsListModuleInteractorInput {
-    
-}
-
-// Interactor Output
-protocol TopicsListModuleInteractorOutput: class {
-    
+    func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>)
+    func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
+    func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
 }
 
 // Router
