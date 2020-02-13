@@ -10,7 +10,7 @@ import UIKit
 
 open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private weak var containerView: UIView!
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private(set) weak var tableView: UITableView!
     public var dataSourceModel: DATASOURCE? {
         didSet {
             cellsToRegister.append(contentsOf: (dataSourceModel?.uniqueCellClasses() ?? [])) 
@@ -22,7 +22,7 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
     public init(cellsDelegate: AnyObject? = nil, cellsToRegister: [CellProtocol.Type] = []) {
         self.cellsDelegate = cellsDelegate
         self.cellsToRegister = cellsToRegister
-        super.init(nibName: String(describing: type(of: self)), bundle: Bundle(for: type(of: self)))
+        super.init(nibName: "BaseTableViewController", bundle: Bundle(for: type(of: self)))
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -57,23 +57,6 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
         dataSourceModel?.sections.count ?? 0
     }
 
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        guard let section = dataSourceModel?.sections[section] else {
-            return 0
-        }
-        return (section as? IndividualHeightProtocol)?.individualHeight ?? type(of: section).headerHeight
-    }
-
-    open func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        (dataSourceModel?.sections[section] as? CustomHeaderSectionModelProtocol)?.header as? String
-    }
-
-    open func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = (dataSourceModel?.sections[section] as? CustomHeaderSectionModelProtocol)?.header as? UIView
-        headerView?.accessibilityIdentifier = "base-table_header-\(section)_view"
-        return headerView
-    }
-
     open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         dataSourceModel?.sections[section].cells.count ?? 0
     }
@@ -99,28 +82,9 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
         return cell
     }
 
-    open func tableView(_ tableView: UITableView,
-                        editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        guard let dataSourceModel = dataSourceModel else {
-            return .none
-        }
-        return type(of: dataSourceModel).editingStyle
-    }
-
-    open func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        guard let dataSourceModel = dataSourceModel else {
-            return false
-        }
-        return type(of: dataSourceModel).shouldIndentWhileEditing
-    }
-
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cellModel = dataSourceModel?.sections[indexPath.section].cells[indexPath.row]
         (cellModel as? ActionCellProtocol)?.actionHandler?()
     }
 }
-
-//extension BaseTableViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//}

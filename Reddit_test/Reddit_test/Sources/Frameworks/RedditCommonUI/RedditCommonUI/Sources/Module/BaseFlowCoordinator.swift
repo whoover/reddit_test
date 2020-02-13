@@ -8,6 +8,6 @@
 
 import UIKit
 
-class BaseFlowCoordinator: BaseCoordinator {
+open class BaseFlowCoordinator: BaseCoordinator {
 
 }

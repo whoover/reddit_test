@@ -8,12 +8,16 @@
 
 import UIKit
 
-struct Module<Input, Output>: PresentableProtocol {
-    var view: UIViewController
-    var input: Input
-    var output: Output?
+public struct Module<Input, Output>: PresentableProtocol {
+    public var view: UIViewController
+    public var input: Input
+    public var output: Output?
     
-    func toPresent() -> UIViewController {
-        view
+    public init(view: UIViewController, input: Input, output: Output?) {
+        self.input = input
+        self.output = output
+        self.view = view
     }
+    
+    public func toPresent() -> UIViewController { view }
 }

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Full Screen Module View Controller-->
+        <scene sceneID="u9B-x9-GCH">
+            <objects>
+                <viewController storyboardIdentifier="ImageFullScreenModuleViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GjL-Nh-N3Z" customClass="ImageFullScreenModuleViewController" customModule="Reddit_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vH8-dT-9S3"/>
+                        <viewControllerLayoutGuide type="bottom" id="DyR-ID-jHT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q7T-xv-cQb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdK-8X-nfE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DrL-si-kTR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LZD-of-iYT">
+                                            <rect key="frame" x="8" y="210" width="398" height="398"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LZD-of-iYT" secondAttribute="height" multiplier="1:1" priority="999" id="CNn-eb-W3H"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CNn-eb-W3H"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular">
+                                                <mask key="constraints">
+                                                    <include reference="CNn-eb-W3H"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dxP-3L-YiP">
+                                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
+                                        </activityIndicatorView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD0-59-jTu">
+                                            <rect key="frame" x="0.0" y="608" width="207" height="210"/>
+                                            <state key="normal" image="Save">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onSaveButtonDidTap:" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="sOo-Wx-AFy"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrM-OW-Zkz">
+                                            <rect key="frame" x="207" y="608" width="207" height="210"/>
+                                            <state key="normal" image="Close">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onCloseButtonDidTap:" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="lMW-9u-ED4"/>
+                                            </connections>
+                                        </button>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="YoU-7d-5OL">
+                                            <rect key="frame" x="93.5" y="703" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="LZD-of-iYT" firstAttribute="leading" secondItem="DrL-si-kTR" secondAttribute="leading" id="09L-Ec-Wr3"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="top" secondItem="DrL-si-kTR" secondAttribute="top" id="1OK-JK-t0f"/>
+                                        <constraint firstItem="LZD-of-iYT" firstAttribute="top" secondItem="DrL-si-kTR" secondAttribute="top" id="58u-7g-fqR"/>
+                                        <constraint firstItem="LZD-of-iYT" firstAttribute="centerY" secondItem="DrL-si-kTR" secondAttribute="centerY" id="5oE-2K-l6Q"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="height" secondItem="DrL-si-kTR" secondAttribute="height" multiplier="0.5" id="6H7-6Y-CKv"/>
+                                        <constraint firstItem="dxP-3L-YiP" firstAttribute="centerY" secondItem="LZD-of-iYT" secondAttribute="centerY" id="7PZ-Qn-ZXL"/>
+                                        <constraint firstItem="LZD-of-iYT" firstAttribute="leading" secondItem="DrL-si-kTR" secondAttribute="leading" id="Azi-hg-nKX">
+                                            <variation key="heightClass=regular" constant="8"/>
+                                        </constraint>
+                                        <constraint firstItem="dxP-3L-YiP" firstAttribute="centerX" secondItem="LZD-of-iYT" secondAttribute="centerX" id="Df9-C4-0Xb"/>
+                                        <constraint firstAttribute="trailing" secondItem="QrM-OW-Zkz" secondAttribute="trailing" id="GNk-tF-9hR"/>
+                                        <constraint firstAttribute="bottom" secondItem="QrM-OW-Zkz" secondAttribute="bottom" id="MoH-cm-oUO"/>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="width" secondItem="DrL-si-kTR" secondAttribute="width" multiplier="0.5" id="PmW-f9-mk8"/>
+                                        <constraint firstAttribute="trailing" secondItem="LZD-of-iYT" secondAttribute="trailing" constant="8" id="QGd-87-yGe"/>
+                                        <constraint firstItem="LZD-of-iYT" firstAttribute="width" secondItem="DrL-si-kTR" secondAttribute="width" multiplier="0.5" id="SKO-0a-LOe"/>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="top" secondItem="rD0-59-jTu" secondAttribute="bottom" id="YSr-kc-vVd"/>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="leading" secondItem="LZD-of-iYT" secondAttribute="trailing" id="byj-ep-uWL"/>
+                                        <constraint firstAttribute="bottom" secondItem="rD0-59-jTu" secondAttribute="bottom" constant="0.5" id="d3R-ai-hPm">
+                                            <variation key="heightClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="YoU-7d-5OL" firstAttribute="centerX" secondItem="rD0-59-jTu" secondAttribute="centerX" id="dGk-g8-dOw"/>
+                                        <constraint firstAttribute="trailing" secondItem="rD0-59-jTu" secondAttribute="trailing" id="fhu-8Z-aT0"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="width" secondItem="DrL-si-kTR" secondAttribute="width" multiplier="0.5" id="gQE-X0-uGq"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="top" secondItem="LZD-of-iYT" secondAttribute="top" id="hMn-SZ-9Tz"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="leading" secondItem="DrL-si-kTR" secondAttribute="leading" constant="8" id="hw0-jf-O3P">
+                                            <variation key="heightClass=regular" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="top" secondItem="QrM-OW-Zkz" secondAttribute="bottom" constant="-0.5" id="itB-bR-YP6">
+                                            <variation key="heightClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="top" secondItem="LZD-of-iYT" secondAttribute="bottom" id="ls7-Jy-5Rx"/>
+                                        <constraint firstAttribute="bottom" secondItem="rD0-59-jTu" secondAttribute="bottom" constant="5.5" id="r3I-qy-U8t">
+                                            <variation key="widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="top" secondItem="DrL-si-kTR" secondAttribute="top" id="sDT-2B-y4Z"/>
+                                        <constraint firstItem="YoU-7d-5OL" firstAttribute="centerY" secondItem="rD0-59-jTu" secondAttribute="centerY" id="uCS-dA-E1d"/>
+                                        <constraint firstItem="rD0-59-jTu" firstAttribute="top" secondItem="LZD-of-iYT" secondAttribute="bottom" id="vhn-Ba-nb5"/>
+                                        <constraint firstItem="QrM-OW-Zkz" firstAttribute="height" secondItem="DrL-si-kTR" secondAttribute="height" multiplier="0.5" id="xaO-FE-D7n"/>
+                                        <constraint firstAttribute="bottom" secondItem="LZD-of-iYT" secondAttribute="bottom" id="zYh-S0-Pkk"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="QGd-87-yGe"/>
+                                            <exclude reference="5oE-2K-l6Q"/>
+                                            <exclude reference="Azi-hg-nKX"/>
+                                            <exclude reference="hw0-jf-O3P"/>
+                                            <exclude reference="itB-bR-YP6"/>
+                                            <exclude reference="hMn-SZ-9Tz"/>
+                                            <exclude reference="d3R-ai-hPm"/>
+                                            <exclude reference="r3I-qy-U8t"/>
+                                            <exclude reference="vhn-Ba-nb5"/>
+                                            <exclude reference="ls7-Jy-5Rx"/>
+                                            <exclude reference="sDT-2B-y4Z"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=compact">
+                                        <mask key="constraints">
+                                            <include reference="itB-bR-YP6"/>
+                                            <include reference="d3R-ai-hPm"/>
+                                            <exclude reference="1OK-JK-t0f"/>
+                                            <exclude reference="YSr-kc-vVd"/>
+                                            <include reference="sDT-2B-y4Z"/>
+                                            <exclude reference="MoH-cm-oUO"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular">
+                                        <mask key="subviews">
+                                            <include reference="YoU-7d-5OL"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="zYh-S0-Pkk"/>
+                                            <include reference="QGd-87-yGe"/>
+                                            <exclude reference="09L-Ec-Wr3"/>
+                                            <include reference="5oE-2K-l6Q"/>
+                                            <exclude reference="58u-7g-fqR"/>
+                                            <exclude reference="SKO-0a-LOe"/>
+                                            <include reference="Azi-hg-nKX"/>
+                                            <exclude reference="fhu-8Z-aT0"/>
+                                            <include reference="hw0-jf-O3P"/>
+                                            <exclude reference="hMn-SZ-9Tz"/>
+                                            <exclude reference="6H7-6Y-CKv"/>
+                                            <exclude reference="1OK-JK-t0f"/>
+                                            <include reference="r3I-qy-U8t"/>
+                                            <include reference="vhn-Ba-nb5"/>
+                                            <include reference="ls7-Jy-5Rx"/>
+                                            <exclude reference="YSr-kc-vVd"/>
+                                            <exclude reference="xaO-FE-D7n"/>
+                                            <exclude reference="byj-ep-uWL"/>
+                                            <include reference="uCS-dA-E1d"/>
+                                            <include reference="dGk-g8-dOw"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gdK-8X-nfE" secondAttribute="trailing" id="9tf-xk-70y"/>
+                            <constraint firstItem="gdK-8X-nfE" firstAttribute="leading" secondItem="Q7T-xv-cQb" secondAttribute="leading" id="bFf-vh-ULj"/>
+                            <constraint firstItem="gdK-8X-nfE" firstAttribute="top" secondItem="Q7T-xv-cQb" secondAttribute="topMargin" id="h1H-r5-Upt"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="gdK-8X-nfE" secondAttribute="bottom" id="onB-IR-OoQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XdL-Gh-hlU"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="dxP-3L-YiP" id="gNP-8f-1L4"/>
+                        <outlet property="closeButton" destination="QrM-OW-Zkz" id="OpI-Zu-Sx7"/>
+                        <outlet property="saveButton" destination="rD0-59-jTu" id="VKr-Ih-3dZ"/>
+                        <outlet property="saveOperationActivityIndicator" destination="YoU-7d-5OL" id="mKa-9D-KrD"/>
+                        <outlet property="sourceImageView" destination="LZD-of-iYT" id="Pps-0p-qdr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uiv-iu-c9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="49" y="-163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Close" width="16" height="16"/>
+        <image name="Save" width="16" height="16"/>
+    </resources>
+</document>

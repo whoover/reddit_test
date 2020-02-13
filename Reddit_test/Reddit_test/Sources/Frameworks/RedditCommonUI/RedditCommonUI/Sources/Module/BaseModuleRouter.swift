@@ -8,20 +8,18 @@
 
 import UIKit
 
-protocol BaseModuleRoutable {
+public protocol BaseModuleRoutable {
     var viewController: ViewControllerProtocol { get }
 }
 
-class BaseModuleRouter: BaseModuleRoutable {
-    let viewController: ViewControllerProtocol
+open class BaseModuleRouter: BaseModuleRoutable {
+    public let viewController: ViewControllerProtocol
     
-    init(viewController: ViewControllerProtocol) {
+    public init(viewController: ViewControllerProtocol) {
         self.viewController = viewController
     }
 }
 
 extension BaseModuleRouter: PresentableProtocol {
-    func toPresent() -> UIViewController {
-        viewController
-    }
+    public func toPresent() -> UIViewController { viewController }
 }

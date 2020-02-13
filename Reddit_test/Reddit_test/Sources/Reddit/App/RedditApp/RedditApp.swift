@@ -6,8 +6,9 @@
 //  Copyright © 2020 Artem Belenkov. All rights reserved.
 //
 
-import UIKit
-import RedditCommonUI
+@_exported import UIKit
+@_exported import RedditCommonUI
+@_exported import RedditCommon
 
 protocol AppProtocol {
     func applicationDidFinishLaunching(_ application: UIApplication,

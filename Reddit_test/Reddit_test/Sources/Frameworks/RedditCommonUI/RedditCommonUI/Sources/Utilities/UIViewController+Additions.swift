@@ -11,12 +11,16 @@ import RedditCommon
 
 public extension UIViewController {
     func addChildController(_ viewController: UIViewController, _ constraintsBlock: (_ view: UIView) -> Void) {
-		viewController.willMove(toParent: self)
-		addChild(viewController)
-		view.addSubview(viewController.view)
-        constraintsBlock(viewController.view)
-		viewController.didMove(toParent: self)
+        addChildController(viewController, view, constraintsBlock)
 	}
+    
+    func addChildController(_ viewController: UIViewController, _ toSubview: UIView, _ constraintsBlock: (_ view: UIView) -> Void) {
+        viewController.willMove(toParent: self)
+        addChild(viewController)
+        toSubview.addSubview(viewController.view)
+        constraintsBlock(viewController.view)
+        viewController.didMove(toParent: self)
+    }
     
     func insert(childViewController: UIViewController, belowSubview subview: UIView) {
         childViewController.willMove(toParent: self)

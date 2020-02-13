@@ -9,13 +9,8 @@
 import UIKit
 import RedditCommonUI
 
-protocol AppCoordinatorExitPoint: ModuleRoutingHandlingProtocol {
-    func simpleModule()
-}
-
-protocol AppCoordinatorProtocol: CoordinatorProtocol {
-    
-}
+protocol AppCoordinatorExitPoint: ModuleRoutingHandlingProtocol { }
+protocol AppCoordinatorProtocol: CoordinatorProtocol { }
 
 final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
     typealias ServiceLocator = RootRouterLocator
@@ -33,9 +28,8 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
         if let option = option {
             switch option {
             case .main:
-//                startMainFlow()
-                print("")
-            case .photo(let url):
+                startMainFlow()
+            case .photo:
                 break
             }
         } else {
@@ -46,26 +40,20 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
     private func runLaunchInstructor() {
         switch instructor {
         case .main:
-//            startMainFlow()
-            print("")
+            startMainFlow()
         }
     }
 }
 
 // MARK: Main Flow
-//extension AppCoordinator {
-//    func startMainFlow() {
-//        let coordinator = MainFlowCoordinatorAssembly().build(self, config, reachability)
-//        coordinator.start()
-//        addChild(coordinator)
-//
-//        self.router.showScreen(coordinator.toPresent())
-//    }
-//}
-//
-//extension AppCoordinator: MainFlowRoutingExitHandler {
-//    func logout(_ coordinator: BaseFlowCoordinator) {
-//        startAuthFlow()
-//        removeChild(coordinator)
-//    }
-//}
+extension AppCoordinator {
+    func startMainFlow() {
+        let coordinator = MainFlowCoordinatorAssembly().build(self)
+        coordinator.start()
+        addChild(coordinator)
+
+        self.router.showScreen(coordinator.toPresent())
+    }
+}
+
+extension AppCoordinator: MainFlowRoutingExitHandler { }

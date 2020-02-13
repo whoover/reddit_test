@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol AssemblyProtocol: class {
+public protocol AssemblyProtocol: class {
     
 }

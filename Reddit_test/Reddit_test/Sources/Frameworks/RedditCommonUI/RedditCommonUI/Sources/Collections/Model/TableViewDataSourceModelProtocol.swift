@@ -11,16 +11,10 @@ import UIKit
 public protocol TableViewDataSourceModelProtocol {
     associatedtype SECTION: TableViewSectionModelProtocol
     
-    static var editingStyle: UITableViewCell.EditingStyle { get }
-    static var shouldIndentWhileEditing: Bool { get }
-    
     var sections: [SECTION] { get set }
 }
 
 extension TableViewDataSourceModelProtocol {
-    public static var editingStyle: UITableViewCell.EditingStyle { .none }
-    public static var shouldIndentWhileEditing: Bool { false }
-    
     func uniqueCellClasses() -> [CellProtocol.Type] {
         sections
         .flatMap { $0.cells }
@@ -40,17 +34,7 @@ extension TableViewDataSourceModelProtocol {
 
 public protocol TableViewSectionModelProtocol {
     associatedtype CELL: CellModelProtocol
-    static var headerHeight: CGFloat { get }
-
     var cells: [CELL] { get set }
-}
-
-public protocol CustomHeaderSectionModelProtocol {
-    var header: SectionHeader { get set }
-}
-
-public extension TableViewSectionModelProtocol {
-    static var headerHeight: CGFloat { 0 }
 }
 
 public protocol SectionHeader {}

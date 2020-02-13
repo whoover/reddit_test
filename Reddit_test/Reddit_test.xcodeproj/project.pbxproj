@@ -11,6 +11,28 @@
 		0808A44B23F2ED52008AA441 /* RedditTopicDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A44A23F2ED52008AA441 /* RedditTopicDataSource.swift */; };
 		0808A4A523F2F1BD008AA441 /* RedditCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0808A48923F2F11E008AA441 /* RedditCommonUI.framework */; };
 		0808A4A623F2F1BD008AA441 /* RedditCommonUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0808A48923F2F11E008AA441 /* RedditCommonUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0839AD2923F5880900226E43 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD2523F5880900226E43 /* MainFlowCoordinator.swift */; };
+		0839AD2A23F5880900226E43 /* MainFlowExitRoutingHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD2623F5880900226E43 /* MainFlowExitRoutingHandlerProtocol.swift */; };
+		0839AD2B23F5880900226E43 /* MainFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD2723F5880900226E43 /* MainFlowCoordinatorAssembly.swift */; };
+		0839AD3F23F5883500226E43 /* TopicsListModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3023F5883500226E43 /* TopicsListModuleCoordinator.swift */; };
+		0839AD4023F5883500226E43 /* TopicsListModuleCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3123F5883500226E43 /* TopicsListModuleCoordinatorAssembly.swift */; };
+		0839AD4123F5883500226E43 /* TopicsListModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3323F5883500226E43 /* TopicsListModuleAssembly.swift */; };
+		0839AD4223F5883500226E43 /* TopicsListModuleContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3523F5883500226E43 /* TopicsListModuleContracts.swift */; };
+		0839AD4323F5883500226E43 /* TopicsListModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3723F5883500226E43 /* TopicsListModulePresenter.swift */; };
+		0839AD4423F5883500226E43 /* TopicsListModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3923F5883500226E43 /* TopicsListModuleViewController.swift */; };
+		0839AD4623F5883500226E43 /* TopicsListModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3C23F5883500226E43 /* TopicsListModuleInteractor.swift */; };
+		0839AD4723F5883500226E43 /* TopicsListModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD3E23F5883500226E43 /* TopicsListModuleRouter.swift */; };
+		0839AD5B23F5885200226E43 /* ImageFullScreenModuleCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD4C23F5885100226E43 /* ImageFullScreenModuleCoordinatorAssembly.swift */; };
+		0839AD5C23F5885200226E43 /* ImageFullScreenModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD4D23F5885100226E43 /* ImageFullScreenModuleCoordinator.swift */; };
+		0839AD5D23F5885200226E43 /* ImageFullScreenModuleAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD4F23F5885100226E43 /* ImageFullScreenModuleAssembly.swift */; };
+		0839AD5E23F5885200226E43 /* ImageFullScreenModuleContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD5123F5885100226E43 /* ImageFullScreenModuleContracts.swift */; };
+		0839AD5F23F5885200226E43 /* ImageFullScreenModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD5323F5885100226E43 /* ImageFullScreenModulePresenter.swift */; };
+		0839AD6023F5885200226E43 /* ImageFullScreenModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD5523F5885100226E43 /* ImageFullScreenModuleViewController.swift */; };
+		0839AD6223F5885200226E43 /* ImageFullScreenModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD5823F5885100226E43 /* ImageFullScreenModuleInteractor.swift */; };
+		0839AD6323F5885200226E43 /* ImageFullScreenModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD5A23F5885100226E43 /* ImageFullScreenModuleRouter.swift */; };
+		0839AD6723F5911E00226E43 /* TopicsListModuleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0839AD6623F5911E00226E43 /* TopicsListModuleViewController.storyboard */; };
+		0839AD6923F591A500226E43 /* StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD6823F591A500226E43 /* StoryBoard.swift */; };
+		0839AD6B23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0839AD6A23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard */; };
 		086842D423F279DD00AB9730 /* RedditNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0868428D23F278D700AB9730 /* RedditNetworking.framework */; };
 		086842D523F279DD00AB9730 /* RedditNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0868428D23F278D700AB9730 /* RedditNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		08967C8923F288E500D516F5 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08967C8823F288E500D516F5 /* NetworkingService.swift */; };
@@ -31,9 +53,6 @@
 		2C333C7723F48B2B00538EED /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C7623F48B2B00538EED /* AppCoordinator.swift */; };
 		2C333C7923F48B4600538EED /* AppCoordinatorServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C7823F48B4600538EED /* AppCoordinatorServiceLocator.swift */; };
 		2C70C4AC23F1F90700637E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70C4AB23F1F90700637E76 /* AppDelegate.swift */; };
-		2C70C4B023F1F90700637E76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70C4AF23F1F90700637E76 /* ViewController.swift */; };
-		2C70C4B323F1F90700637E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C70C4B123F1F90700637E76 /* Main.storyboard */; };
-		2C70C4B623F1F90700637E76 /* Reddit_test.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C70C4B423F1F90700637E76 /* Reddit_test.xcdatamodeld */; };
 		2C70C4B823F1F90A00637E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C70C4B723F1F90A00637E76 /* Assets.xcassets */; };
 		2C70C4BB23F1F90A00637E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C70C4B923F1F90A00637E76 /* LaunchScreen.storyboard */; };
 		2C70C4D123F1F90A00637E76 /* Reddit_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70C4D023F1F90A00637E76 /* Reddit_testUITests.swift */; };
@@ -107,6 +126,28 @@
 		0808A44A23F2ED52008AA441 /* RedditTopicDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTopicDataSource.swift; sourceTree = "<group>"; };
 		0808A48323F2F11D008AA441 /* RedditCommonUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RedditCommonUI.xcodeproj; path = RedditCommonUI/RedditCommonUI.xcodeproj; sourceTree = "<group>"; };
 		0808A4D323F2F8E2008AA441 /* RedditCoreServices.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RedditCoreServices.xcodeproj; path = RedditCoreServices/RedditCoreServices.xcodeproj; sourceTree = "<group>"; };
+		0839AD2523F5880900226E43 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
+		0839AD2623F5880900226E43 /* MainFlowExitRoutingHandlerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowExitRoutingHandlerProtocol.swift; sourceTree = "<group>"; };
+		0839AD2723F5880900226E43 /* MainFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		0839AD3023F5883500226E43 /* TopicsListModuleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleCoordinator.swift; sourceTree = "<group>"; };
+		0839AD3123F5883500226E43 /* TopicsListModuleCoordinatorAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		0839AD3323F5883500226E43 /* TopicsListModuleAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleAssembly.swift; sourceTree = "<group>"; };
+		0839AD3523F5883500226E43 /* TopicsListModuleContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleContracts.swift; sourceTree = "<group>"; };
+		0839AD3723F5883500226E43 /* TopicsListModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModulePresenter.swift; sourceTree = "<group>"; };
+		0839AD3923F5883500226E43 /* TopicsListModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleViewController.swift; sourceTree = "<group>"; };
+		0839AD3C23F5883500226E43 /* TopicsListModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleInteractor.swift; sourceTree = "<group>"; };
+		0839AD3E23F5883500226E43 /* TopicsListModuleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsListModuleRouter.swift; sourceTree = "<group>"; };
+		0839AD4C23F5885100226E43 /* ImageFullScreenModuleCoordinatorAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		0839AD4D23F5885100226E43 /* ImageFullScreenModuleCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleCoordinator.swift; sourceTree = "<group>"; };
+		0839AD4F23F5885100226E43 /* ImageFullScreenModuleAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleAssembly.swift; sourceTree = "<group>"; };
+		0839AD5123F5885100226E43 /* ImageFullScreenModuleContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleContracts.swift; sourceTree = "<group>"; };
+		0839AD5323F5885100226E43 /* ImageFullScreenModulePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModulePresenter.swift; sourceTree = "<group>"; };
+		0839AD5523F5885100226E43 /* ImageFullScreenModuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleViewController.swift; sourceTree = "<group>"; };
+		0839AD5823F5885100226E43 /* ImageFullScreenModuleInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleInteractor.swift; sourceTree = "<group>"; };
+		0839AD5A23F5885100226E43 /* ImageFullScreenModuleRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleRouter.swift; sourceTree = "<group>"; };
+		0839AD6623F5911E00226E43 /* TopicsListModuleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TopicsListModuleViewController.storyboard; sourceTree = "<group>"; };
+		0839AD6823F591A500226E43 /* StoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoard.swift; sourceTree = "<group>"; };
+		0839AD6A23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageFullScreenModuleViewController.storyboard; sourceTree = "<group>"; };
 		0868428723F278D600AB9730 /* RedditNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RedditNetworking.xcodeproj; path = RedditNetworking/RedditNetworking.xcodeproj; sourceTree = "<group>"; };
 		08967C8823F288E500D516F5 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		08967C8E23F28A0700D516F5 /* RedditResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditResponse.swift; sourceTree = "<group>"; };
@@ -124,9 +165,6 @@
 		2C333C7823F48B4600538EED /* AppCoordinatorServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorServiceLocator.swift; sourceTree = "<group>"; };
 		2C70C4A823F1F90700637E76 /* Reddit_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reddit_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C70C4AB23F1F90700637E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C70C4AF23F1F90700637E76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2C70C4B223F1F90700637E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C70C4B523F1F90700637E76 /* Reddit_test.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reddit_test.xcdatamodel; sourceTree = "<group>"; };
 		2C70C4B723F1F90A00637E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C70C4BA23F1F90A00637E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C70C4BC23F1F90A00637E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,6 +220,7 @@
 			children = (
 				2C15A74523F492E6004C34CA /* LaunchInstructor.swift */,
 				2C15A74B23F4A029004C34CA /* Theme.swift */,
+				0839AD6823F591A500226E43 /* StoryBoard.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -202,6 +241,179 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		0839AD2323F5880900226E43 /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD2423F5880900226E43 /* FlowCoordinator */,
+				0839AD2823F5880900226E43 /* Modules */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
+		0839AD2423F5880900226E43 /* FlowCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD2523F5880900226E43 /* MainFlowCoordinator.swift */,
+				0839AD2623F5880900226E43 /* MainFlowExitRoutingHandlerProtocol.swift */,
+				0839AD2723F5880900226E43 /* MainFlowCoordinatorAssembly.swift */,
+			);
+			path = FlowCoordinator;
+			sourceTree = "<group>";
+		};
+		0839AD2823F5880900226E43 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD2E23F5883500226E43 /* TopicsListModule */,
+				0839AD4A23F5885100226E43 /* ImageFullScreenModule */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		0839AD2E23F5883500226E43 /* TopicsListModule */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD2F23F5883500226E43 /* Coordinator */,
+				0839AD3223F5883500226E43 /* Assembly */,
+				0839AD3423F5883500226E43 /* Contracts */,
+				0839AD3623F5883500226E43 /* Presenter */,
+				0839AD3823F5883500226E43 /* View */,
+				0839AD3B23F5883500226E43 /* Interactor */,
+				0839AD3D23F5883500226E43 /* Router */,
+			);
+			path = TopicsListModule;
+			sourceTree = "<group>";
+		};
+		0839AD2F23F5883500226E43 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3023F5883500226E43 /* TopicsListModuleCoordinator.swift */,
+				0839AD3123F5883500226E43 /* TopicsListModuleCoordinatorAssembly.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0839AD3223F5883500226E43 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3323F5883500226E43 /* TopicsListModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0839AD3423F5883500226E43 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3523F5883500226E43 /* TopicsListModuleContracts.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		0839AD3623F5883500226E43 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3723F5883500226E43 /* TopicsListModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0839AD3823F5883500226E43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C333C5E23F4828200538EED /* Cells */,
+				0839AD3923F5883500226E43 /* TopicsListModuleViewController.swift */,
+				0839AD6623F5911E00226E43 /* TopicsListModuleViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0839AD3B23F5883500226E43 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3C23F5883500226E43 /* TopicsListModuleInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0839AD3D23F5883500226E43 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD3E23F5883500226E43 /* TopicsListModuleRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		0839AD4A23F5885100226E43 /* ImageFullScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD4B23F5885100226E43 /* Coordinator */,
+				0839AD4E23F5885100226E43 /* Assembly */,
+				0839AD5023F5885100226E43 /* Contracts */,
+				0839AD5223F5885100226E43 /* Presenter */,
+				0839AD5423F5885100226E43 /* View */,
+				0839AD5723F5885100226E43 /* Interactor */,
+				0839AD5923F5885100226E43 /* Router */,
+			);
+			path = ImageFullScreenModule;
+			sourceTree = "<group>";
+		};
+		0839AD4B23F5885100226E43 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD4C23F5885100226E43 /* ImageFullScreenModuleCoordinatorAssembly.swift */,
+				0839AD4D23F5885100226E43 /* ImageFullScreenModuleCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		0839AD4E23F5885100226E43 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD4F23F5885100226E43 /* ImageFullScreenModuleAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		0839AD5023F5885100226E43 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD5123F5885100226E43 /* ImageFullScreenModuleContracts.swift */,
+			);
+			path = Contracts;
+			sourceTree = "<group>";
+		};
+		0839AD5223F5885100226E43 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD5323F5885100226E43 /* ImageFullScreenModulePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0839AD5423F5885100226E43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD5523F5885100226E43 /* ImageFullScreenModuleViewController.swift */,
+				0839AD6A23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0839AD5723F5885100226E43 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD5823F5885100226E43 /* ImageFullScreenModuleInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		0839AD5923F5885100226E43 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				0839AD5A23F5885100226E43 /* ImageFullScreenModuleRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		0868423D23F2785C00AB9730 /* Reddit */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +422,6 @@
 				2C333C5D23F4827A00538EED /* Modules */,
 				0808A44C23F2EE33008AA441 /* Utilities */,
 				0808A44223F2ECE3008AA441 /* Services */,
-				2C70C4AF23F1F90700637E76 /* ViewController.swift */,
 			);
 			path = Reddit;
 			sourceTree = "<group>";
@@ -262,7 +473,7 @@
 		2C333C5D23F4827A00538EED /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2C333C5E23F4828200538EED /* Cells */,
+				0839AD2323F5880900226E43 /* MainFlow */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -352,11 +563,9 @@
 		2C70C4DE23F1F91400637E76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2C70C4B123F1F90700637E76 /* Main.storyboard */,
 				2C70C4B723F1F90A00637E76 /* Assets.xcassets */,
 				2C70C4B923F1F90A00637E76 /* LaunchScreen.storyboard */,
 				2C70C4BC23F1F90A00637E76 /* Info.plist */,
-				2C70C4B423F1F90700637E76 /* Reddit_test.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -520,8 +729,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C70C4BB23F1F90A00637E76 /* LaunchScreen.storyboard in Resources */,
+				0839AD6723F5911E00226E43 /* TopicsListModuleViewController.storyboard in Resources */,
 				2C70C4B823F1F90A00637E76 /* Assets.xcassets in Resources */,
-				2C70C4B323F1F90700637E76 /* Main.storyboard in Resources */,
+				0839AD6B23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,20 +773,38 @@
 				2C15A74223F490D6004C34CA /* RootRouter.swift in Sources */,
 				08967C8923F288E500D516F5 /* NetworkingService.swift in Sources */,
 				2C333C7423F48A8B00538EED /* AppServiceLocator.swift in Sources */,
-				2C70C4B023F1F90700637E76 /* ViewController.swift in Sources */,
 				08967C8F23F28A0700D516F5 /* RedditResponse.swift in Sources */,
+				0839AD2A23F5880900226E43 /* MainFlowExitRoutingHandlerProtocol.swift in Sources */,
+				0839AD6923F591A500226E43 /* StoryBoard.swift in Sources */,
+				0839AD6223F5885200226E43 /* ImageFullScreenModuleInteractor.swift in Sources */,
+				0839AD5C23F5885200226E43 /* ImageFullScreenModuleCoordinator.swift in Sources */,
+				0839AD3F23F5883500226E43 /* TopicsListModuleCoordinator.swift in Sources */,
+				0839AD4623F5883500226E43 /* TopicsListModuleInteractor.swift in Sources */,
+				0839AD4023F5883500226E43 /* TopicsListModuleCoordinatorAssembly.swift in Sources */,
+				0839AD4723F5883500226E43 /* TopicsListModuleRouter.swift in Sources */,
+				0839AD4223F5883500226E43 /* TopicsListModuleContracts.swift in Sources */,
 				0808A44923F2ED36008AA441 /* AddapterService.swift in Sources */,
+				0839AD5E23F5885200226E43 /* ImageFullScreenModuleContracts.swift in Sources */,
+				0839AD5B23F5885200226E43 /* ImageFullScreenModuleCoordinatorAssembly.swift in Sources */,
+				0839AD2923F5880900226E43 /* MainFlowCoordinator.swift in Sources */,
+				0839AD2B23F5880900226E43 /* MainFlowCoordinatorAssembly.swift in Sources */,
+				0839AD5D23F5885200226E43 /* ImageFullScreenModuleAssembly.swift in Sources */,
 				0808A44B23F2ED52008AA441 /* RedditTopicDataSource.swift in Sources */,
+				0839AD6323F5885200226E43 /* ImageFullScreenModuleRouter.swift in Sources */,
 				2C333C7723F48B2B00538EED /* AppCoordinator.swift in Sources */,
 				2C70C4AC23F1F90700637E76 /* AppDelegate.swift in Sources */,
-				2C70C4B623F1F90700637E76 /* Reddit_test.xcdatamodeld in Sources */,
 				2C333C7123F48A0100538EED /* RedditApp.swift in Sources */,
+				0839AD5F23F5885200226E43 /* ImageFullScreenModulePresenter.swift in Sources */,
 				2C333C7923F48B4600538EED /* AppCoordinatorServiceLocator.swift in Sources */,
+				0839AD4423F5883500226E43 /* TopicsListModuleViewController.swift in Sources */,
 				2C333C6623F4852B00538EED /* AddapterServiceLocator.swift in Sources */,
 				2C15A74C23F4A029004C34CA /* Theme.swift in Sources */,
 				2C70C4E623F200D800637E76 /* RedditRequest.swift in Sources */,
 				2C333C6023F4833000538EED /* RedditTopicCell.swift in Sources */,
 				2C15A74623F492E6004C34CA /* LaunchInstructor.swift in Sources */,
+				0839AD6023F5885200226E43 /* ImageFullScreenModuleViewController.swift in Sources */,
+				0839AD4123F5883500226E43 /* TopicsListModuleAssembly.swift in Sources */,
+				0839AD4323F5883500226E43 /* TopicsListModulePresenter.swift in Sources */,
 				2C333C6423F4850D00538EED /* RedditTopicModel.swift in Sources */,
 				2C15A74423F492A7004C34CA /* RootRouterLocator.swift in Sources */,
 			);
@@ -601,14 +829,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2C70C4B123F1F90700637E76 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2C70C4B223F1F90700637E76 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2C70C4B923F1F90A00637E76 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -841,19 +1061,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		2C70C4B423F1F90700637E76 /* Reddit_test.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				2C70C4B523F1F90700637E76 /* Reddit_test.xcdatamodel */,
-			);
-			currentVersion = 2C70C4B523F1F90700637E76 /* Reddit_test.xcdatamodel */;
-			path = Reddit_test.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 2C70C4A023F1F90700637E76 /* Project object */;
 }
