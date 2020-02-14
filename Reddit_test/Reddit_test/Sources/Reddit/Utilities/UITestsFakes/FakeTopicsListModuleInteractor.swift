@@ -28,14 +28,9 @@ class FakeTopicsListModuleInteractor: TopicsListModuleInteractorInput {
     func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
         var fakeTopics: [RedditTopicModel] = []
         for i in 1...10 {
-            let model = RedditTopicModel(title: "Some fake title \(i)",
-                author: "Some fake author \(i)",
-                created: Date().timeIntervalSince1970,
-                commentsNumber: 42,
-                score: 42,
-                name: "Some fake name \(i)",
-                thumbnailURL: "https://external-preview.redd.it/xak3uQ76ELtHVRBsKuBfknG92rXk5xeQa9BsbzcjhQk.png?auto=webp&s=4218fe5f8ffdd86f043fe3b4840c6e4db78d24a3",
-                previewURL: "https://external-preview.redd.it/xak3uQ76ELtHVRBsKuBfknG92rXk5xeQa9BsbzcjhQk.png?auto=webp&s=4218fe5f8ffdd86f043fe3b4840c6e4db78d24a3")
+            let thumbnailURLString = "https://external-preview.redd.it/xak3uQ76ELtHVRBsKuBfknG92rXk5xeQa9BsbzcjhQk.png?auto=webp&s=4218fe5f8ffdd86f043fe3b4840c6e4db78d24a3"
+            let previewURLString = "https://external-preview.redd.it/xak3uQ76ELtHVRBsKuBfknG92rXk5xeQa9BsbzcjhQk.png?auto=webp&s=4218fe5f8ffdd86f043fe3b4840c6e4db78d24a3"
+            let model = RedditTopicModel(title: "Some fake title \(i)", author: "Some fake author \(i)", created: Date().timeIntervalSince1970, commentsNumber: 42, score: 42, name: "Some fake name \(i)", thumbnailURL: thumbnailURLString, previewURL: previewURLString)
             fakeTopics.append(model)
         }
         
