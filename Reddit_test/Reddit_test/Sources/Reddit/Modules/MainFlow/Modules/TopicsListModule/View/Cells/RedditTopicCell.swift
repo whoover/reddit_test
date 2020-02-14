@@ -8,6 +8,11 @@
 
 import UIKit
 import RedditCommonUI
+import RedditCoreServices
+
+protocol RedditTopicCellDelegate: class {
+    func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
+}
 
 class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
     private let author = UILabel()
@@ -15,6 +20,10 @@ class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
     private let topicImageView = UIImageView()
     private let bottomView = CellBottomView()
     private let separator = UIView()
+    private let thumbnailImageActivityIndicator = UIActivityIndicatorView()
+    
+    private weak var delegate: RedditTopicCellDelegate?
+    private var loadTask: CancellableProtocol?
     
     private struct Layout {
         struct Author {
@@ -56,6 +65,7 @@ class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
         contentView.addSubview(author)
         contentView.addSubview(titleLabel)
         contentView.addSubview(topicImageView)
+        topicImageView.addSubview(thumbnailImageActivityIndicator)
         contentView.addSubview(bottomView)
         addSubview(separator)
         
@@ -70,7 +80,8 @@ class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
         topicImageView.leftToSuperView(offset: Layout.Image.left)
         topicImageView.rightToSuperView(offset: Layout.Image.right)
         topicImageView.bottomToTop(view: bottomView, offset: Layout.Image.bottom)
-        topicImageView.image = UIImage(named: "image_stub")
+        thumbnailImageActivityIndicator.centerInSuperview()
+        resetToDefault()
         
         bottomView.leftToSuperView()
         bottomView.rightToSuperView()
@@ -86,18 +97,52 @@ class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
         setupLabel()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        loadTask?.cancel()
+        resetToDefault()
+    }
+    
     private func setupLabel() {
         titleLabel.numberOfLines = 0
     }
 
     func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {
+        self.delegate = delegate as? RedditTopicCellDelegate
         guard let cellModel = cellModel as? RedditTopicCellModel else {
             return
         }
+        
         author.text = cellModel.model.author
         titleLabel.text = cellModel.model.title
         bottomView.commentsCountLabel.text = "\(cellModel.model.commentsNumber)"
         bottomView.ratingInfoLabel.text = "\(cellModel.model.score)"
         bottomView.publicationDateLabel.text = "\(cellModel.model.created)"
+        
+        if let url = URL(string: cellModel.model.thumbnailURL) {
+            loadTask = loadImage(url, cellModel.identifier)
+        }
+    }
+}
+
+extension RedditTopicCell: ImageLoadableProtocol {
+    static let defaultImage: UIImage? = UIImage(named: "image_stub")
+    
+    func loadImage(_ imageURL: URL, _ identifier: UUID) -> CancellableProtocol? {
+        thumbnailImageActivityIndicator.startAnimating()
+        let completionBlock = BlockObject<LoadedImage?, Void> { [weak self] image in
+            guard let self = self else {
+                return
+            }
+            
+            self.thumbnailImageActivityIndicator.stopAnimating()
+            self.topicImageView.image = image?.image ?? type(of: self).defaultImage
+        }
+        return delegate?.loadImage(imageURL, identifier, completionBlock)
+    }
+    
+    func resetToDefault() {
+        topicImageView.image = type(of: self).defaultImage
     }
 }

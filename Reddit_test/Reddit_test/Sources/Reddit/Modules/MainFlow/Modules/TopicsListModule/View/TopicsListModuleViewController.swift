@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RedditCoreServices
 
 class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
     @IBOutlet private weak var tableViewContainer: UIView!
@@ -75,4 +76,10 @@ extension TopicsListModuleViewController {
 // MARK: Button Action
 extension TopicsListModuleViewController {
     
+}
+
+extension TopicsListModuleViewController: RedditTopicCellDelegate {
+    func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
+        output?.loadImage(imageURL, completionBlock)
+    }
 }

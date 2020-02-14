@@ -11,23 +11,29 @@ import RedditNetworking
 import RedditCoreServices
 
 final class TopicsListModuleInteractor {
-    typealias ServiceLocator = NetworkingManagerServiceLocator & DataStorageServiceLocator & AddapterServiceLocator
+    typealias ServiceLocator = NetworkingManagerServiceLocator & DataStorageServiceLocator & AddapterServiceLocator & ImageDownloadServiceLocatorProtocol
     final class ServiceLocatorImpl: ServiceLocator {}
         
     private let networkingManager: NetworkingManagerProtocol
     private let dataStorage: DataStorageProtocol
     private let dataAddapter: AddapterServiceProtocol
+    private let imageDownloader: ImageDownloadServiceProtocol
     private let backgroundQueue = DispatchQueue(label: "com.reddittest.TopicsListModuleInteractor.backgroundQueue")
     
     init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
         self.networkingManager = serviceLocator.networkingManager(syncQueue: backgroundQueue)
         self.dataStorage = serviceLocator.dataStorage()
         self.dataAddapter = serviceLocator.addapter()
+        self.imageDownloader = serviceLocator.imageDownloadService()
     }
 }
 
 // MARK: Private
 extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
+    func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
+        imageDownloader.downloadImage(with: imageURL, completionBlock: completionBlock)
+    }
+    
     func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
         progressBlock.execute(.loading)
         let successBlock = BlockObject<RedditResponse, Void> { [weak self] response in

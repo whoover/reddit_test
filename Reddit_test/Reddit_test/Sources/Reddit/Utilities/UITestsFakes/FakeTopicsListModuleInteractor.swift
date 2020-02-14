@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import RedditCoreServices
 
 class FakeTopicsListModuleInteractor: TopicsListModuleInteractorInput {
+    func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            completionBlock.execute(LoadedImage(image: UIImage(named: "fake_image"), imageSource: .network) )
+        }
+        return nil
+    }
+    
     func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
         loadTopics(progressBlock: progressBlock)
     }

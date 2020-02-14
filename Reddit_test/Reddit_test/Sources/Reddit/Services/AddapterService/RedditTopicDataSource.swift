@@ -22,6 +22,7 @@ class RedditTopicCellModel: CellModelProtocol {
     static var cellHeight: CGFloat { UITableView.automaticDimension }
     
     let model: RedditTopicModel
+    let identifier = UUID()
     
     init(model: RedditTopicModel) {
         self.model = model

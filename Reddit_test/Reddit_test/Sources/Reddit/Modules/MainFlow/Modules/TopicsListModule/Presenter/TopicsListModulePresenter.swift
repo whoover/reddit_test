@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RedditCoreServices
 
 class TopicsListModulePresenter: BasePresenter
 <TopicsListModuleOutput,
@@ -30,6 +31,10 @@ extension TopicsListModulePresenter: TopicsListModuleInput {
 
 // MARK: View Output
 extension TopicsListModulePresenter: TopicsListModuleViewOutput {
+    func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
+        interactor.loadImage(imageURL, completionBlock)
+    }
+    
     func loadDataFromStorage() {
         let successBlock = BlockObject<[RedditTopicModel], Void> { [weak self] models in
             self?.modelsLoaded(models)

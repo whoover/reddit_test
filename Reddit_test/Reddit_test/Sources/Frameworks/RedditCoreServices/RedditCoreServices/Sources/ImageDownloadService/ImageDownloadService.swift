@@ -10,8 +10,23 @@ import UIKit
 import RedditCommon
 import RedditNetworking
 
-protocol ImageDownloadServiceProtocol {
-    func downloadImage(with url: URL, completionBlock: BlockObject<UIImage?, Void>) -> CancellableProtocol?
+public struct LoadedImage {
+    public let image: UIImage?
+    public let imageSource: ImageSource
+    
+    public init(image: UIImage?, imageSource: ImageSource) {
+        self.image = image
+        self.imageSource = imageSource
+    }
+}
+
+public enum ImageSource {
+    case cache
+    case network
+}
+
+public protocol ImageDownloadServiceProtocol {
+    func downloadImage(with url: URL, completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
 }
 
 public final class ImageDownloadService: ImageDownloadServiceProtocol {
@@ -26,11 +41,11 @@ public final class ImageDownloadService: ImageDownloadServiceProtocol {
         self.imageCache = serviceLocator.imageCache()
     }
     
-    func downloadImage(with url: URL, completionBlock: BlockObject<UIImage?, Void>) -> CancellableProtocol? {
+    public func downloadImage(with url: URL, completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
         let request = URLRequest(url: url)
         if let response = imageCache.cachedResponse(for: request) {
             let image = UIImage(data: response.data)
-            completionBlock.execute(image)
+            completionBlock.execute(LoadedImage(image: image, imageSource: .cache))
             return nil
         }
         
@@ -38,6 +53,8 @@ public final class ImageDownloadService: ImageDownloadServiceProtocol {
             self?.imageCache.storeCachedResponse(
                 CachedURLResponse(response: dataResponse.httpResponse, data: dataResponse.data), for: request
             )
+            let image = UIImage(data: dataResponse.data)
+            completionBlock.execute(LoadedImage(image: image, imageSource: .network))
         }
         let errorBlock = BlockObject<Error, Void> { _ in
             completionBlock.execute(nil)

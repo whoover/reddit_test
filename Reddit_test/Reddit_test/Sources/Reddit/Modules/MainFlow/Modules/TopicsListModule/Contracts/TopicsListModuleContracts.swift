@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RedditCoreServices
 
 // Module Input
 protocol TopicsListModuleInput {
@@ -34,6 +35,7 @@ protocol TopicsListModuleViewOutput: class {
     func viewDidLoad()
     func reloadTopics()
     func loadDataFromStorage()
+    func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
 }
 
 // Interactor Input
@@ -41,6 +43,7 @@ protocol TopicsListModuleInteractorInput {
     func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>)
     func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
     func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
+    func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
 }
 
 // Router

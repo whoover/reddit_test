@@ -18,6 +18,8 @@
 		0808A49C23F2F12C008AA441 /* CellModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A49323F2F12C008AA441 /* CellModelProtocol.swift */; };
 		0808A49D23F2F12C008AA441 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A49423F2F12C008AA441 /* UIView+Nib.swift */; };
 		0839AD6523F58A0800226E43 /* AlertRoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839AD6423F58A0800226E43 /* AlertRoutable.swift */; };
+		086A803023F67212000FD9F8 /* ImageLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A802F23F67212000FD9F8 /* ImageLoadable.swift */; };
+		086A803223F680CD000FD9F8 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086A803123F680CD000FD9F8 /* UITableView+Extensions.swift */; };
 		2C15A71523F48D47004C34CA /* PresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A71423F48D47004C34CA /* PresentableProtocol.swift */; };
 		2C15A71723F48D67004C34CA /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A71623F48D67004C34CA /* UIViewController+Additions.swift */; };
 		2C15A71923F48D7D004C34CA /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A71823F48D7C004C34CA /* UIView+Layout.swift */; };
@@ -52,6 +54,8 @@
 		0808A49323F2F12C008AA441 /* CellModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellModelProtocol.swift; sourceTree = "<group>"; };
 		0808A49423F2F12C008AA441 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		0839AD6423F58A0800226E43 /* AlertRoutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertRoutable.swift; sourceTree = "<group>"; };
+		086A802F23F67212000FD9F8 /* ImageLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadable.swift; sourceTree = "<group>"; };
+		086A803123F680CD000FD9F8 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		2C15A71423F48D47004C34CA /* PresentableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentableProtocol.swift; sourceTree = "<group>"; };
 		2C15A71623F48D67004C34CA /* UIViewController+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		2C15A71823F48D7C004C34CA /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				0808A49423F2F12C008AA441 /* UIView+Nib.swift */,
 				2C333C6B23F4883700538EED /* UIImage+Extensions.swift */,
 				2C15A75223F4A066004C34CA /* UIColor+Hex.swift */,
+				086A802F23F67212000FD9F8 /* ImageLoadable.swift */,
+				086A803123F680CD000FD9F8 /* UITableView+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -328,8 +334,10 @@
 				2C15A73323F48E7D004C34CA /* Module.swift in Sources */,
 				0808A49723F2F12C008AA441 /* TableViewDataSourceModelProtocol.swift in Sources */,
 				2C15A71723F48D67004C34CA /* UIViewController+Additions.swift in Sources */,
+				086A803023F67212000FD9F8 /* ImageLoadable.swift in Sources */,
 				2C15A73023F48E7D004C34CA /* BaseModuleRouter.swift in Sources */,
 				2C333C6C23F4883700538EED /* UIImage+Extensions.swift in Sources */,
+				086A803223F680CD000FD9F8 /* UITableView+Extensions.swift in Sources */,
 				2C15A73923F48E7D004C34CA /* RouterProtocol.swift in Sources */,
 				2C15A75323F4A066004C34CA /* UIColor+Hex.swift in Sources */,
 				0808A49623F2F12C008AA441 /* UICollectionView+AnyCollectionProtocol.swift in Sources */,

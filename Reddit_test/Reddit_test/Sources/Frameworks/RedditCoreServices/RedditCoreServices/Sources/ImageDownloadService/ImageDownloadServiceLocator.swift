@@ -8,12 +8,12 @@
 
 import RedditNetworking
 
-protocol ImageDownloadServiceLocatorProtocol {
-    static func imageDownloadService() -> ImageDownloadServiceProtocol
+public protocol ImageDownloadServiceLocatorProtocol {
+    func imageDownloadService() -> ImageDownloadServiceProtocol
 }
 
 extension ImageDownloadServiceLocatorProtocol {
-    static func imageDownloadService() -> ImageDownloadServiceProtocol {
+    public func imageDownloadService() -> ImageDownloadServiceProtocol {
         ImageDownloadService()
     }
 }
