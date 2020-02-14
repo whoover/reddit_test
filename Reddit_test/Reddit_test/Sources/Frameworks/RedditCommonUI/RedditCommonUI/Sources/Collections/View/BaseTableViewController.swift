@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol BaseTableViewControllerDelegate: class {
+    func baseTableViewController(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+}
+
 open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private(set) public weak var tableView: UITableView!
@@ -18,6 +22,7 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
     }
     private var cellsToRegister: [CellProtocol.Type] = []
     private weak var cellsDelegate: AnyObject?
+    open weak var delegate: BaseTableViewControllerDelegate?
 
     public init(cellsDelegate: AnyObject? = nil, cellsToRegister: [CellProtocol.Type] = []) {
         self.cellsDelegate = cellsDelegate
@@ -83,9 +88,13 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
         return cell
     }
 
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cellModel = dataSourceModel?.sections[indexPath.section].cells[indexPath.row]
         (cellModel as? ActionCellProtocol)?.actionHandler?()
+    }
+    
+    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        delegate?.baseTableViewController(tableView, willDisplay: cell, forRowAt: indexPath)
     }
 }

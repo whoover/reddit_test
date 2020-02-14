@@ -62,6 +62,7 @@ extension TopicsListModuleViewController: TopicsListModuleViewInput {
     private func setupSubviews() {
         tableViewController = BaseTableViewController<RedditTopicDataSource>(cellsDelegate: self,
                                                                              cellsToRegister: [RedditTopicCell.self, RedditTopicWithoutImageCell.self])
+        tableViewController.delegate = self
         addChildController(tableViewController, tableViewContainer, { $0.fillSuperview() })
     }
 }
@@ -81,5 +82,13 @@ extension TopicsListModuleViewController {
 extension TopicsListModuleViewController: RedditTopicCellDelegate {
     func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
         output?.loadImage(imageURL, completionBlock)
+    }
+}
+
+extension TopicsListModuleViewController: BaseTableViewControllerDelegate {
+    func baseTableViewController(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if output?.dataSource.sections[indexPath.section].cells.count == indexPath.row + 1 {
+            output?.loadMoreData()
+        }
     }
 }

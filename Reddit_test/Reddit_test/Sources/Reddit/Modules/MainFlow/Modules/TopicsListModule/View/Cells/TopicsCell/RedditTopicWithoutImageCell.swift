@@ -20,12 +20,11 @@ class RedditTopicWithoutImageCell: RedditTopicBaseCell {
 
         titleLabel.leftToSuperView(offset: Layout.Title.left)
         titleLabel.rightToSuperView(offset: Layout.Title.right)
-        titleLabel.bottomToTop(view: bottomView, offset: Layout.Title.bottom)
+        titleLabel.bottomToTop(view: bottomLabel, offset: Layout.Title.bottom)
         
-        bottomView.leftToSuperView(offset: Layout.Title.left)
-        bottomView.rightToSuperView(offset: Layout.Title.right)
-        bottomView.height(Layout.Bottom.height)
-        bottomView.bottomToSuperView(offset: Layout.Bottom.bottom, relation: .lessThanOrEqual)
+        bottomLabel.leftToSuperView(offset: Layout.Title.left)
+        bottomLabel.rightToSuperView(offset: Layout.Title.right)
+        bottomLabel.bottomToSuperView(offset: Layout.Bottom.bottom, relation: .lessThanOrEqual)
         
         separator.leftToSuperView()
         separator.rightToSuperView()

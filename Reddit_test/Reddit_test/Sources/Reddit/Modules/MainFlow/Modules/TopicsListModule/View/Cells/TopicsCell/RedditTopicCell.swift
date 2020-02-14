@@ -43,12 +43,11 @@ class RedditTopicCell: RedditTopicBaseCell {
 
         titleLabel.leftToRight(view: topicImageView, offset: Layout.Title.left)
         titleLabel.rightToSuperView(offset: Layout.Title.right)
-        titleLabel.bottomToTop(view: bottomView, offset: Layout.Title.bottom)
+        titleLabel.bottomToTop(view: bottomLabel, offset: Layout.Title.bottom)
         
-        bottomView.leftToRight(view: topicImageView, offset: Layout.Title.left)
-        bottomView.rightToSuperView(offset: Layout.Title.right)
-        bottomView.height(Layout.Bottom.height)
-        bottomView.bottomToSuperView(offset: Layout.Bottom.bottom, relation: .lessThanOrEqual)
+        bottomLabel.leftToRight(view: topicImageView, offset: Layout.Title.left)
+        bottomLabel.rightToSuperView(offset: Layout.Title.right)
+        bottomLabel.bottomToSuperView(offset: Layout.Bottom.bottom, relation: .lessThanOrEqual)
         
         separator.leftToSuperView()
         separator.rightToSuperView()
@@ -62,10 +61,6 @@ class RedditTopicCell: RedditTopicBaseCell {
         
         loadTask?.cancel()
         resetToDefault()
-    }
-    
-    private func setupLabel() {
-        titleLabel.numberOfLines = 0
     }
 
     override func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {

@@ -13,7 +13,7 @@ import RedditCoreServices
 class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
     let author = UILabel()
     let titleLabel = UILabel()
-    let bottomView = CellBottomView()
+    let bottomLabel = UILabel()
     let separator = UIView()
     
     struct Layout {
@@ -36,7 +36,6 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
             static let size: CGFloat = 140
         }
         struct Bottom {
-            static let height: CGFloat = 28
             static let bottom: CGFloat = -8
         }
         struct Separator {
@@ -61,7 +60,7 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
     func setupSubviews() {
         contentView.addSubview(author)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(bottomView)
+        contentView.addSubview(bottomLabel)
         contentView.addSubview(separator)
         setupLabel()
     }
@@ -78,7 +77,18 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
         author.text = "posted \(Calendar.current.timeAgo(since: Date(timeIntervalSince1970: cellModel.model.created))) by \(cellModel.model.author)"
         
         titleLabel.text = cellModel.model.title
-        bottomView.commentsCountLabel.text = cellModel.model.commentsNumber.formatUsingAbbrevation().lowercased()
-        bottomView.ratingInfoLabel.text = cellModel.model.score.formatUsingAbbrevation().lowercased()
+        let mutableString = NSMutableAttributedString()
+        if let arrowImage = UIImage(named: "arrows") {
+            let arrows = NSAttributedString(attachment: NSTextAttachment(image: arrowImage))
+            mutableString.append(arrows)
+            mutableString.append(NSAttributedString(string: cellModel.model.commentsNumber.formatUsingAbbrevation().lowercased()))
+            mutableString.append(NSAttributedString(string: "   "))
+        }
+        if let commentImage = UIImage(named: "comments") {
+            let comments = NSAttributedString(attachment: NSTextAttachment(image: commentImage))
+            mutableString.append(comments)
+            mutableString.append(NSAttributedString(string: cellModel.model.score.formatUsingAbbrevation().lowercased()))
+        }
+        bottomLabel.attributedText = mutableString
     }
 }

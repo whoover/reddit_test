@@ -19,6 +19,8 @@ final class TopicsListModuleInteractor {
     private let dataAddapter: AddapterServiceProtocol
     private let imageDownloader: ImageDownloadServiceProtocol
     private let backgroundQueue = DispatchQueue(label: "com.reddittest.TopicsListModuleInteractor.backgroundQueue")
+    private var lastRequest: CancellableProtocol?
+    private var fullyLoaded: Bool = false
     
     init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
         self.networkingManager = serviceLocator.networkingManager(syncQueue: backgroundQueue)
@@ -35,6 +37,10 @@ extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
     }
     
     func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {
+        guard !fullyLoaded, lastRequest == nil else {
+            return
+        }
+        
         progressBlock.execute(.loading)
         let successBlock = BlockObject<RedditResponse, Void> { [weak self] response in
             guard let self = self else {
@@ -44,6 +50,8 @@ extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
             
             DispatchQueue.main.async {
                 progressBlock.execute(.dataLoaded(models))
+                self.lastRequest = nil
+                self.fullyLoaded = models.isEmpty
             }
             
             var storedItems: [RedditTopicModel] = self.dataStorage.getItems()
@@ -58,9 +66,9 @@ extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
             }
         }
         
-        _ = networkingManager.sendGetRequest(request: RedditRequest.top(dataStorage.getAfter()),
-                                             successBlock: successBlock,
-                                             errorBlock: errorBlock)
+        lastRequest = networkingManager.sendGetRequest(request: RedditRequest.top(dataStorage.getAfter()),
+                                                       successBlock: successBlock,
+                                                       errorBlock: errorBlock)
     }
     
     func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>) {

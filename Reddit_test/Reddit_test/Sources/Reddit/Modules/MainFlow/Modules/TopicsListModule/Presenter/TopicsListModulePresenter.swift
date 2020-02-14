@@ -31,6 +31,10 @@ extension TopicsListModulePresenter: TopicsListModuleInput {
 
 // MARK: View Output
 extension TopicsListModulePresenter: TopicsListModuleViewOutput {
+    func loadMoreData() {
+        loadData()
+    }
+    
     func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
         interactor.loadImage(imageURL, completionBlock)
     }
@@ -90,7 +94,7 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
                 self.modelsLoaded(models)
             }
         }
-        interactor.reloadTopics(progressBlock: progressBlock)
+        interactor.loadTopics(progressBlock: progressBlock)
     }
     
     private func modelsLoaded(_ models: [RedditTopicModel]) {
