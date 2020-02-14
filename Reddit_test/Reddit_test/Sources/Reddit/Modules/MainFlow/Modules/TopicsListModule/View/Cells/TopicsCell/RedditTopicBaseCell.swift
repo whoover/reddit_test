@@ -18,25 +18,25 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
     
     struct Layout {
         struct Author {
-            static let top: CGFloat = 4
-            static let left: CGFloat = 8
-            static let right: CGFloat = -4
-            static let bottom: CGFloat = -8
+            static let top: CGFloat = Offset.small.rawValue
+            static let left: CGFloat = Offset.normal.rawValue
+            static let right: CGFloat = -Offset.small.rawValue
+            static let bottom: CGFloat = -Offset.normal.rawValue
         }
         struct Title {
-            static let top: CGFloat = 4
-            static let left: CGFloat = 8
-            static let right: CGFloat = -4
-            static let bottom: CGFloat = -4
+            static let top: CGFloat = Offset.small.rawValue
+            static let left: CGFloat = Offset.normal.rawValue
+            static let right: CGFloat = -Offset.small.rawValue
+            static let bottom: CGFloat = -Offset.big.rawValue
         }
         struct Image {
-            static let left: CGFloat = 4
-            static let top: CGFloat = 4
-            static let bottom: CGFloat = -4
+            static let left: CGFloat = Offset.small.rawValue
+            static let top: CGFloat = Offset.small.rawValue
+            static let bottom: CGFloat = -Offset.big.rawValue
             static let size: CGFloat = 140
         }
         struct Bottom {
-            static let bottom: CGFloat = -8
+            static let bottom: CGFloat = -Offset.big.rawValue
         }
         struct Separator {
             static let height: CGFloat = 1
