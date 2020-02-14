@@ -10,15 +10,15 @@ import Foundation
 
 private typealias Abbrevation = (threshold: Double, divisor: Double, suffix: String)
 
-extension Int {
+public extension Int {
     func formatUsingAbbrevation() -> String {
         let numFormatter = NumberFormatter()
 
         let abbreviations: [Abbrevation] = [
             (0, 1, ""),
             (1000.0, 1000.0, "k"),
-            (100_000.0, 1_000_000.0, "m"),
-            (100_000_000.0, 1_000_000_000.0, "b")
+            (1_000_000.0, 1_000_000.0, "m"),
+            (1_000_000_000.0, 1_000_000_000.0, "b")
         ]
 
         let startValue = Double(abs(self))

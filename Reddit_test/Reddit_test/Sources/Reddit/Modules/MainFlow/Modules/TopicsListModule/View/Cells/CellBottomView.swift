@@ -14,7 +14,6 @@ class CellBottomView: UIView {
     let rightRatingArrow = UIImageView()
     let commentImageView = UIImageView()
     let commentsCountLabel = UILabel()
-    let publicationDateLabel = UILabel()
     
     private struct Layout {
         static let topOffset: CGFloat = 4
@@ -35,9 +34,6 @@ class CellBottomView: UIView {
         struct CommentLabel {
             static let left: CGFloat = 4.0
             static let right: CGFloat = 4.0
-        }
-        struct Date {
-            static let right: CGFloat = -4.0
         }
     }
     
@@ -60,28 +56,24 @@ class CellBottomView: UIView {
         addSubview(commentImageView)
         commentImageView.image = UIImage(named: "comments")
         addSubview(commentsCountLabel)
-        addSubview(publicationDateLabel)
         
         leftRagingArrow.topToSuperView(offset: Layout.topOffset)
         ratingInfoLabel.topToSuperView(offset: Layout.topOffset)
         rightRatingArrow.topToSuperView(offset: Layout.topOffset)
         commentImageView.topToSuperView(offset: Layout.topOffset)
         commentsCountLabel.topToSuperView(offset: Layout.topOffset)
-        publicationDateLabel.topToSuperView(offset: Layout.topOffset)
         
         leftRagingArrow.bottomToSuperView(offset: Layout.bottomOffset)
         ratingInfoLabel.bottomToSuperView(offset: Layout.bottomOffset)
         rightRatingArrow.bottomToSuperView(offset: Layout.bottomOffset)
         commentImageView.bottomToSuperView(offset: Layout.bottomOffset)
         commentsCountLabel.bottomToSuperView(offset: Layout.bottomOffset)
-        publicationDateLabel.bottomToSuperView(offset: Layout.bottomOffset)
         
         leftRagingArrow.leftToSuperView(offset: Layout.LeftArrow.left)
         ratingInfoLabel.leftToRight(view: leftRagingArrow, offset: Layout.Rating.left)
         rightRatingArrow.leftToRight(view: ratingInfoLabel, offset: Layout.RightArrow.left)
         commentImageView.leftToRight(view: rightRatingArrow, offset: Layout.CommentIcon.left)
         commentsCountLabel.leftToRight(view: commentImageView, offset: Layout.CommentLabel.left)
-        commentsCountLabel.rightToLeft(view: publicationDateLabel, offset: Layout.CommentLabel.right, relation: .lessThanOrEqual)
-        publicationDateLabel.rightToSuperView(offset: Layout.Date.right)
+        commentsCountLabel.rightToSuperView(offset: Layout.CommentLabel.right, relation: .lessThanOrEqual)
     }
 }

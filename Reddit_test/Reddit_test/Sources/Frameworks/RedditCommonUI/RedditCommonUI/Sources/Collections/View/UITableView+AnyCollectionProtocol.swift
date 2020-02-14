@@ -22,6 +22,6 @@ extension UITableView: AnyCollectionProtocol {
     }
     
     public func dequeueCell(_ cellModel: CellModelProtocol, _ indexPath: IndexPath) -> CellProtocol {
-        dequeueCell(type(of: cellModel).cellClass, indexPath)
+        dequeueCell(cellModel.cellClass, indexPath)
     }
 }

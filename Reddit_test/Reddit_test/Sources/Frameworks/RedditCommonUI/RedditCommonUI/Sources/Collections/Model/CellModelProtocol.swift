@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol CellModelProtocol {
-    static var cellClass: CellProtocol.Type { get }
     static var cellHeight: CGFloat { get }
+    var cellClass: CellProtocol.Type { get }
 }
 
 public extension CellModelProtocol {

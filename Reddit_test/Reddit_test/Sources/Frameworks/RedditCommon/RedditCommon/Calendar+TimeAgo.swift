@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Calendar {
+public extension Calendar {
     func timeAgo(since date: Date) -> String {
         let components = dateComponents([.second, .minute, .hour, .day, .weekOfYear, .month, .year], from: date, to: Date())
 

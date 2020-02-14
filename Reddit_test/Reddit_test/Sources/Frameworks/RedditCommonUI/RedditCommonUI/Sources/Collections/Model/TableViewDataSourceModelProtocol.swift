@@ -18,7 +18,7 @@ extension TableViewDataSourceModelProtocol {
     func uniqueCellClasses() -> [CellProtocol.Type] {
         sections
         .flatMap { $0.cells }
-        .map { type(of: $0).cellClass }
+            .map { $0.cellClass }
         .reduce([], {
             var containsClass = false
             for cellClass in $0 {

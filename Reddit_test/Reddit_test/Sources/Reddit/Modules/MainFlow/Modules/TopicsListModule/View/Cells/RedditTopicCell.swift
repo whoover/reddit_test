@@ -14,87 +14,47 @@ protocol RedditTopicCellDelegate: class {
     func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
 }
 
-class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
-    private let author = UILabel()
-    private let titleLabel = UILabel()
+class RedditTopicCell: RedditTopicBaseCell {
     private let topicImageView = UIImageView()
-    private let bottomView = CellBottomView()
-    private let separator = UIView()
     private let thumbnailImageActivityIndicator = UIActivityIndicatorView()
     
     private weak var delegate: RedditTopicCellDelegate?
     private var loadTask: CancellableProtocol?
-    
-    private struct Layout {
-        struct Author {
-            static let top: CGFloat = 4
-            static let left: CGFloat = 4
-            static let bottom: CGFloat = -4
-        }
-        struct Title {
-            static let top: CGFloat = 4
-            static let left: CGFloat = 4
-            static let right: CGFloat = -4
-            static let bottom: CGFloat = -4
-        }
-        struct Image {
-            static let left: CGFloat = 0
-            static let right: CGFloat = 0
-            static let bottom: CGFloat = -4
-        }
-        struct Bottom {
-            static let height: CGFloat = 28
-        }
-    }
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupSubviews()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupSubviews()
-    }
-    
-    private func setupSubviews() {
-        contentView.addSubview(author)
-        contentView.addSubview(titleLabel)
+        
+    override func setupSubviews() {
+        super.setupSubviews()
         contentView.addSubview(topicImageView)
         topicImageView.addSubview(thumbnailImageActivityIndicator)
-        contentView.addSubview(bottomView)
-        addSubview(separator)
-        
-        author.topToSuperView(offset: Layout.Author.top)
-        author.leftToSuperView(offset: Layout.Author.left)
-        author.bottomToTop(view: titleLabel, offset: Layout.Author.bottom)
-        
-        titleLabel.leftToSuperView(offset: Layout.Title.top)
-        titleLabel.rightToSuperView(offset: Layout.Title.right)
-        titleLabel.bottomToTop(view: topicImageView, offset: Layout.Title.bottom)
         
         topicImageView.leftToSuperView(offset: Layout.Image.left)
-        topicImageView.rightToSuperView(offset: Layout.Image.right)
-        topicImageView.bottomToTop(view: bottomView, offset: Layout.Image.bottom)
+        topicImageView.topToSuperView(offset: Layout.Image.top)
+        topicImageView.width(Layout.Image.size)
+        topicImageView.height(Layout.Image.size)
+        topicImageView.bottomToSuperView(offset: Layout.Image.bottom, relation: .lessThanOrEqual)
+        topicImageView.contentMode = .scaleAspectFit
         thumbnailImageActivityIndicator.centerInSuperview()
         resetToDefault()
         
-        bottomView.leftToSuperView()
-        bottomView.rightToSuperView()
-        bottomView.bottomToSuperView()
+        author.topToSuperView(offset: Layout.Author.top)
+        author.leftToRight(view: topicImageView, offset: Layout.Author.left)
+        author.rightToSuperView(offset: Layout.Author.right)
+        author.bottomToTop(view: titleLabel, offset: Layout.Author.bottom)
+        author.font = Theme.Font.regular.font(size: .small)
+
+        titleLabel.leftToRight(view: topicImageView, offset: Layout.Title.left)
+        titleLabel.rightToSuperView(offset: Layout.Title.right)
+        titleLabel.bottomToTop(view: bottomView, offset: Layout.Title.bottom)
+        
+        bottomView.leftToRight(view: topicImageView, offset: Layout.Title.left)
+        bottomView.rightToSuperView(offset: Layout.Title.right)
         bottomView.height(Layout.Bottom.height)
+        bottomView.bottomToSuperView(offset: Layout.Bottom.bottom, relation: .lessThanOrEqual)
         
         separator.leftToSuperView()
         separator.rightToSuperView()
         separator.bottomToSuperView()
-        separator.height(1.0)
+        separator.height(Layout.Separator.height)
         separator.backgroundColor = .lightGray
-        
-        setupLabel()
     }
     
     override func prepareForReuse() {
@@ -108,19 +68,15 @@ class RedditTopicCell: UITableViewCell, ConfigurableCellProtocol {
         titleLabel.numberOfLines = 0
     }
 
-    func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {
+    override func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {
+        super.configure(cellModel, delegate)
         self.delegate = delegate as? RedditTopicCellDelegate
         guard let cellModel = cellModel as? RedditTopicCellModel else {
             return
         }
         
-        author.text = cellModel.model.author
-        titleLabel.text = cellModel.model.title
-        bottomView.commentsCountLabel.text = "\(cellModel.model.commentsNumber)"
-        bottomView.ratingInfoLabel.text = "\(cellModel.model.score)"
-        bottomView.publicationDateLabel.text = "\(cellModel.model.created)"
-        
-        if let url = URL(string: cellModel.model.thumbnailURL) {
+        if cellModel.model.thumbnailURL.contains("http"),
+            let url = URL(string: cellModel.model.thumbnailURL) {
             loadTask = loadImage(url, cellModel.identifier)
         }
     }

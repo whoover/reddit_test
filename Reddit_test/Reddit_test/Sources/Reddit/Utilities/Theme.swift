@@ -51,11 +51,11 @@ struct Theme {
         return UIColor(hex: hexColor)
     }
     
-    enum Font: String {
-        case light = "SFProDisplay-Light"
-        case regular = "SFProDisplay-Regular"
-        case medium = "SFProDisplay-Medium"
-        case bold = "SFProDisplay-Bold"
+    enum Font {
+        case light
+        case regular
+        case medium
+        case bold
         
         enum Size: CGFloat {
             case xxlarge = 30
@@ -64,12 +64,23 @@ struct Theme {
             case medium = 18
             case normal = 16
             case small = 12
+            case xsmall = 10
         }
         
         func font(size: Size) -> UIFont? {
             let fontSize = size.rawValue
-            let fontName = self.rawValue
-            return UIFont(name: fontName, size: fontSize)
+            var fontWight: UIFont.Weight
+            switch self {
+            case .medium:
+                fontWight = .medium
+            case .light:
+                fontWight = .light
+            case .regular:
+                fontWight = .regular
+            case .bold:
+                fontWight = .bold
+            }
+            return UIFont.systemFont(ofSize: fontSize, weight: fontWight)
         }
     }
 }

@@ -56,7 +56,9 @@ public final class ImageDownloadService: ImageDownloadServiceProtocol {
             let image = UIImage(data: dataResponse.data)
             completionBlock.execute(LoadedImage(image: image, imageSource: .network))
         }
-        let errorBlock = BlockObject<Error, Void> { _ in
+        let errorBlock = BlockObject<Error, Void> { error in
+            print("error: \(error.localizedDescription)")
+            print("url: \(url)")
             completionBlock.execute(nil)
         }
         

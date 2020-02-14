@@ -61,7 +61,7 @@ extension TopicsListModuleViewController: TopicsListModuleViewInput {
     
     private func setupSubviews() {
         tableViewController = BaseTableViewController<RedditTopicDataSource>(cellsDelegate: self,
-                                                                             cellsToRegister: [RedditTopicCell.self])
+                                                                             cellsToRegister: [RedditTopicCell.self, RedditTopicWithoutImageCell.self])
         addChildController(tableViewController, tableViewContainer, { $0.fillSuperview() })
     }
 }

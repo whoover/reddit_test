@@ -71,7 +71,7 @@ open class BaseTableViewController<DATASOURCE: TableViewDataSourceModelProtocol>
 
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cellModel = dataSourceModel?.sections[indexPath.section].cells[indexPath.row],
-            let cell = tableView.dequeueCell(type(of: cellModel).cellClass, indexPath) as? UITableViewCell else {
+            let cell = tableView.dequeueCell(cellModel.cellClass, indexPath) as? UITableViewCell else {
             return UITableViewCell()
         }
 

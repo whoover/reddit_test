@@ -17,7 +17,9 @@ class RedditTopicSection: TableViewSectionModelProtocol {
 }
 
 class RedditTopicCellModel: CellModelProtocol {
-    static var cellClass: CellProtocol.Type { RedditTopicCell.self }
+    var cellClass: CellProtocol.Type {
+        return model.thumbnailURL.contains("http") ? RedditTopicCell.self : RedditTopicWithoutImageCell.self
+    }
     
     static var cellHeight: CGFloat { UITableView.automaticDimension }
     
