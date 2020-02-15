@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import RedditCoreServices
 
 // Module Input
 protocol ImageFullScreenModuleInput {
-    
+    var restorationImageURL: URL? { get set }
 }
 
 // Module Output
@@ -20,11 +21,15 @@ protocol ImageFullScreenModuleOutput {
 
 // View Input
 protocol ImageFullScreenModuleViewInput: class {
-    func set(title: String)
+    func setupImage(_ image: UIImage?)
+    func didSaveImage()
+    func errorOnSavingImage()
 }
 
 // View Output
 protocol ImageFullScreenModuleViewOutput: class {
+    var restorationImageURL: URL? { get set }
+    
     func viewDidLoad()
     
     func didTapSaveImage()
@@ -33,12 +38,9 @@ protocol ImageFullScreenModuleViewOutput: class {
 
 // Interactor Input
 protocol ImageFullScreenModuleInteractorInput {
-    
-}
-
-// Interactor Output
-protocol ImageFullScreenModuleInteractorOutput: class {
-    
+    func downloadImage(_ url: URL, _ completionBlock: BlockObject<LoadedImage?, Void>)
+    func saveImageToCameraRoll(successBlock: EmptyBlock, errorBlock: BlockObject<Error, Void>)
+    func cancelImageDownloadingIfNeeded()
 }
 
 // Router

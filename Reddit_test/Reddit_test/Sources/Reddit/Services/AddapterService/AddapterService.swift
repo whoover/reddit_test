@@ -22,7 +22,7 @@ class AddapterService: AddapterServiceProtocol {
                              score: $0.data.score,
                              name: $0.data.name,
                              thumbnailURL: $0.data.thumbnail,
-                             previewURL: $0.data.preview?.images.first?.source.url)
+                             previewURL: $0.data.url)
         }
         
         return topics

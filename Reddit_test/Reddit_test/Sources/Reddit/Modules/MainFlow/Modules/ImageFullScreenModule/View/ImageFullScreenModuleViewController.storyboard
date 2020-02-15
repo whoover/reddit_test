@@ -10,7 +10,7 @@
         <!--Image Full Screen Module View Controller-->
         <scene sceneID="u9B-x9-GCH">
             <objects>
-                <viewController storyboardIdentifier="ImageFullScreenModuleViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GjL-Nh-N3Z" customClass="ImageFullScreenModuleViewController" customModule="Reddit_test" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageFullScreenModuleViewController" modalPresentationStyle="overCurrentContext" id="GjL-Nh-N3Z" customClass="ImageFullScreenModuleViewController" customModule="Reddit_test" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vH8-dT-9S3"/>
                         <viewControllerLayoutGuide type="bottom" id="DyR-ID-jHT"/>
@@ -66,6 +66,12 @@
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="YoU-7d-5OL">
                                             <rect key="frame" x="93.5" y="761.5" width="20" height="20"/>
                                         </activityIndicatorView>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error downloading image :(" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovu-8H-noF">
+                                            <rect key="frame" x="104" y="437.5" width="206" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -75,6 +81,7 @@
                                         <constraint firstItem="LZD-of-iYT" firstAttribute="centerY" secondItem="DrL-si-kTR" secondAttribute="centerY" id="5oE-2K-l6Q"/>
                                         <constraint firstItem="rD0-59-jTu" firstAttribute="height" secondItem="DrL-si-kTR" secondAttribute="height" multiplier="0.5" id="6H7-6Y-CKv"/>
                                         <constraint firstItem="dxP-3L-YiP" firstAttribute="centerY" secondItem="LZD-of-iYT" secondAttribute="centerY" id="7PZ-Qn-ZXL"/>
+                                        <constraint firstItem="Ovu-8H-noF" firstAttribute="centerX" secondItem="DrL-si-kTR" secondAttribute="centerX" id="8Zz-bE-AtU"/>
                                         <constraint firstItem="LZD-of-iYT" firstAttribute="leading" secondItem="DrL-si-kTR" secondAttribute="leading" id="Azi-hg-nKX">
                                             <variation key="heightClass=regular" constant="8"/>
                                         </constraint>
@@ -91,6 +98,7 @@
                                         </constraint>
                                         <constraint firstItem="YoU-7d-5OL" firstAttribute="centerX" secondItem="rD0-59-jTu" secondAttribute="centerX" id="dGk-g8-dOw"/>
                                         <constraint firstAttribute="trailing" secondItem="rD0-59-jTu" secondAttribute="trailing" id="fhu-8Z-aT0"/>
+                                        <constraint firstItem="Ovu-8H-noF" firstAttribute="centerY" secondItem="DrL-si-kTR" secondAttribute="centerY" id="fim-nI-UGM"/>
                                         <constraint firstItem="rD0-59-jTu" firstAttribute="width" secondItem="DrL-si-kTR" secondAttribute="width" multiplier="0.5" id="gQE-X0-uGq"/>
                                         <constraint firstItem="rD0-59-jTu" firstAttribute="top" secondItem="LZD-of-iYT" secondAttribute="top" id="hMn-SZ-9Tz"/>
                                         <constraint firstItem="rD0-59-jTu" firstAttribute="leading" secondItem="DrL-si-kTR" secondAttribute="leading" constant="8" id="hw0-jf-O3P">
@@ -177,6 +185,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="dxP-3L-YiP" id="gNP-8f-1L4"/>
                         <outlet property="closeButton" destination="QrM-OW-Zkz" id="OpI-Zu-Sx7"/>
+                        <outlet property="errorLabel" destination="Ovu-8H-noF" id="C5C-ZB-Ust"/>
                         <outlet property="saveButton" destination="rD0-59-jTu" id="VKr-Ih-3dZ"/>
                         <outlet property="saveOperationActivityIndicator" destination="YoU-7d-5OL" id="mKa-9D-KrD"/>
                         <outlet property="sourceImageView" destination="LZD-of-iYT" id="Pps-0p-qdr"/>

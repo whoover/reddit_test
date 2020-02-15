@@ -17,6 +17,7 @@ final class RootRouter: CoordinatorRouter {
         
         // Setup window
         window = UIWindow()
+        rootViewController.restorationIdentifier = "rootViewController"
         window?.rootViewController = rootViewController
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()

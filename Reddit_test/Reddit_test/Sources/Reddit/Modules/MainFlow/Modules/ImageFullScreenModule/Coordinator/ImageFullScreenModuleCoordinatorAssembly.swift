@@ -10,8 +10,9 @@ import UIKit
 
 class ImageFullScreenModuleCoordinatorAssembly: AssemblyProtocol {
     func build(router: CoordinatorRouterProtocol,
-               routingHandler: ImageFullScreenModuleCoordinatorExitRoutingProtocol) -> CoordinatorProtocol {
-        let coordinator = ImageFullScreenModuleCoordinator(router: router)
+               routingHandler: ImageFullScreenModuleCoordinatorExitRoutingProtocol?,
+               url: URL?) -> CoordinatorProtocol {
+        let coordinator = ImageFullScreenModuleCoordinator(router: router, url: url)
         coordinator.exitRoutingDelegate = routingHandler
         return coordinator
     }

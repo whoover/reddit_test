@@ -9,7 +9,7 @@
 import UIKit
 
 class MainFlowCoordinatorAssembly: AssemblyProtocol {
-    func build(_ coordinatorRoutingHandler: MainFlowRoutingExitHandler) -> BaseFlowCoordinator {
+    func build(_ coordinatorRoutingHandler: MainFlowRoutingExitHandler) -> MainFlowCoordinatorProtocol {
         let router = CoordinatorRouter()
         let coordinator = MainFlowCoordinator(router: router)
         coordinator.exitRoutingDelegate = coordinatorRoutingHandler

@@ -8,7 +8,12 @@
 
 import Foundation
 
-class MainFlowCoordinator: BaseFlowCoordinator {
+protocol MainFlowCoordinatorProtocol: BaseFlowCoordinator {
+    func topicsController() -> UIViewController?
+    func imageController(_ url: URL?) -> UIViewController?
+}
+
+class MainFlowCoordinator: BaseFlowCoordinator, MainFlowCoordinatorProtocol {
     weak var exitRoutingDelegate: MainFlowRoutingExitHandler?
     
     override func start(with option: DeepLinkOption?) {
@@ -17,21 +22,33 @@ class MainFlowCoordinator: BaseFlowCoordinator {
     }
         
     private func startTopicsListModule() {
+        topicsController()
+    }
+    
+    private func startImageFullScreenModule(_ url: URL) {
+        imageController(url)
+    }
+    
+    @discardableResult
+    func topicsController() -> UIViewController? {
         let topicsListCoordinator = TopicsListModuleCoordinatorAssembly().build(router: router, routingHandler: self)
         topicsListCoordinator.start()
         addChild(topicsListCoordinator)
+        return topicsListCoordinator.toPresent()
     }
     
-    private func startImageFullScreenModule() {
-        let imageFullScreenModule = ImageFullScreenModuleCoordinatorAssembly().build(router: router, routingHandler: self)
+    @discardableResult
+    func imageController(_ url: URL?) -> UIViewController? {
+        let imageFullScreenModule = ImageFullScreenModuleCoordinatorAssembly().build(router: router, routingHandler: self, url: url)
         imageFullScreenModule.start()
         addChild(imageFullScreenModule)
+        return imageFullScreenModule.toPresent()
     }
 }
 
 extension MainFlowCoordinator: TopicsListModuleCoordinatorExitRoutingProtocol {
     func performRouteForTapImageAction(_ coordinator: CoordinatorProtocol, _ url: URL) {
-        startImageFullScreenModule()
+        startImageFullScreenModule(url)
     }
 }
 

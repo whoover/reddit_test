@@ -37,17 +37,5 @@ struct RedditTopicData: Codable {
     let num_comments: Int
     let score: Int
     let name: String
-    let preview: RedditTopicPreview?
-}
-
-struct RedditTopicPreview: Codable {
-    let images: [RedditImage]
-}
-
-struct RedditImage: Codable {
-    let source: RedditImageSource
-}
-
-struct RedditImageSource: Codable {
-    let url: String
+    let url: String?
 }

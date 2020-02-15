@@ -27,6 +27,7 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
         tableViewController.dataSourceModel = output?.dataSource
         tableViewController.tableView.backgroundColor = backgroundColor
         view.backgroundColor = backgroundColor
+        restorationIdentifier = "TopicsListModuleViewController"
     }
     
     private func setupRefreshControl() {
@@ -39,11 +40,6 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
         output?.reloadTopics()
     }
     
-    override func decodeRestorableState(with coder: NSCoder) {
-        output?.loadDataFromStorage()
-        super.decodeRestorableState(with: coder)
-    }
-    
     func setupTheme(_ theme: TopicThemeProtocol) {
         self.backgroundColor = theme.backgroundColor
     }
@@ -53,7 +49,7 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
 extension TopicsListModuleViewController: TopicsListModuleViewInput {
     func showLoadingIndicator() {
         let activity = UIActivityIndicatorView(style: .large)
-//        activity.color = CommonAppearance.titleTextColor
+        activity.color = .black
         activity.startAnimating()
         tableViewController.tableView.backgroundView = activity
     }

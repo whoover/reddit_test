@@ -10,11 +10,16 @@ import UIKit
 import RedditCommonUI
 
 protocol AppCoordinatorExitPoint: ModuleRoutingHandlingProtocol { }
-protocol AppCoordinatorProtocol: CoordinatorProtocol { }
+protocol AppCoordinatorProtocol: CoordinatorProtocol {
+    func rootController() -> UIViewController?
+    func photoController() -> UIViewController?
+    func topicsController() -> UIViewController?
+}
 
 final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
     typealias ServiceLocator = RootRouterLocator
     final class ServiceLocatorImpl: ServiceLocator {}
+    private lazy var coordinator = MainFlowCoordinatorAssembly().build(self)
     
     private var instructor: LaunchInstructor {
         LaunchInstructor.configure()
@@ -48,7 +53,6 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
 // MARK: Main Flow
 extension AppCoordinator {
     func startMainFlow() {
-        let coordinator = MainFlowCoordinatorAssembly().build(self)
         coordinator.start()
         addChild(coordinator)
 
@@ -58,4 +62,16 @@ extension AppCoordinator {
     }
 }
 
-extension AppCoordinator: MainFlowRoutingExitHandler { }
+extension AppCoordinator: MainFlowRoutingExitHandler {
+    func rootController() -> UIViewController? {
+        router.rootViewController
+    }
+    
+    func topicsController() -> UIViewController? {
+        coordinator.topicsController()
+    }
+    
+    func photoController() -> UIViewController? {
+        coordinator.imageController(nil)
+    }
+}
