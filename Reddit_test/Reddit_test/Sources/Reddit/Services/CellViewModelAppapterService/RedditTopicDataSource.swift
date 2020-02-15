@@ -35,7 +35,13 @@ class RedditTopicCellModel: CellModelProtocol {
     let fullScreenImageURLString: String?
     
     var hasBigImage: Bool {
-        thumbnailURLString?.isEmpty != true
+        guard let string = fullScreenImageURLString,
+            (string.hasSuffix(".png") ||
+                string.hasSuffix(".jpg") ||
+                string.hasSuffix(".jpeg")) else {
+            return false
+        }
+        return true
     }
     
     init(topLabelText: Label, title: Label, bottomLabelText: Label, thumbnailURLString: String?, separatorColor: UIColor, fullScreenImageURLString: String?) {

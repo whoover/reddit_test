@@ -16,17 +16,22 @@ protocol RedditTopicCellDelegate: class {
 }
 
 class RedditTopicCell: RedditTopicBaseCell {
+    private static let fullScreenBottomOffset: CGFloat = 5
+    
     private let topicImageView = UIImageView()
     private let thumbnailImageActivityIndicator = UIActivityIndicatorView()
+    private let fullScreenImageView = UIImageView()
     
     private weak var delegate: RedditTopicCellDelegate?
     private var loadTask: CancellableProtocol?
     private var identifier: UUID?
+    private var hasFullScreen: Bool = false
         
     override func setupSubviews() {
         super.setupSubviews()
         contentView.addSubview(topicImageView)
         topicImageView.addSubview(thumbnailImageActivityIndicator)
+        topicImageView.addSubview(fullScreenImageView)
         
         topicImageView.leftToSuperView(offset: Layout.Image.left)
         topicImageView.topToSuperView(offset: Layout.Image.top)
@@ -36,6 +41,12 @@ class RedditTopicCell: RedditTopicBaseCell {
         topicImageView.contentMode = .scaleAspectFit
         topicImageView.isUserInteractionEnabled = true
         thumbnailImageActivityIndicator.centerInSuperview()
+        
+        fullScreenImageView.leftToSuperView()
+        fullScreenImageView.topToSuperView()
+        fullScreenImageView.image = UIImage(named: "fullscreen")?.withTintColor(.gray)
+        fullScreenImageView.width(20)
+        fullScreenImageView.height(20)
         resetToDefault()
         setupGesture()
         
@@ -65,7 +76,7 @@ class RedditTopicCell: RedditTopicBaseCell {
     }
     
     @objc private func didTapImage() {
-        guard let identifier = identifier else {
+        guard let identifier = identifier, hasFullScreen else {
             return
         }
         
@@ -87,6 +98,7 @@ class RedditTopicCell: RedditTopicBaseCell {
         }
         
         self.identifier = cellModel.identifier
+        hasFullScreen = cellModel.hasBigImage
         if let thumbnailURLString = cellModel.thumbnailURLString,
             let url = URL(string: thumbnailURLString) {
             loadTask = loadImage(url, cellModel.identifier)
@@ -106,6 +118,7 @@ extension RedditTopicCell: ImageLoadableProtocol {
             
             self.thumbnailImageActivityIndicator.stopAnimating()
             self.topicImageView.image = image?.image ?? type(of: self).defaultImage
+            self.fullScreenImageView.isHidden = !self.hasFullScreen
         }
         return delegate?.loadImage(imageURL, identifier, completionBlock)
     }
