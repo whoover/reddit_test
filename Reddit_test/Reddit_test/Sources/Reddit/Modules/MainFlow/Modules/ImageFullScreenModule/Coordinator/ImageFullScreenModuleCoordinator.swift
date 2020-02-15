@@ -15,13 +15,12 @@ class ImageFullScreenModuleCoordinator: BaseCoordinator, ImageFullScreenModuleCo
     
     override func start() {
         let module = ImageFullScreenModuleAssembly().build(nil, self)
-        let navController = UINavigationController(rootViewController: module.toPresent())
-        router.showScreen(navController)
+        router.present(module)
     }
 }
 
 extension ImageFullScreenModuleCoordinator: ImageFullScreenModuleRoutingHandlingProtocol {
-    func performRouteForSomeAction() {
-        
+    func performRouteForCloseAction() {
+        exitRoutingDelegate?.didCloseModule(self)
     }
 }

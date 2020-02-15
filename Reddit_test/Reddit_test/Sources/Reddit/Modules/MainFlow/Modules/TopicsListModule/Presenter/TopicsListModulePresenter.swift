@@ -9,7 +9,7 @@
 import Foundation
 import RedditCoreServices
 
-class TopicsListModulePresenter: BasePresenter
+final class TopicsListModulePresenter: BasePresenter
 <TopicsListModuleOutput,
 TopicsListModuleInteractorInput,
 TopicsListModuleRouterInputProtocol,
@@ -31,6 +31,15 @@ extension TopicsListModulePresenter: TopicsListModuleInput {
 
 // MARK: View Output
 extension TopicsListModulePresenter: TopicsListModuleViewOutput {
+    func wantsOpenImage(_ identifier: UUID) {
+        let model = dataSource.sections.first?.cells.first(where: { $0.identifier == identifier })
+        guard let urlString = model?.fullScreenImageURLString,
+            let url = URL(string: urlString) else {
+            return
+        }
+        router.routeForOpenImageAction(url)
+    }
+    
     func loadMoreData() {
         loadData()
     }
@@ -40,7 +49,7 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
     }
     
     func loadDataFromStorage() {
-        let successBlock = BlockObject<[RedditTopicModel], Void> { [weak self] models in
+        let successBlock = BlockObject<[RedditTopicCellModel], Void> { [weak self] models in
             self?.modelsLoaded(models)
         }
         interactor.onStart(completionBlock: successBlock)
@@ -48,9 +57,9 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
     
     func viewDidLoad() {
         setupDataSource()
-        view?.set(title: "TopicsListModule")
+        view?.set(title: "Reddit_test")
         
-        let successBlock = BlockObject<[RedditTopicModel], Void> { [weak self] models in
+        let successBlock = BlockObject<[RedditTopicCellModel], Void> { [weak self] models in
             self?.modelsLoaded(models)
             self?.loadData()
         }
@@ -97,8 +106,8 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
         interactor.loadTopics(progressBlock: progressBlock)
     }
     
-    private func modelsLoaded(_ models: [RedditTopicModel]) {
-        dataSource.sections.first?.cells.append(contentsOf: models.map { RedditTopicCellModel(model: $0) })
+    private func modelsLoaded(_ models: [RedditTopicCellModel]) {
+        dataSource.sections.first?.cells.append(contentsOf: models)
         view?.finishedLoading()
         view?.reloadData()
     }

@@ -22,13 +22,15 @@ protocol AppProtocol {
 }
 
 final class RedditApp: AppProtocol {
-    typealias ServiceLocator = AppCoordinatorServiceLocator
+    typealias ServiceLocator = AppCoordinatorServiceLocator & AppAppearenceLocator
     final class ServiceLocatorImpl: ServiceLocator { }
     
     private let appCoordinator: AppCoordinatorProtocol
+    private let appAppearence: AppAppearenceProtocol
     
     init(serviceLocator: ServiceLocator = ServiceLocatorImpl()) {
         appCoordinator = serviceLocator.appCoordinator()
+        appAppearence = serviceLocator.appAppearence()
     }
     
     func applicationDidFinishLaunching(_ application: UIApplication,
@@ -38,6 +40,7 @@ final class RedditApp: AppProtocol {
         let deepLink = DeepLinkOption.build(with: notification)
         handleLaunch()
         appCoordinator.start(with: deepLink)
+        appAppearence.setup()
         
         return true
     }

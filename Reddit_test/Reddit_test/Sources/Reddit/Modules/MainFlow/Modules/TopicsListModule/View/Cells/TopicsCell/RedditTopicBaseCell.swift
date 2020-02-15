@@ -11,13 +11,13 @@ import RedditCommonUI
 import RedditCoreServices
 
 class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
-    let author = UILabel()
+    let topLabel = UILabel()
     let titleLabel = UILabel()
     let bottomLabel = UILabel()
     let separator = UIView()
     
     struct Layout {
-        struct Author {
+        struct TopLabel {
             static let top: CGFloat = Offset.small.rawValue
             static let left: CGFloat = Offset.normal.rawValue
             static let right: CGFloat = -Offset.small.rawValue
@@ -58,7 +58,8 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
     }
     
     func setupSubviews() {
-        contentView.addSubview(author)
+        selectionStyle = .none
+        contentView.addSubview(topLabel)
         contentView.addSubview(titleLabel)
         contentView.addSubview(bottomLabel)
         contentView.addSubview(separator)
@@ -74,21 +75,12 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
             return
         }
         
-        author.text = "posted \(Calendar.current.timeAgo(since: Date(timeIntervalSince1970: cellModel.model.created))) by \(cellModel.model.author)"
-        
-        titleLabel.text = cellModel.model.title
-        let mutableString = NSMutableAttributedString()
-        if let arrowImage = UIImage(named: "arrows") {
-            let arrows = NSAttributedString(attachment: NSTextAttachment(image: arrowImage))
-            mutableString.append(arrows)
-            mutableString.append(NSAttributedString(string: cellModel.model.commentsNumber.formatUsingAbbrevation().lowercased()))
-            mutableString.append(NSAttributedString(string: "   "))
-        }
-        if let commentImage = UIImage(named: "comments") {
-            let comments = NSAttributedString(attachment: NSTextAttachment(image: commentImage))
-            mutableString.append(comments)
-            mutableString.append(NSAttributedString(string: cellModel.model.score.formatUsingAbbrevation().lowercased()))
-        }
-        bottomLabel.attributedText = mutableString
+        topLabel.text = cellModel.topLabelText.text as? String
+        topLabel.font = cellModel.topLabelText.settings.font
+        topLabel.textColor = cellModel.topLabelText.settings.color
+        titleLabel.text = cellModel.title.text as? String
+        titleLabel.font = cellModel.title.settings.font
+        titleLabel.textColor = cellModel.title.settings.color
+        bottomLabel.attributedText = cellModel.bottomLabelText.text as? NSAttributedString
     }
 }

@@ -42,5 +42,11 @@ extension ImageFullScreenModuleViewController {
 
 // MARK: Button Action
 extension ImageFullScreenModuleViewController {
+    @IBAction private func didTapClose() {
+        output?.didTapCloseModule()
+    }
     
+    @IBAction private func didTapSave() {
+        output?.didTapSaveImage()
+    }
 }

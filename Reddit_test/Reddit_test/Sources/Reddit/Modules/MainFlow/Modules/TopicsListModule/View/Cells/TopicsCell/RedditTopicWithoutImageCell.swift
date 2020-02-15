@@ -12,11 +12,10 @@ class RedditTopicWithoutImageCell: RedditTopicBaseCell {
     override func setupSubviews() {
         super.setupSubviews()
         
-        author.topToSuperView(offset: Layout.Author.top)
-        author.leftToSuperView(offset: Layout.Author.left)
-        author.rightToSuperView(offset: Layout.Author.right)
-        author.bottomToTop(view: titleLabel, offset: Layout.Author.bottom)
-        author.font = Theme.Font.regular.font(size: .small)
+        topLabel.topToSuperView(offset: Layout.TopLabel.top)
+        topLabel.leftToSuperView(offset: Layout.TopLabel.left)
+        topLabel.rightToSuperView(offset: Layout.TopLabel.right)
+        topLabel.bottomToTop(view: titleLabel, offset: Layout.TopLabel.bottom)
 
         titleLabel.leftToSuperView(offset: Layout.Title.left)
         titleLabel.rightToSuperView(offset: Layout.Title.right)

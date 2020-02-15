@@ -10,6 +10,6 @@ import UIKit
 
 enum TopicsScreenState {
     case loading
-    case dataLoaded([RedditTopicModel])
+    case dataLoaded([RedditTopicCellModel])
     case error(Error)
 }

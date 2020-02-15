@@ -42,7 +42,9 @@ public struct AlertConfiguration {
 
 extension AlertRoutableProtocol {
     public func showAlert(title: String, message: String) {
-        let source = toPresent()
+        guard let source = toPresent() else {
+            return
+        }
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let completeAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(completeAction)
@@ -51,7 +53,9 @@ extension AlertRoutableProtocol {
     }
     
     public func showAlertWithTextField(configuration: TextFieldAlertConfiguration) {
-        let source = toPresent()
+        guard let source = toPresent() else {
+            return
+        }
         let alertController = UIAlertController(title: configuration.title, message: configuration.message, preferredStyle: .alert)
         
         alertController.addTextField { textField in
@@ -69,15 +73,17 @@ extension AlertRoutableProtocol {
         alertController.addAction(cancelAction)
         
         source.present(alertController, animated: true, completion: nil)
-        
     }
     
     public func showAllert(config: AlertConfiguration, style: UIAlertController.Style) {
+        guard let source = toPresent() else {
+            return
+        }
         let alertController = UIAlertController(title: config.title, message: config.message, preferredStyle: style)
         config.actions.forEach {
             alertController.addAction($0)
         }
-        let source = toPresent()
+        
         source.present(alertController, animated: true, completion: config.completion)
     }
 }

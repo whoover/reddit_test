@@ -37,11 +37,12 @@ protocol TopicsListModuleViewOutput: class {
     func loadDataFromStorage()
     func loadMoreData()
     func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
+    func wantsOpenImage(_ identifier: UUID)
 }
 
 // Interactor Input
 protocol TopicsListModuleInteractorInput {
-    func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>)
+    func onStart(completionBlock: BlockObject<[RedditTopicCellModel], Void>)
     func loadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
     func reloadTopics(progressBlock: BlockObject<TopicsScreenState, Void>)
     func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
@@ -49,15 +50,15 @@ protocol TopicsListModuleInteractorInput {
 
 // Router
 protocol TopicsListModuleRouterInputProtocol: AlertRoutableProtocol {
-    
+    func routeForOpenImageAction(_ url: URL)
 }
 
 // Routing Handling
 protocol TopicsListModuleRoutingHandlingProtocol: ModuleRoutingHandlingProtocol {
-    func performRouteForSomeAction()
+    func performRouteForOpenImageAction(_ url: URL)
 }
 
 // Coordinator Routing Handling
 protocol TopicsListModuleCoordinatorExitRoutingProtocol: FlowExitPointProtocol {
-    func performRouteForTapImageAction(_ coordinator: CoordinatorProtocol, _ model: RedditTopicModel)
+    func performRouteForTapImageAction(_ coordinator: CoordinatorProtocol, _ url: URL)
 }

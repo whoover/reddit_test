@@ -26,6 +26,9 @@ protocol ImageFullScreenModuleViewInput: class {
 // View Output
 protocol ImageFullScreenModuleViewOutput: class {
     func viewDidLoad()
+    
+    func didTapSaveImage()
+    func didTapCloseModule()
 }
 
 // Interactor Input
@@ -40,12 +43,12 @@ protocol ImageFullScreenModuleInteractorOutput: class {
 
 // Router
 protocol ImageFullScreenModuleRouterInputProtocol: AlertRoutableProtocol {
-    
+    func closeModule()
 }
 
 // Routing Handling
 protocol ImageFullScreenModuleRoutingHandlingProtocol: ModuleRoutingHandlingProtocol {
-    func performRouteForSomeAction()
+    func performRouteForCloseAction()
 }
 
 // Coordinator Routing Handling

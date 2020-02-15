@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseCompositeModuleRouter<ContainersHolder: ContainersHolderProtocol>: BaseModuleRoutable {
-    let viewController: ViewControllerProtocol
+    weak var viewController: ViewControllerProtocol?
     let containersHolder: ContainersHolder
         
     init(viewController: ViewControllerProtocol, containersHolder: ContainersHolder) {
@@ -18,9 +18,11 @@ class BaseCompositeModuleRouter<ContainersHolder: ContainersHolderProtocol>: Bas
     }
     
     func showSubmodule(_ presentable: PresentableProtocol, _ container: UIView) {
-        let viewControllerToPresent = presentable.toPresent()
+        guard let viewControllerToPresent = presentable.toPresent() else {
+            return
+        }
         viewControllerToPresent.willMove(toParent: viewController)
-        viewController.addChild(viewControllerToPresent)
+        viewController?.addChild(viewControllerToPresent)
         container.addSubview(viewControllerToPresent.view)
         viewControllerToPresent.view.fillSuperview()
         viewControllerToPresent.didMove(toParent: viewController)
@@ -28,5 +30,5 @@ class BaseCompositeModuleRouter<ContainersHolder: ContainersHolderProtocol>: Bas
 }
 
 extension BaseCompositeModuleRouter: PresentableProtocol {
-    func toPresent() -> UIViewController { viewController }
+    func toPresent() -> UIViewController? { viewController }
 }

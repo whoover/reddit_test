@@ -11,13 +11,14 @@ import RedditNetworking
 import RedditCoreServices
 
 final class TopicsListModuleInteractor {
-    typealias ServiceLocator = NetworkingManagerServiceLocator & DataStorageServiceLocator & AddapterServiceLocator & ImageDownloadServiceLocatorProtocol
+    typealias ServiceLocator = NetworkingManagerServiceLocator & DataStorageServiceLocator & AddapterServiceLocator & ImageDownloadServiceLocatorProtocol & CellViewModelAddapterServiceLocator
     final class ServiceLocatorImpl: ServiceLocator {}
         
     private let networkingManager: NetworkingManagerProtocol
     private let dataStorage: DataStorageProtocol
     private let dataAddapter: AddapterServiceProtocol
     private let imageDownloader: ImageDownloadServiceProtocol
+    private let modelsAddapter: CellViewModelAddapterServiceProtocol
     private let backgroundQueue = DispatchQueue(label: "com.reddittest.TopicsListModuleInteractor.backgroundQueue")
     private var lastRequest: CancellableProtocol?
     private var fullyLoaded: Bool = false
@@ -27,6 +28,7 @@ final class TopicsListModuleInteractor {
         self.dataStorage = serviceLocator.dataStorage()
         self.dataAddapter = serviceLocator.addapter()
         self.imageDownloader = serviceLocator.imageDownloadService()
+        self.modelsAddapter = serviceLocator.cellViewModelAddapter()
     }
 }
 
@@ -49,7 +51,7 @@ extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
             let models = self.dataAddapter.addapt(response)
             
             DispatchQueue.main.async {
-                progressBlock.execute(.dataLoaded(models))
+                progressBlock.execute(.dataLoaded(self.modelsAddapter.convert(models)))
                 self.lastRequest = nil
                 self.fullyLoaded = models.isEmpty
             }
@@ -76,8 +78,8 @@ extension TopicsListModuleInteractor: TopicsListModuleInteractorInput {
         loadTopics(progressBlock: progressBlock)
     }
     
-    func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>) {
+    func onStart(completionBlock: BlockObject<[RedditTopicCellModel], Void>) {
         let items: [RedditTopicModel] = dataStorage.getItems()
-        completionBlock.execute(items)
+        completionBlock.execute(modelsAddapter.convert(items))
     }
 }

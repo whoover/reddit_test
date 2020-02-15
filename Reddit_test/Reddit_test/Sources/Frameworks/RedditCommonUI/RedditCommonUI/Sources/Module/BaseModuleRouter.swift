@@ -9,11 +9,11 @@
 import UIKit
 
 public protocol BaseModuleRoutable {
-    var viewController: ViewControllerProtocol { get }
+    var viewController: ViewControllerProtocol? { get }
 }
 
 open class BaseModuleRouter: BaseModuleRoutable {
-    public let viewController: ViewControllerProtocol
+    public weak var viewController: ViewControllerProtocol?
     
     public init(viewController: ViewControllerProtocol) {
         self.viewController = viewController
@@ -21,5 +21,5 @@ open class BaseModuleRouter: BaseModuleRoutable {
 }
 
 extension BaseModuleRouter: PresentableProtocol {
-    public func toPresent() -> UIViewController { viewController }
+    public func toPresent() -> UIViewController? { viewController }
 }

@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol PresentableProtocol {
-    func toPresent() -> UIViewController
+    func toPresent() -> UIViewController?
 }

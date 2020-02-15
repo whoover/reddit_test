@@ -16,7 +16,7 @@ public protocol CoordinatorProtocol: AnyObject, PresentableProtocol {
 }
 
 extension CoordinatorProtocol {
-    public func toPresent() -> UIViewController { router.toPresent() }
+    public func toPresent() -> UIViewController? { router.toPresent() }
 }
 
 public protocol ModuleRoutingHandlingProtocol: class { }

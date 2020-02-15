@@ -43,7 +43,9 @@ extension CoordinatorRouterProtocol {
     }
     
     public func present(_ module: PresentableProtocol, animated: Bool, style: UIModalPresentationStyle) {
-        let controller = module.toPresent()
+        guard let controller = module.toPresent() else {
+            return
+        }
         controller.modalPresentationStyle = style
         rootViewController.present(controller, animated: animated, completion: nil)
     }
@@ -77,5 +79,5 @@ extension CoordinatorRouterProtocol {
     }
         
     // MARK: PresentableProtocol
-    public func toPresent() -> UIViewController { rootViewController }
+    public func toPresent() -> UIViewController? { rootViewController }
 }

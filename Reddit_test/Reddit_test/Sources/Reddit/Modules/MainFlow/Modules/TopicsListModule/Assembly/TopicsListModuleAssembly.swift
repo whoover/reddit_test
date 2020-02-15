@@ -11,19 +11,22 @@ import UIKit
 typealias TopicsListModule = Module<TopicsListModuleInput, TopicsListModuleOutput>
 
 final class TopicsListModuleAssembly: AssemblyProtocol {
-    typealias ServiceLocator = TestsSettingsManagerLocator
+    typealias ServiceLocator = TestsSettingsManagerLocator & ThemeServiceLocator
     final class ServiceLocatorImp: ServiceLocator {}
     
     private let testsSettingsManager: TestsSettingsManagerProtocol
+    private let theme: ThemeManagerProtocol
     
     init(serviceLocator: ServiceLocator = ServiceLocatorImp()) {
         testsSettingsManager = serviceLocator.testsSettingsManager()
+        theme = serviceLocator.themeService()
     }
     
     func build(_ moduleOutput: TopicsListModuleOutput?,
                _ routingHandler: TopicsListModuleRoutingHandlingProtocol) -> TopicsListModule {
         // View
         let view = TopicsListModuleViewController.controllerFromStoryboard(StoryBoard.topicsList.rawValue)
+        view.setupTheme(theme.topic)
         
         // Interactor
         let interactor: TopicsListModuleInteractorInput = testsSettingsManager.isUITestsEnvironmentEnabled ?

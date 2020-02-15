@@ -13,7 +13,7 @@ class TopicsListModuleRouter: BaseModuleRouter {
 }
 
 extension TopicsListModuleRouter: TopicsListModuleRouterInputProtocol {
-    func routeForSomeAction() {
-        routingHandler?.performRouteForSomeAction()
+    func routeForOpenImageAction(_ url: URL) {
+        routingHandler?.performRouteForOpenImageAction(url)
     }
 }

@@ -14,7 +14,7 @@ class ImageFullScreenModuleAssembly: AssemblyProtocol {
     func build(_ moduleOutput: ImageFullScreenModuleOutput?,
                _ routingHandler: ImageFullScreenModuleRoutingHandlingProtocol) -> ImageFullScreenModule {
         // View
-        let view = ImageFullScreenModuleViewController()
+        let view = ImageFullScreenModuleViewController.controllerFromStoryboard(StoryBoard.imageFullScreen.rawValue)
         
         // Interactor
         let interactor = ImageFullScreenModuleInteractor()
@@ -27,7 +27,6 @@ class ImageFullScreenModuleAssembly: AssemblyProtocol {
         
         // Dependency Setup
         view.output = presenter
-        interactor.output = presenter
         router.routingHandler = routingHandler
         
         return Module(view: view, input: presenter, output: moduleOutput)

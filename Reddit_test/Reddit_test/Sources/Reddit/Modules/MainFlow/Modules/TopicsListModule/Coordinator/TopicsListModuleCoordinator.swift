@@ -15,13 +15,16 @@ class TopicsListModuleCoordinator: BaseCoordinator, TopicsListModuleCoordinatorP
     
     override func start() {
         let module = TopicsListModuleAssembly().build(nil, self)
-        let navController = UINavigationController(rootViewController: module.toPresent())
+        guard let toPresent = module.toPresent() else {
+            return
+        }
+        let navController = UINavigationController(rootViewController: toPresent)
         router.showScreen(navController)
     }
 }
 
 extension TopicsListModuleCoordinator: TopicsListModuleRoutingHandlingProtocol {
-    func performRouteForSomeAction() {
-        
+    func performRouteForOpenImageAction(_ url: URL) {
+        exitRoutingDelegate?.performRouteForTapImageAction(self, url)
     }
 }

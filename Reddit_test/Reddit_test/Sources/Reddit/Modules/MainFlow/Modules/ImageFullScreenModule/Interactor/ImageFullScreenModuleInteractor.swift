@@ -9,7 +9,7 @@
 import Foundation
 
 class ImageFullScreenModuleInteractor {
-    weak var output: ImageFullScreenModuleInteractorOutput?
+
 }
 
 // MARK: Private

@@ -10,5 +10,5 @@ import UIKit
 
 enum StoryBoard: String {
     case topicsList = "TopicsListModuleViewController"
-    case imageFullScreen = ""
+    case imageFullScreen = "ImageFullScreenModuleViewController"
 }

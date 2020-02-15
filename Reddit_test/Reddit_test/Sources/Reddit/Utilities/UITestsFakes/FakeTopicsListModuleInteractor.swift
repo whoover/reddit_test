@@ -21,7 +21,7 @@ class FakeTopicsListModuleInteractor: TopicsListModuleInteractorInput {
         loadTopics(progressBlock: progressBlock)
     }
     
-    func onStart(completionBlock: BlockObject<[RedditTopicModel], Void>) {
+    func onStart(completionBlock: BlockObject<[RedditTopicCellModel], Void>) {
         
     }
     
@@ -35,7 +35,7 @@ class FakeTopicsListModuleInteractor: TopicsListModuleInteractorInput {
         }
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3.0) {
-            progressBlock.execute(.dataLoaded(fakeTopics))
+            progressBlock.execute(.dataLoaded(CellViewModelAddapterService().convert(fakeTopics)))
         }
     }
 }

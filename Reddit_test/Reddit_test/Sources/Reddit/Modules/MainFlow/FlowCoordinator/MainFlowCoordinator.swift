@@ -30,7 +30,7 @@ class MainFlowCoordinator: BaseFlowCoordinator {
 }
 
 extension MainFlowCoordinator: TopicsListModuleCoordinatorExitRoutingProtocol {
-    func performRouteForTapImageAction(_ coordinator: CoordinatorProtocol, _ model: RedditTopicModel) {
+    func performRouteForTapImageAction(_ coordinator: CoordinatorProtocol, _ url: URL) {
         startImageFullScreenModule()
     }
 }

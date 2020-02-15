@@ -22,19 +22,24 @@ open class CoordinatorRouter: NSObject, CoordinatorRouterProtocol {
     }
     
     open func showScreen(_ module: PresentableProtocol) {
+        guard let toPresent = module.toPresent() else {
+            return
+        }
         completions.forEach { $0.value.execute(()) }
         
         currentController?.view.removeFromSuperview()
         currentController?.removeFromParent()
         
-        currentController = module.toPresent()
-        rootViewController.addChildController(module.toPresent(), { view in
+        currentController = toPresent
+        rootViewController.addChildController(toPresent, { view in
             view.fillSuperview()
         })
     }
     
     open func push(_ module: PresentableProtocol, animated: Bool, hideBottomBar: Bool, completion: EmptyBlock?) {
-        let controller = module.toPresent()
+        guard let controller = module.toPresent() else {
+            return
+        }
         guard controller is UINavigationController == false else {
             assertionFailure("Deprecated push UINavigationController.")
             return

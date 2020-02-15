@@ -38,6 +38,7 @@
 		2C15A73D23F48EF0004C34CA /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A73C23F48EF0004C34CA /* DeepLinkOption.swift */; };
 		2C15A75323F4A066004C34CA /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C15A75223F4A066004C34CA /* UIColor+Hex.swift */; };
 		2C333C6C23F4883700538EED /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C333C6B23F4883700538EED /* UIImage+Extensions.swift */; };
+		2CD3ADF723F8158300963113 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADF623F8158300963113 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		2C15A73C23F48EF0004C34CA /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
 		2C15A75223F4A066004C34CA /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		2C333C6B23F4883700538EED /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		2CD3ADF623F8158300963113 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				2C15A75223F4A066004C34CA /* UIColor+Hex.swift */,
 				086A802F23F67212000FD9F8 /* ImageLoadable.swift */,
 				086A803123F680CD000FD9F8 /* UITableView+Extensions.swift */,
+				2CD3ADF623F8158300963113 /* UIColor+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0808A49D23F2F12C008AA441 /* UIView+Nib.swift in Sources */,
+				2CD3ADF723F8158300963113 /* UIColor+Extensions.swift in Sources */,
 				2C15A73D23F48EF0004C34CA /* DeepLinkOption.swift in Sources */,
 				2C15A73123F48E7D004C34CA /* BasePresenter.swift in Sources */,
 				2C15A73723F48E7D004C34CA /* ViewControllerProtocol.swift in Sources */,

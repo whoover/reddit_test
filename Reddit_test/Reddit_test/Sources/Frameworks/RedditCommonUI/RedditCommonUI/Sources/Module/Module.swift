@@ -19,5 +19,5 @@ public struct Module<Input, Output>: PresentableProtocol {
         self.view = view
     }
     
-    public func toPresent() -> UIViewController { view }
+    public func toPresent() -> UIViewController? { view }
 }

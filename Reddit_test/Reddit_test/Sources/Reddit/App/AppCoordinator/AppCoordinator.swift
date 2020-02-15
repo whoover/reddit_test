@@ -52,7 +52,9 @@ extension AppCoordinator {
         coordinator.start()
         addChild(coordinator)
 
-        self.router.showScreen(coordinator.toPresent())
+        if let toPresent = coordinator.toPresent() {
+            self.router.showScreen(toPresent)
+        }
     }
 }
 

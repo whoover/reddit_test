@@ -15,6 +15,7 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
     var output: TopicsListModuleViewOutput?
     
     private var tableViewController: BaseTableViewController<RedditTopicDataSource>!
+    private var backgroundColor: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,10 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
         setupRefreshControl()
         
         output?.viewDidLoad()
+        tableViewController.tableView.contentInsetAdjustmentBehavior = .never
         tableViewController.dataSourceModel = output?.dataSource
+        tableViewController.tableView.backgroundColor = backgroundColor
+        view.backgroundColor = backgroundColor
     }
     
     private func setupRefreshControl() {
@@ -38,6 +42,10 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
     override func decodeRestorableState(with coder: NSCoder) {
         output?.loadDataFromStorage()
         super.decodeRestorableState(with: coder)
+    }
+    
+    func setupTheme(_ theme: TopicThemeProtocol) {
+        self.backgroundColor = theme.backgroundColor
     }
 }
 
@@ -80,6 +88,10 @@ extension TopicsListModuleViewController {
 }
 
 extension TopicsListModuleViewController: RedditTopicCellDelegate {
+    func openImage(_ identifier: UUID) {
+        output?.wantsOpenImage(identifier)
+    }
+    
     func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol? {
         output?.loadImage(imageURL, completionBlock)
     }

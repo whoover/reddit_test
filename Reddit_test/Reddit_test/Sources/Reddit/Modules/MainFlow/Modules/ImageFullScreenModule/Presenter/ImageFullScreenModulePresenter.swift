@@ -27,6 +27,14 @@ extension ImageFullScreenModulePresenter: ImageFullScreenModuleInput {
 
 // MARK: View Output
 extension ImageFullScreenModulePresenter: ImageFullScreenModuleViewOutput {
+    func didTapSaveImage() {
+        
+    }
+    
+    func didTapCloseModule() {
+        router.closeModule()
+    }
+    
     func viewDidLoad() {
         view?.set(title: "ImageFullScreenModule")
     }

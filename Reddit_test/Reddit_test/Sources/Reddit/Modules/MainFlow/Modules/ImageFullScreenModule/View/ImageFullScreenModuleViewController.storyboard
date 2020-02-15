@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdK-8X-nfE">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DrL-si-kTR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LZD-of-iYT">
-                                            <rect key="frame" x="8" y="210" width="398" height="398"/>
+                                            <rect key="frame" x="8" y="249" width="398" height="398"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LZD-of-iYT" secondAttribute="height" multiplier="1:1" priority="999" id="CNn-eb-W3H"/>
@@ -43,28 +43,28 @@
                                             </variation>
                                         </imageView>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dxP-3L-YiP">
-                                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
+                                            <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                         </activityIndicatorView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD0-59-jTu">
-                                            <rect key="frame" x="0.0" y="608" width="207" height="210"/>
-                                            <state key="normal" image="Save">
+                                            <rect key="frame" x="0.0" y="647" width="207" height="249"/>
+                                            <state key="normal" image="save">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="onSaveButtonDidTap:" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="sOo-Wx-AFy"/>
+                                                <action selector="didTapSave" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="ef7-0y-AgH"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrM-OW-Zkz">
-                                            <rect key="frame" x="207" y="608" width="207" height="210"/>
-                                            <state key="normal" image="Close">
+                                            <rect key="frame" x="207" y="647" width="207" height="249"/>
+                                            <state key="normal" image="close">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
-                                                <action selector="onCloseButtonDidTap:" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="lMW-9u-ED4"/>
+                                                <action selector="didTapClose" destination="GjL-Nh-N3Z" eventType="touchUpInside" id="Orn-d9-hGu"/>
                                             </connections>
                                         </button>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="YoU-7d-5OL">
-                                            <rect key="frame" x="93.5" y="703" width="20" height="20"/>
+                                            <rect key="frame" x="93.5" y="761.5" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -111,13 +111,13 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
-                                            <exclude reference="QGd-87-yGe"/>
                                             <exclude reference="5oE-2K-l6Q"/>
                                             <exclude reference="Azi-hg-nKX"/>
+                                            <exclude reference="QGd-87-yGe"/>
+                                            <exclude reference="d3R-ai-hPm"/>
+                                            <exclude reference="hMn-SZ-9Tz"/>
                                             <exclude reference="hw0-jf-O3P"/>
                                             <exclude reference="itB-bR-YP6"/>
-                                            <exclude reference="hMn-SZ-9Tz"/>
-                                            <exclude reference="d3R-ai-hPm"/>
                                             <exclude reference="r3I-qy-U8t"/>
                                             <exclude reference="vhn-Ba-nb5"/>
                                             <exclude reference="ls7-Jy-5Rx"/>
@@ -126,12 +126,12 @@
                                     </variation>
                                     <variation key="heightClass=compact">
                                         <mask key="constraints">
-                                            <include reference="itB-bR-YP6"/>
-                                            <include reference="d3R-ai-hPm"/>
                                             <exclude reference="1OK-JK-t0f"/>
+                                            <include reference="d3R-ai-hPm"/>
+                                            <include reference="itB-bR-YP6"/>
+                                            <exclude reference="MoH-cm-oUO"/>
                                             <exclude reference="YSr-kc-vVd"/>
                                             <include reference="sDT-2B-y4Z"/>
-                                            <exclude reference="MoH-cm-oUO"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular">
@@ -139,26 +139,26 @@
                                             <include reference="YoU-7d-5OL"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="zYh-S0-Pkk"/>
-                                            <include reference="QGd-87-yGe"/>
                                             <exclude reference="09L-Ec-Wr3"/>
-                                            <include reference="5oE-2K-l6Q"/>
                                             <exclude reference="58u-7g-fqR"/>
-                                            <exclude reference="SKO-0a-LOe"/>
+                                            <include reference="5oE-2K-l6Q"/>
                                             <include reference="Azi-hg-nKX"/>
-                                            <exclude reference="fhu-8Z-aT0"/>
-                                            <include reference="hw0-jf-O3P"/>
-                                            <exclude reference="hMn-SZ-9Tz"/>
-                                            <exclude reference="6H7-6Y-CKv"/>
+                                            <include reference="QGd-87-yGe"/>
+                                            <exclude reference="SKO-0a-LOe"/>
+                                            <exclude reference="zYh-S0-Pkk"/>
                                             <exclude reference="1OK-JK-t0f"/>
+                                            <exclude reference="6H7-6Y-CKv"/>
+                                            <exclude reference="fhu-8Z-aT0"/>
+                                            <exclude reference="hMn-SZ-9Tz"/>
+                                            <include reference="hw0-jf-O3P"/>
                                             <include reference="r3I-qy-U8t"/>
                                             <include reference="vhn-Ba-nb5"/>
-                                            <include reference="ls7-Jy-5Rx"/>
                                             <exclude reference="YSr-kc-vVd"/>
-                                            <exclude reference="xaO-FE-D7n"/>
                                             <exclude reference="byj-ep-uWL"/>
-                                            <include reference="uCS-dA-E1d"/>
+                                            <include reference="ls7-Jy-5Rx"/>
+                                            <exclude reference="xaO-FE-D7n"/>
                                             <include reference="dGk-g8-dOw"/>
+                                            <include reference="uCS-dA-E1d"/>
                                         </mask>
                                     </variation>
                                 </view>
@@ -169,8 +169,8 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="gdK-8X-nfE" secondAttribute="trailing" id="9tf-xk-70y"/>
                             <constraint firstItem="gdK-8X-nfE" firstAttribute="leading" secondItem="Q7T-xv-cQb" secondAttribute="leading" id="bFf-vh-ULj"/>
-                            <constraint firstItem="gdK-8X-nfE" firstAttribute="top" secondItem="Q7T-xv-cQb" secondAttribute="topMargin" id="h1H-r5-Upt"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="gdK-8X-nfE" secondAttribute="bottom" id="onB-IR-OoQ"/>
+                            <constraint firstItem="gdK-8X-nfE" firstAttribute="top" secondItem="Q7T-xv-cQb" secondAttribute="top" id="h1H-r5-Upt"/>
+                            <constraint firstAttribute="bottom" secondItem="gdK-8X-nfE" secondAttribute="bottom" id="onB-IR-OoQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XdL-Gh-hlU"/>
                     </view>
@@ -188,7 +188,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Close" width="16" height="16"/>
-        <image name="Save" width="16" height="16"/>
+        <image name="close" width="19" height="19"/>
+        <image name="save" width="26" height="26"/>
     </resources>
 </document>

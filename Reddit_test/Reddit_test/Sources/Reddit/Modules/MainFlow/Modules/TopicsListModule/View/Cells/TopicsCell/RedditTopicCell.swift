@@ -12,6 +12,7 @@ import RedditCoreServices
 
 protocol RedditTopicCellDelegate: class {
     func loadImage(_ imageURL: URL, _ identifier: UUID, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
+    func openImage(_ identifier: UUID)
 }
 
 class RedditTopicCell: RedditTopicBaseCell {
@@ -20,6 +21,7 @@ class RedditTopicCell: RedditTopicBaseCell {
     
     private weak var delegate: RedditTopicCellDelegate?
     private var loadTask: CancellableProtocol?
+    private var identifier: UUID?
         
     override func setupSubviews() {
         super.setupSubviews()
@@ -32,14 +34,15 @@ class RedditTopicCell: RedditTopicBaseCell {
         topicImageView.height(Layout.Image.size)
         topicImageView.bottomToSuperView(offset: Layout.Image.bottom, relation: .lessThanOrEqual)
         topicImageView.contentMode = .scaleAspectFit
+        topicImageView.isUserInteractionEnabled = true
         thumbnailImageActivityIndicator.centerInSuperview()
         resetToDefault()
+        setupGesture()
         
-        author.topToSuperView(offset: Layout.Author.top)
-        author.leftToRight(view: topicImageView, offset: Layout.Author.left)
-        author.rightToSuperView(offset: Layout.Author.right)
-        author.bottomToTop(view: titleLabel, offset: Layout.Author.bottom)
-        author.font = Theme.Font.regular.font(size: .small)
+        topLabel.topToSuperView(offset: Layout.TopLabel.top)
+        topLabel.leftToRight(view: topicImageView, offset: Layout.TopLabel.left)
+        topLabel.rightToSuperView(offset: Layout.TopLabel.right)
+        topLabel.bottomToTop(view: titleLabel, offset: Layout.TopLabel.bottom)
 
         titleLabel.leftToRight(view: topicImageView, offset: Layout.Title.left)
         titleLabel.rightToSuperView(offset: Layout.Title.right)
@@ -56,6 +59,19 @@ class RedditTopicCell: RedditTopicBaseCell {
         separator.backgroundColor = .lightGray
     }
     
+    private func setupGesture() {
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        topicImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func didTapImage() {
+        guard let identifier = identifier else {
+            return
+        }
+        
+        delegate?.openImage(identifier)
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -70,8 +86,9 @@ class RedditTopicCell: RedditTopicBaseCell {
             return
         }
         
-        if cellModel.model.thumbnailURL.contains("http"),
-            let url = URL(string: cellModel.model.thumbnailURL) {
+        self.identifier = cellModel.identifier
+        if let thumbnailURLString = cellModel.thumbnailURLString,
+            let url = URL(string: thumbnailURLString) {
             loadTask = loadImage(url, cellModel.identifier)
         }
     }

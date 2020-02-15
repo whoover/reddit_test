@@ -13,7 +13,8 @@ class ImageFullScreenModuleRouter: BaseModuleRouter {
 }
 
 extension ImageFullScreenModuleRouter: ImageFullScreenModuleRouterInputProtocol {
-    func routeForSomeAction() {
-        routingHandler?.performRouteForSomeAction()
+    func closeModule() {
+        viewController?.dismiss(animated: true, completion: nil)
+        routingHandler?.performRouteForCloseAction()
     }
 }
