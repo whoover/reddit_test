@@ -16,7 +16,7 @@ open class BaseCoordinator: CoordinatorProtocol {
         self.router = router
     }
     
-    open func start(with option: DeepLinkOption?) {
+    open func start(with option: DeepLinkOptionProtocol?) {
         
     }
     

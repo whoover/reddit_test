@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol MainFlowRoutingExitHandler: FlowExitPointProtocol {
-
-}
+protocol MainFlowRoutingExitHandler: FlowExitPointProtocol { }

@@ -15,9 +15,7 @@ protocol RedditTopicCellDelegate: class {
     func openImage(_ identifier: UUID)
 }
 
-class RedditTopicCell: RedditTopicBaseCell {
-    private static let fullScreenBottomOffset: CGFloat = 5
-    
+final class RedditTopicCell: RedditTopicBaseCell {
     private let topicImageView = UIImageView()
     private let thumbnailImageActivityIndicator = UIActivityIndicatorView()
     private let fullScreenImageView = UIImageView()
@@ -26,7 +24,7 @@ class RedditTopicCell: RedditTopicBaseCell {
     private var loadTask: CancellableProtocol?
     private var identifier: UUID?
     private var hasFullScreen: Bool = false
-        
+    
     override func setupSubviews() {
         super.setupSubviews()
         contentView.addSubview(topicImageView)
@@ -44,7 +42,7 @@ class RedditTopicCell: RedditTopicBaseCell {
         
         fullScreenImageView.leftToSuperView()
         fullScreenImageView.topToSuperView()
-        fullScreenImageView.image = UIImage(named: "fullscreen")?.withTintColor(.gray)
+        fullScreenImageView.image = Image.Topic.fullScreenImage
         fullScreenImageView.width(20)
         fullScreenImageView.height(20)
         resetToDefault()
@@ -97,6 +95,7 @@ class RedditTopicCell: RedditTopicBaseCell {
             return
         }
         
+        topLabel.text = "\(cellModel.author.text as? String ?? "")\n\(cellModel.time.text as? String ?? "")"
         self.identifier = cellModel.identifier
         hasFullScreen = cellModel.hasBigImage
         if let thumbnailURLString = cellModel.thumbnailURLString,
@@ -107,7 +106,7 @@ class RedditTopicCell: RedditTopicBaseCell {
 }
 
 extension RedditTopicCell: ImageLoadableProtocol {
-    static let defaultImage: UIImage? = UIImage(named: "image_stub")
+    static let defaultImage: UIImage? = Image.Topic.defaultImage
     
     func loadImage(_ imageURL: URL, _ identifier: UUID) -> CancellableProtocol? {
         thumbnailImageActivityIndicator.startAnimating()

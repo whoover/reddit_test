@@ -6,11 +6,9 @@
 //	Copyright © 2020 Artem Belenkov. All rights reserved.
 //
 
-protocol TopicsListModuleCoordinatorProtocol: CoordinatorProtocol {
-    
-}
+protocol TopicsListModuleCoordinatorProtocol: CoordinatorProtocol { }
 
-class TopicsListModuleCoordinator: BaseCoordinator, TopicsListModuleCoordinatorProtocol {
+final class TopicsListModuleCoordinator: BaseCoordinator, TopicsListModuleCoordinatorProtocol {
     weak var exitRoutingDelegate: TopicsListModuleCoordinatorExitRoutingProtocol?
     
     override func start() {

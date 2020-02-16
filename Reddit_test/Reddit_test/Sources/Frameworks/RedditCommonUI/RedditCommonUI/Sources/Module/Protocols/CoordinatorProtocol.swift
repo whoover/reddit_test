@@ -12,7 +12,7 @@ public protocol CoordinatorProtocol: AnyObject, PresentableProtocol {
     var router: CoordinatorRouterProtocol { get }
     
     func start()
-    func start(with option: DeepLinkOption?)
+    func start(with option: DeepLinkOptionProtocol?)
 }
 
 extension CoordinatorProtocol {

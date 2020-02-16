@@ -27,7 +27,7 @@ class TopicsListModuleViewController: UIViewController, ViewControllerProtocol {
         tableViewController.dataSourceModel = output?.dataSource
         tableViewController.tableView.backgroundColor = backgroundColor
         view.backgroundColor = backgroundColor
-        restorationIdentifier = "TopicsListModuleViewController"
+        restorationIdentifier = RestorationIdentifier.topicsController.rawValue
     }
     
     private func setupRefreshControl() {

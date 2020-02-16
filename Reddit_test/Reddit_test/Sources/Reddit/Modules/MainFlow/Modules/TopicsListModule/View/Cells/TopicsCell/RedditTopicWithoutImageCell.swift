@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RedditTopicWithoutImageCell: RedditTopicBaseCell {
+final class RedditTopicWithoutImageCell: RedditTopicBaseCell {
     override func setupSubviews() {
         super.setupSubviews()
         
@@ -30,5 +30,15 @@ class RedditTopicWithoutImageCell: RedditTopicBaseCell {
         separator.bottomToSuperView()
         separator.height(Layout.Separator.height)
         separator.backgroundColor = .lightGray
+    }
+    
+    override func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {
+        super.configure(cellModel, delegate)
+        
+        guard let cellModel = cellModel as? RedditTopicCellModel else {
+            return
+        }
+        
+        topLabel.text = "\(cellModel.author.text as? String ?? "") \(cellModel.time.text as? String ?? "")"
     }
 }

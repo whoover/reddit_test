@@ -18,4 +18,4 @@ extension AppServiceLocator {
     }
 }
 
-class AppServiceLocatorImpl: AppServiceLocator {}
+final class AppServiceLocatorImpl: AppServiceLocator {}

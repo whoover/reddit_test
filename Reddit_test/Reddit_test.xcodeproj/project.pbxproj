@@ -74,6 +74,9 @@
 		2C70C4B823F1F90A00637E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C70C4B723F1F90A00637E76 /* Assets.xcassets */; };
 		2C70C4BB23F1F90A00637E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C70C4B923F1F90A00637E76 /* LaunchScreen.storyboard */; };
 		2C70C4E623F200D800637E76 /* RedditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C70C4E523F200D800637E76 /* RedditRequest.swift */; };
+		2C71A7AE23F93D4D0093FD30 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7A823F93D4D0093FD30 /* DeepLinkOption.swift */; };
+		2C71A7B223F93F180093FD30 /* RestorationIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7B123F93F180093FD30 /* RestorationIdentifier.swift */; };
+		2C71A7B423F940290093FD30 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7B323F940290093FD30 /* Image.swift */; };
 		2CD3ADD823F5F41200963113 /* FakeTopicsListModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */; };
 		2CD3ADDA23F5F98300963113 /* TopicsScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADD923F5F98300963113 /* TopicsScreenState.swift */; };
 		2CD3ADE023F80F1D00963113 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADDF23F80F1D00963113 /* ThemeProtocol.swift */; };
@@ -221,6 +224,9 @@
 		2C70C4CC23F1F90A00637E76 /* Reddit_testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Reddit_testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C70C4D223F1F90A00637E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C70C4E523F200D800637E76 /* RedditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditRequest.swift; sourceTree = "<group>"; };
+		2C71A7A823F93D4D0093FD30 /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
+		2C71A7B123F93F180093FD30 /* RestorationIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorationIdentifier.swift; sourceTree = "<group>"; };
+		2C71A7B323F940290093FD30 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTopicsListModuleInteractor.swift; sourceTree = "<group>"; };
 		2CD3ADD923F5F98300963113 /* TopicsScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsScreenState.swift; sourceTree = "<group>"; };
 		2CD3ADDF23F80F1D00963113 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
@@ -293,6 +299,9 @@
 				08194C2C23F6E8B900771FD4 /* Offset.swift */,
 				2CD3ADE823F8125A00963113 /* TextSetting.swift */,
 				2CD3ADE623F8120F00963113 /* Font.swift */,
+				2C71A7A823F93D4D0093FD30 /* DeepLinkOption.swift */,
+				2C71A7B123F93F180093FD30 /* RestorationIdentifier.swift */,
+				2C71A7B323F940290093FD30 /* Image.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1012,10 +1021,12 @@
 				0839AD2923F5880900226E43 /* MainFlowCoordinator.swift in Sources */,
 				0839AD2B23F5880900226E43 /* MainFlowCoordinatorAssembly.swift in Sources */,
 				2CD3AE0123F81E1C00963113 /* TextProtocol.swift in Sources */,
+				2C71A7B423F940290093FD30 /* Image.swift in Sources */,
 				0839AD5D23F5885200226E43 /* ImageFullScreenModuleAssembly.swift in Sources */,
 				0839AD8223F5A18900226E43 /* CommandLineArgumentsHandler.swift in Sources */,
 				0808A44B23F2ED52008AA441 /* RedditTopicDataSource.swift in Sources */,
 				2CD3ADE023F80F1D00963113 /* ThemeProtocol.swift in Sources */,
+				2C71A7AE23F93D4D0093FD30 /* DeepLinkOption.swift in Sources */,
 				0839AD6323F5885200226E43 /* ImageFullScreenModuleRouter.swift in Sources */,
 				2CD3ADEF23F8139700963113 /* ApplicationThemeProtocol.swift in Sources */,
 				2CD3ADFD23F8194600963113 /* AppAppearence.swift in Sources */,
@@ -1041,6 +1052,7 @@
 				0839AD4123F5883500226E43 /* TopicsListModuleAssembly.swift in Sources */,
 				0839AD8323F5A18900226E43 /* EnableUITestsEnvironmentCommandLineArgumentHandler.swift in Sources */,
 				0839AD4323F5883500226E43 /* TopicsListModulePresenter.swift in Sources */,
+				2C71A7B223F93F180093FD30 /* RestorationIdentifier.swift in Sources */,
 				2CD3ADE723F8120F00963113 /* Font.swift in Sources */,
 				2CD3ADDA23F5F98300963113 /* TopicsScreenState.swift in Sources */,
 				2C333C6423F4850D00538EED /* RedditTopicModel.swift in Sources */,

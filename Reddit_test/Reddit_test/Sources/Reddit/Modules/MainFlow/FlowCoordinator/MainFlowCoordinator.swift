@@ -13,10 +13,10 @@ protocol MainFlowCoordinatorProtocol: BaseFlowCoordinator {
     func imageController(_ url: URL?) -> UIViewController?
 }
 
-class MainFlowCoordinator: BaseFlowCoordinator, MainFlowCoordinatorProtocol {
+final class MainFlowCoordinator: BaseFlowCoordinator, MainFlowCoordinatorProtocol {
     weak var exitRoutingDelegate: MainFlowRoutingExitHandler?
     
-    override func start(with option: DeepLinkOption?) {
+    override func start(with option: DeepLinkOptionProtocol?) {
         super.start(with: option)
         startTopicsListModule()
     }

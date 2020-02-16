@@ -27,7 +27,8 @@ class RedditTopicCellModel: CellModelProtocol {
     
     let identifier = UUID()
     
-    let topLabelText: Label
+    let author: Label
+    let time: Label
     let title: Label
     let bottomLabelText: Label
     let thumbnailURLString: String?
@@ -44,8 +45,9 @@ class RedditTopicCellModel: CellModelProtocol {
         return true
     }
     
-    init(topLabelText: Label, title: Label, bottomLabelText: Label, thumbnailURLString: String?, separatorColor: UIColor, fullScreenImageURLString: String?) {
-        self.topLabelText = topLabelText
+    init(author: Label, time: Label, title: Label, bottomLabelText: Label, thumbnailURLString: String?, separatorColor: UIColor, fullScreenImageURLString: String?) {
+        self.author = author
+        self.time = time
         self.title = title
         self.bottomLabelText = bottomLabelText
         self.thumbnailURLString = thumbnailURLString

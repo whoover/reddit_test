@@ -68,6 +68,7 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
     
     private func setupLabel() {
         titleLabel.numberOfLines = 0
+        topLabel.numberOfLines = 0
     }
 
     func configure(_ cellModel: CellModelProtocol, _ delegate: Any?) {
@@ -75,9 +76,8 @@ class RedditTopicBaseCell: UITableViewCell, ConfigurableCellProtocol {
             return
         }
         
-        topLabel.text = cellModel.topLabelText.text as? String
-        topLabel.font = cellModel.topLabelText.settings.font
-        topLabel.textColor = cellModel.topLabelText.settings.color
+        topLabel.font = cellModel.author.settings.font
+        topLabel.textColor = cellModel.author.settings.color
         titleLabel.text = cellModel.title.text as? String
         titleLabel.font = cellModel.title.settings.font
         titleLabel.textColor = cellModel.title.settings.color

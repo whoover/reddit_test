@@ -21,33 +21,6 @@ public extension UIViewController {
         constraintsBlock(viewController.view)
         viewController.didMove(toParent: self)
     }
-    
-    func insert(childViewController: UIViewController, belowSubview subview: UIView) {
-        childViewController.willMove(toParent: self)
-        self.addChild(childViewController)
-        self.view.insertSubview(childViewController.view, belowSubview: subview)
-        childViewController.didMove(toParent: self)
-    }
-    
-    func insert(childViewController: UIViewController, aboveSubview subview: UIView) {
-        childViewController.willMove(toParent: self)
-        self.addChild(childViewController)
-        self.view.insertSubview(childViewController.view, aboveSubview: subview)
-        childViewController.didMove(toParent: self)
-    }
-    
-    func insert(childViewController: UIViewController, at index: Int) {
-        childViewController.willMove(toParent: self)
-        self.addChild(childViewController)
-        self.view.insertSubview(childViewController.view, at: index)
-        childViewController.didMove(toParent: self)
-    }
-    
-    func removeFromeParent() {
-        self.willMove(toParent: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParent()
-    }
 }
 
 public extension UIViewController {

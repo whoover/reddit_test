@@ -24,7 +24,7 @@ class ImageFullScreenModuleViewController: UIViewController, ViewControllerProto
         super.viewDidLoad()
         setupSubviews()
         output?.viewDidLoad()
-        restorationIdentifier = "ImageFullScreenModuleViewControllerx"
+        restorationIdentifier = RestorationIdentifier.photoController.rawValue
     }
     
     override func encodeRestorableState(with coder: NSCoder) {
@@ -65,7 +65,7 @@ extension ImageFullScreenModuleViewController: ImageFullScreenModuleViewInput {
     private func setupSubviews() {
         activityIndicator.startAnimating()
         saveButton.isEnabled = false
-        saveButton.setImage(UIImage(named: "save")?.withTintColor(.white), for: .normal)
+        saveButton.setImage(Image.ImageFullScreen.save, for: .normal)
     }
 }
 

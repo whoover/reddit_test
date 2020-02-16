@@ -29,16 +29,17 @@ final class AppCoordinator: BaseCoordinator, AppCoordinatorProtocol {
         super.init(router: serviceLocator.rootRouter())
     }
     
-    override func start(with option: DeepLinkOption?) {
-        if let option = option {
-            switch option {
-            case .main:
-                startMainFlow()
-            case .photo:
-                break
-            }
-        } else {
+    override func start(with option: DeepLinkOptionProtocol?) {
+        guard let option = option as? DeepLinkOption else {
             runLaunchInstructor()
+            return
+        }
+        
+        switch option {
+        case .main:
+            startMainFlow()
+        case .photo:
+            break
         }
     }
     

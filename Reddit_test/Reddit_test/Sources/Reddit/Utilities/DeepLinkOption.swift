@@ -8,16 +8,16 @@
 
 import Foundation
 
-public enum DeepLinkOption {
+public enum DeepLinkOption: DeepLinkOptionProtocol {
     case main
     case photo(URL)
     
     public static func build(with userActivity: NSUserActivity) -> DeepLinkOption? {
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-            let url = userActivity.webpageURL,
-            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            return nil
-        }
+//        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+//            let url = userActivity.webpageURL,
+//            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+//            return nil
+//        }
         
         return nil
     }
@@ -26,12 +26,10 @@ public enum DeepLinkOption {
         guard let screen = dict?["screen"] as? String else {
             return nil
         }
-        //let itemID = dict?["item_id"] as? String
         
         switch screen {
         case DeepLinkOption.main.identificator():
             return .main
-        //case DeepLinkConstants.item: return .item(itemID)
         default:
             return nil
         }
@@ -42,7 +40,7 @@ public enum DeepLinkOption {
         case .main:
             return "main"
         case .photo:
-            return "story"
+            return "photo"
         }
     }
 }
