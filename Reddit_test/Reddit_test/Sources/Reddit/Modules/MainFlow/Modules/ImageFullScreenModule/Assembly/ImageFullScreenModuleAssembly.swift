@@ -11,13 +11,20 @@ import UIKit
 typealias ImageFullScreenModule = Module<ImageFullScreenModuleInput, ImageFullScreenModuleOutput>
 
 class ImageFullScreenModuleAssembly: AssemblyProtocol, UIViewControllerRestoration {
+    typealias ServiceLocator = TestsSettingsManagerLocator & ImageFullScreenModuleInteractorLocator
+    final class ServiceLocatorImp: ServiceLocator {}
+    
+    private let interactor: ImageFullScreenModuleInteractorInput
+    
+    init(serviceLocator: ServiceLocator = ServiceLocatorImp()) {
+        interactor = serviceLocator.interactor(serviceLocator.testsSettingsManager().isUITestsEnvironmentEnabled)
+    }
+    
     func build(_ moduleOutput: ImageFullScreenModuleOutput?,
                _ routingHandler: ImageFullScreenModuleRoutingHandlingProtocol?) -> ImageFullScreenModule {
         // View
         let view = ImageFullScreenModuleViewController.controllerFromStoryboard(StoryBoard.imageFullScreen.rawValue)
         view.restorationClass = type(of: self)
-        // Interactor
-        let interactor = ImageFullScreenModuleInteractor()
         
         // Router
         let router = ImageFullScreenModuleRouter(viewController: view)

@@ -95,6 +95,7 @@ final class RedditTopicCell: RedditTopicBaseCell {
             return
         }
         
+        self.topicImageView.accessibilityLabel = (cellModel.title.text as? String ?? "") + " image"
         topLabel.text = "\(cellModel.author.text as? String ?? "")\n\(cellModel.time.text as? String ?? "")"
         self.identifier = cellModel.identifier
         hasFullScreen = cellModel.hasBigImage

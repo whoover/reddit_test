@@ -40,7 +40,7 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
         router.routeForOpenImageAction(url)
     }
     
-    func loadMoreData() {
+    func loadMoreDataIfNeeded() {
         loadData()
     }
     
@@ -107,6 +107,9 @@ extension TopicsListModulePresenter: TopicsListModuleViewOutput {
     }
     
     private func modelsLoaded(_ models: [RedditTopicCellModel]) {
+        guard !models.isEmpty else {
+            return
+        }
         dataSource.sections.first?.cells.append(contentsOf: models)
         view?.finishedLoading()
         view?.reloadData()

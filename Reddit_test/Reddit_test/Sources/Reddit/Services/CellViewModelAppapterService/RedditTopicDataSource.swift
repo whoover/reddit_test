@@ -16,16 +16,17 @@ class RedditTopicSection: TableViewSectionModelProtocol {
     var cells: [RedditTopicCellModel] = []
 }
 
-class RedditTopicCellModel: CellModelProtocol {
+class RedditTopicCellModel: CellModelProtocol, AccessabilityElementProtocol {
+    static var cellHeight: CGFloat { UITableView.automaticDimension }
+    
     var cellClass: CellProtocol.Type {
         thumbnailURLString != nil ?
             RedditTopicCell.self :
             RedditTopicWithoutImageCell.self
     }
     
-    static var cellHeight: CGFloat { UITableView.automaticDimension }
-    
     let identifier = UUID()
+    var accessabilityIdentifier: String?
     
     let author: Label
     let time: Label

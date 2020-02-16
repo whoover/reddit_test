@@ -10,5 +10,17 @@ import Foundation
 import XCTest
 
 class ImagePage: UITestingPage {
+    func saveButton() -> XCUIElement {
+        app.buttons["saveButton"]
+    }
+    
+    func closeButton() -> XCUIElement {
+       app.buttons["closeButton"]
+    }
+}
 
+extension ImagePage {
+    func close() {
+        closeButton().tap()
+    }
 }

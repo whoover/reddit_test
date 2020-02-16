@@ -12,7 +12,7 @@ import XCTest
 class ImageResponseTests: XCTestCase {
     func testCorrectResponse() {
         do {
-            let response = try ImageResponse.responseObject(UIImage.testImageData)
+            let response = try ImageResponse.responseObject(UIImage.testImageData, HTTPURLResponse.testResponse(code: 200))
             XCTAssertNotNil(response)
         } catch {
             XCTAssert(true)
@@ -21,7 +21,7 @@ class ImageResponseTests: XCTestCase {
     
     func testIncorrectResponse() {
         do {
-            _ = try ImageResponse.responseObject("".data(using: .utf8))
+            _ = try ImageResponse.responseObject("".data(using: .utf8), HTTPURLResponse.testResponse(code: 200))
             XCTAssert(true)
         } catch {
             XCTAssertNotNil(error)

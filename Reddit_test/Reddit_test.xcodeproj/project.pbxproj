@@ -77,6 +77,7 @@
 		2C71A7AE23F93D4D0093FD30 /* DeepLinkOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7A823F93D4D0093FD30 /* DeepLinkOption.swift */; };
 		2C71A7B223F93F180093FD30 /* RestorationIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7B123F93F180093FD30 /* RestorationIdentifier.swift */; };
 		2C71A7B423F940290093FD30 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7B323F940290093FD30 /* Image.swift */; };
+		2C71A7B623F9465D0093FD30 /* TopicsListModuleInteractorLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C71A7B523F9465D0093FD30 /* TopicsListModuleInteractorLocator.swift */; };
 		2CD3ADD823F5F41200963113 /* FakeTopicsListModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */; };
 		2CD3ADDA23F5F98300963113 /* TopicsScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADD923F5F98300963113 /* TopicsScreenState.swift */; };
 		2CD3ADE023F80F1D00963113 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3ADDF23F80F1D00963113 /* ThemeProtocol.swift */; };
@@ -92,6 +93,10 @@
 		2CD3AE0123F81E1C00963113 /* TextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3AE0023F81E1C00963113 /* TextProtocol.swift */; };
 		2CD3AE0423F81F1800963113 /* CellViewModelAddapterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3AE0323F81F1800963113 /* CellViewModelAddapterService.swift */; };
 		2CD3AE0623F8211B00963113 /* CellViewModelAppapterServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD3AE0523F8211B00963113 /* CellViewModelAppapterServiceLocator.swift */; };
+		2CE0104723F94CF200C9CAE5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0104623F94CF200C9CAE5 /* main.swift */; };
+		2CE0104E23F94F7E00C9CAE5 /* FakeImageFullScreenModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0104D23F94F7E00C9CAE5 /* FakeImageFullScreenModuleInteractor.swift */; };
+		2CE0105023F9516700C9CAE5 /* ImageFullScreenModuleInteractorLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE0104F23F9516700C9CAE5 /* ImageFullScreenModuleInteractorLocator.swift */; };
+		2CE0105223F9534400C9CAE5 /* testImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE0105123F9534400C9CAE5 /* testImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +232,7 @@
 		2C71A7A823F93D4D0093FD30 /* DeepLinkOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkOption.swift; sourceTree = "<group>"; };
 		2C71A7B123F93F180093FD30 /* RestorationIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorationIdentifier.swift; sourceTree = "<group>"; };
 		2C71A7B323F940290093FD30 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2C71A7B523F9465D0093FD30 /* TopicsListModuleInteractorLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsListModuleInteractorLocator.swift; sourceTree = "<group>"; };
 		2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTopicsListModuleInteractor.swift; sourceTree = "<group>"; };
 		2CD3ADD923F5F98300963113 /* TopicsScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsScreenState.swift; sourceTree = "<group>"; };
 		2CD3ADDF23F80F1D00963113 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
@@ -242,6 +248,10 @@
 		2CD3AE0023F81E1C00963113 /* TextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProtocol.swift; sourceTree = "<group>"; };
 		2CD3AE0323F81F1800963113 /* CellViewModelAddapterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelAddapterService.swift; sourceTree = "<group>"; };
 		2CD3AE0523F8211B00963113 /* CellViewModelAppapterServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModelAppapterServiceLocator.swift; sourceTree = "<group>"; };
+		2CE0104623F94CF200C9CAE5 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2CE0104D23F94F7E00C9CAE5 /* FakeImageFullScreenModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeImageFullScreenModuleInteractor.swift; sourceTree = "<group>"; };
+		2CE0104F23F9516700C9CAE5 /* ImageFullScreenModuleInteractorLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFullScreenModuleInteractorLocator.swift; sourceTree = "<group>"; };
+		2CE0105123F9534400C9CAE5 /* testImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testImage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,7 +299,6 @@
 		0808A44C23F2EE33008AA441 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				2CD3ADD623F5F3F500963113 /* UITestsFakes */,
 				0839AD8723F5A30000226E43 /* TestSettingsManager */,
 				0839AD7E23F5A17700226E43 /* CommandLine */,
 				2C15A74523F492E6004C34CA /* LaunchInstructor.swift */,
@@ -411,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				0839AD3C23F5883500226E43 /* TopicsListModuleInteractor.swift */,
+				2C71A7B523F9465D0093FD30 /* TopicsListModuleInteractorLocator.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -483,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				0839AD5823F5885100226E43 /* ImageFullScreenModuleInteractor.swift */,
+				2CE0104F23F9516700C9CAE5 /* ImageFullScreenModuleInteractorLocator.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -539,6 +550,8 @@
 		0839AD7023F59F5300226E43 /* UITestsMocks */ = {
 			isa = PBXGroup;
 			children = (
+				2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */,
+				2CE0104D23F94F7E00C9CAE5 /* FakeImageFullScreenModuleInteractor.swift */,
 			);
 			path = UITestsMocks;
 			sourceTree = "<group>";
@@ -725,9 +738,11 @@
 		2C70C4DE23F1F91400637E76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CE0105123F9534400C9CAE5 /* testImage.png */,
 				2C70C4B723F1F90A00637E76 /* Assets.xcassets */,
 				2C70C4B923F1F90A00637E76 /* LaunchScreen.storyboard */,
 				2C70C4BC23F1F90A00637E76 /* Info.plist */,
+				2CE0104623F94CF200C9CAE5 /* main.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -748,14 +763,6 @@
 				08967C8E23F28A0700D516F5 /* RedditResponse.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		2CD3ADD623F5F3F500963113 /* UITestsFakes */ = {
-			isa = PBXGroup;
-			children = (
-				2CD3ADD723F5F41200963113 /* FakeTopicsListModuleInteractor.swift */,
-			);
-			path = UITestsFakes;
 			sourceTree = "<group>";
 		};
 		2CD3ADEB23F8131000963113 /* Theme */ = {
@@ -958,6 +965,7 @@
 				0839AD6723F5911E00226E43 /* TopicsListModuleViewController.storyboard in Resources */,
 				2C70C4B823F1F90A00637E76 /* Assets.xcassets in Resources */,
 				0839AD6B23F591DA00226E43 /* ImageFullScreenModuleViewController.storyboard in Resources */,
+				2CE0105223F9534400C9CAE5 /* testImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1004,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE0105023F9516700C9CAE5 /* ImageFullScreenModuleInteractorLocator.swift in Sources */,
 				2C15A74223F490D6004C34CA /* RootRouter.swift in Sources */,
 				2C333C7423F48A8B00538EED /* AppServiceLocator.swift in Sources */,
 				08194C2D23F6E8B900771FD4 /* Offset.swift in Sources */,
@@ -1014,6 +1023,7 @@
 				2CD3ADD823F5F41200963113 /* FakeTopicsListModuleInteractor.swift in Sources */,
 				0839AD4723F5883500226E43 /* TopicsListModuleRouter.swift in Sources */,
 				2CD3AE0623F8211B00963113 /* CellViewModelAppapterServiceLocator.swift in Sources */,
+				2CE0104E23F94F7E00C9CAE5 /* FakeImageFullScreenModuleInteractor.swift in Sources */,
 				0839AD4223F5883500226E43 /* TopicsListModuleContracts.swift in Sources */,
 				0808A44923F2ED36008AA441 /* AddapterService.swift in Sources */,
 				0839AD5E23F5885200226E43 /* ImageFullScreenModuleContracts.swift in Sources */,
@@ -1025,6 +1035,7 @@
 				0839AD5D23F5885200226E43 /* ImageFullScreenModuleAssembly.swift in Sources */,
 				0839AD8223F5A18900226E43 /* CommandLineArgumentsHandler.swift in Sources */,
 				0808A44B23F2ED52008AA441 /* RedditTopicDataSource.swift in Sources */,
+				2CE0104723F94CF200C9CAE5 /* main.swift in Sources */,
 				2CD3ADE023F80F1D00963113 /* ThemeProtocol.swift in Sources */,
 				2C71A7AE23F93D4D0093FD30 /* DeepLinkOption.swift in Sources */,
 				0839AD6323F5885200226E43 /* ImageFullScreenModuleRouter.swift in Sources */,
@@ -1055,6 +1066,7 @@
 				2C71A7B223F93F180093FD30 /* RestorationIdentifier.swift in Sources */,
 				2CD3ADE723F8120F00963113 /* Font.swift in Sources */,
 				2CD3ADDA23F5F98300963113 /* TopicsScreenState.swift in Sources */,
+				2C71A7B623F9465D0093FD30 /* TopicsListModuleInteractorLocator.swift in Sources */,
 				2C333C6423F4850D00538EED /* RedditTopicModel.swift in Sources */,
 				2C15A74423F492A7004C34CA /* RootRouterLocator.swift in Sources */,
 			);

@@ -12,7 +12,7 @@ import UIKit
 struct TestResponse: ResponseProtocol {
     let string: String
     
-    static func responseObject(_ data: Data?) throws -> TestResponse {
+    static func responseObject(_ data: Data?, _ response: HTTPURLResponse) throws -> TestResponse {
         guard let data = data,
             let string = String(data: data, encoding: .utf8) else {
             throw TestError.someError

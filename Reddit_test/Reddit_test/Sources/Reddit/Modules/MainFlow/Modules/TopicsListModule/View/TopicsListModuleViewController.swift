@@ -96,7 +96,7 @@ extension TopicsListModuleViewController: RedditTopicCellDelegate {
 extension TopicsListModuleViewController: BaseTableViewControllerDelegate {
     func baseTableViewController(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if output?.dataSource.sections[indexPath.section].cells.count == indexPath.row + 1 {
-            output?.loadMoreData()
+            output?.loadMoreDataIfNeeded()
         }
     }
 }

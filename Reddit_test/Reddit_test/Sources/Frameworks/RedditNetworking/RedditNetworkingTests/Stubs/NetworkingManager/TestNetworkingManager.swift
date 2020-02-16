@@ -14,15 +14,13 @@ class TestNetworkingManager: NetworkingManagerProtocol {
     var errorToReturn: Error?
     var dataForResponse: Data?
     
-    func sendGetRequest<RESPONSE>(request: RequestProtocol,
-                                  successBlock: BlockObject<RESPONSE, Void>,
-                                  errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? where RESPONSE: ResponseProtocol {
+    func sendGetRequest<RESPONSE>(request: Requestable, successBlock: BlockObject<RESPONSE, Void>, errorBlock: BlockObject<Error, Void>) -> CancellableProtocol? where RESPONSE: ResponseProtocol {
         if let error = errorToReturn {
             errorBlock.execute(error)
         }
         if let data = dataForResponse {
             do {
-                let response = try RESPONSE.responseObject(data)
+                let response = try RESPONSE.responseObject(data, HTTPURLResponse.testResponse(code: 200))
                 successBlock.execute(response)
             } catch {
                 errorBlock.execute(error)

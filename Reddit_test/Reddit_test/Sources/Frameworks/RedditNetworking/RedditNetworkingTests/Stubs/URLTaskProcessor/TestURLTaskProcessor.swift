@@ -24,7 +24,7 @@ class TestURLTaskProcessor: URLTaskProcessorProtocol {
         }
         if let data = dataForResponse {
             do {
-                let response = try RESPONSE.responseObject(data)
+                let response = try RESPONSE.responseObject(data, HTTPURLResponse.testResponse(code: 200))
                 successBlock.execute(response)
             } catch {
                 errorBlock.execute(error)

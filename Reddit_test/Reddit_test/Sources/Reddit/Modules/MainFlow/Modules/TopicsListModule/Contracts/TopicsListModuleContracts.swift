@@ -35,7 +35,7 @@ protocol TopicsListModuleViewOutput: class {
     func viewDidLoad()
     func reloadTopics()
     func loadDataFromStorage()
-    func loadMoreData()
+    func loadMoreDataIfNeeded()
     func loadImage(_ imageURL: URL, _ completionBlock: BlockObject<LoadedImage?, Void>) -> CancellableProtocol?
     func wantsOpenImage(_ identifier: UUID)
 }

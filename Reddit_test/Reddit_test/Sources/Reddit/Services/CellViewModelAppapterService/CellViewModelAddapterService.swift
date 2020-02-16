@@ -33,7 +33,10 @@ final class CellViewModelAddapterService: CellViewModelAddapterServiceProtocol {
         let thumbnailURLString = model.thumbnailURL.contains("http") ? model.thumbnailURL : nil
         let bottomLabelText = Label(settings: themeManager.topic.bottomLabelText, text: CellViewModelAddapterService.bottomLabelString(model.commentsNumber, model.score, themeManager.topic.bottomLabelText))
         
-        return RedditTopicCellModel(author: authorText, time: timeText, title: title, bottomLabelText: bottomLabelText, thumbnailURLString: thumbnailURLString, separatorColor: themeManager.topic.separatorColor, fullScreenImageURLString: model.previewURL)
+        let model = RedditTopicCellModel(author: authorText, time: timeText, title: title, bottomLabelText: bottomLabelText, thumbnailURLString: thumbnailURLString, separatorColor: themeManager.topic.separatorColor, fullScreenImageURLString: model.previewURL)
+        model.accessabilityIdentifier = title.text as? String
+        
+        return model
     }
     
     private static func bottomLabelString(_ comments: Int, _ rating: Int, _ textSettings: TextSetting) -> NSAttributedString {

@@ -9,8 +9,7 @@
 import UIKit
 import RedditCommon
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     private lazy var app = AppServiceLocatorImpl().app()
     
